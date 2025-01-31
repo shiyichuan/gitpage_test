@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LVGL &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Reference Projects" href="../../projects/index.html" />
+    <link rel="prev" title="GUI" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">    GUI</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LVGL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#function-overview">1. Function overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-project">2. Reference project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-steps">3. Development steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-description">4. Development description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">GUI</a></li>
+      <li class="breadcrumb-item active">LVGL</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lvgl">
+<h1>LVGL<a class="headerlink" href="#lvgl" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/gui/lvgl/index.html">[中文]</a></p>
+<section id="function-overview">
+<h2>1. Function overview<a class="headerlink" href="#function-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>LVGL(Light and Versatile Graphics Library)is a free, open source and low-cost embedded graphics library with rich and powerful modular graphics components. It can be used to create beautiful interface for any MCU, MPU and display type and supports multiple input devices. It has become a popular graphics user interface library. LVGL official website address is <a class="reference external" href="https://lvgl.io">https://lvgl.io</a>.</p>
+</div></blockquote>
+</section>
+<section id="reference-project">
+<h2>2. Reference project<a class="headerlink" href="#reference-project" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Currently avdk provides LVGL demo reference projects of various types and purposes. The code path of the reference project is <code class="docutils literal notranslate"><span class="pre">\projects\lvgl\...</span></code> and the compilation command is <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">bk7258</span> <span class="pre">PROJECT=lvgl/xxx</span></code>. For specific project introduction, see <a class="reference external" href="../../projects_work/lvgl/index.html">Reference projects</a></p>
+</div></blockquote>
+</section>
+<section id="development-steps">
+<h2>3. Development steps<a class="headerlink" href="#development-steps" title="Link to this heading"></a></h2>
+<p>Since BK7258 multimedia is executed on CPU1, the execution of lvgl needs to start CPU1 on CPU0 first, then send a mailbox message to CPU1 to execute the relevant code, and finally return to the execution state after the execution is completed on CPU1. This part of the execution code has been encapsulated into an independent interface. Please follow the following steps:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set the value of the macro <code class="docutils literal notranslate"><span class="pre">CONFIG_LV_COLOR_DEPTH</span></code> according to the data type of the LCD, and open the corresponding macro configuration of the functions of the functions provided by LVGL as required.</p></li>
+<li><p>Call the interface of <code class="docutils literal notranslate"><span class="pre">media_app_lvgl_open()</span></code> on CPU0 to start CPU1 and send a message to execute LVGL event.</p></li>
+<li><p>Define the inferface of <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">lvgl_event_handle(media_mailbox_msg_t</span> <span class="pre">*msg)</span></code> on CPU1 and execute the corresponding open or close code according to the <code class="docutils literal notranslate"><span class="pre">msg-&gt;event</span></code> parameter.</p></li>
+<li><p>Obtain the LCD structure information according to <code class="docutils literal notranslate"><span class="pre">msg-&gt;param</span></code> and select the memory type of draw_buffer and configure the corresponding parameters of the <code class="docutils literal notranslate"><span class="pre">lv_vnd_config_t</span></code> sturcture.</p></li>
+<li><p>Call the interface of <code class="docutils literal notranslate"><span class="pre">lv_vendor_init(lv_vnd_config_t</span> <span class="pre">*config)</span></code> to initialize the relevant configuration of LVGL.</p></li>
+<li><p>Call the interface of <code class="docutils literal notranslate"><span class="pre">lcd_display_open(lcd_open_t</span> <span class="pre">*config)</span></code> to initialize and open the LCD display.</p></li>
+<li><p>If the touch function exists, call the interface <code class="docutils literal notranslate"><span class="pre">drv_tp_open(int</span> <span class="pre">hor_size,</span> <span class="pre">int</span> <span class="pre">ver_size,</span> <span class="pre">tp_mirror_type_t</span> <span class="pre">tp_mirror)</span></code> to initialize the tp function.</p></li>
+<li><p>Call the component interface provided by LVGL to draw the corresponding UI.</p></li>
+<li><p>Call the interface of <code class="docutils literal notranslate"><span class="pre">lv_vendor_start()</span></code> to create an LVGL task and start scheduling execution.</p></li>
+<li><p>Call the interface of <code class="docutils literal notranslate"><span class="pre">msg_send_rsp_to_media_major_mailbox(media_mailbox_msg_t</span> <span class="pre">msg,</span> <span class="pre">uint32_t</span> <span class="pre">result,</span> <span class="pre">uint32_t</span> <span class="pre">dest)</span></code> to return the execution status. The parameter of dest is APP_MODULE.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When draw_buffer of LVGL chooses to use sram memory, its size is 1/10 screen size according to official recommendations, which can save memory without losing frame rate.</p>
+</div>
+</section>
+<section id="development-description">
+<h2>4. Development description<a class="headerlink" href="#development-description" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set draw_buffer to use psram memory or sram memory through <code class="docutils literal notranslate"><span class="pre">CONFIG_LVGL_USE_PSRAM</span></code>.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">lv_vendor_disp_lock()</span></code> and <code class="docutils literal notranslate"><span class="pre">lv_vendor_disp_unlock()</span></code> interfaces for code protection when calling the component interface provided by LVGL to draw the corresponding UI.</p></li>
+<li><p>LVGL source code itself provides many additional third-party libraries, including file system interface, JPG decoder, BMP decoder, PNG decoder and GIF decoder etc. Due to the limitations of the system SRAM memory, these decoders can only decode small resolution pictures for display. For images with large resolution, PSRAM memory can be used for decoding.</p></li>
+<li><p>SDK currently supports both fatfs and littlefs, which is based on bk_vfs’s posix interface (refer to cli_vfs.c). When using it, open <code class="docutils literal notranslate"><span class="pre">CONFIG_VFS</span></code> and select littlefs or fatfs according to needs(<code class="docutils literal notranslate"><span class="pre">CONFIG_FATFS</span> <span class="pre">/</span> <span class="pre">CONFIG_LITTLEFS</span></code>). It can alse use another way that set the macro <code class="docutils literal notranslate"><span class="pre">LV_USE_FS_FATFS</span></code> in the lv_conf.h file to 1 to use the fatfs file system.</p></li>
+<li><p>When LVGL use PNG, JPG and GIF decoders to decode, you need to open the corresponding macros in the lv_conf.h file, which are <code class="docutils literal notranslate"><span class="pre">LV_USE_PNG</span></code> <code class="docutils literal notranslate"><span class="pre">LV_USE_SJPG</span></code> and <code class="docutils literal notranslate"><span class="pre">LV_USE_GIF</span></code>.</p></li>
+<li><p>There is no need to open the <code class="docutils literal notranslate"><span class="pre">CONFIG_LVGL_USE_PSRAM</span></code> macro when selecting PSRAM memory for decoding using PNG, JPG and GIF decoders.</p></li>
+<li><p>Regarding the usage of LVGL rotation function, LVGL itself has its own software rotation function, which can be executed through the function <code class="docutils literal notranslate"><span class="pre">lv_disp_set_rotation()</span></code>. The function pass the parameters of <code class="docutils literal notranslate"><span class="pre">LV_DISP_ROT_90</span></code> , <code class="docutils literal notranslate"><span class="pre">LV_DISP_ROT_180</span></code> or <code class="docutils literal notranslate"><span class="pre">LV_DISP_ROT_270</span></code> to achieve image rotation at 90, 180 and 270 degrees. However, due to the limitations of this feature, it is only applicable to screens with the same width and height. For the screen with different width and height, rotating 90 degrees and 270 degrees will cause abnormal image display. To solve this issue, and in the case where the display hardware cannot change the display direction, the SDK provides an additional rotation function, which can achieve image rotation display at 90 degrees, 180 degrees and 270 degrees. The specific implementation is as follows: When initializing LVGL by call the function <code class="docutils literal notranslate"><span class="pre">lv_vendor_init(lv_vnd_config_t</span> <span class="pre">*config)</span></code> in main function, the <code class="docutils literal notranslate"><span class="pre">rotation</span></code> parameter in the structure <code class="docutils literal notranslate"><span class="pre">lv_vnd_config_t</span></code> can be assigned by passing <code class="docutils literal notranslate"><span class="pre">ROTATE_NONE</span></code>, <code class="docutils literal notranslate"><span class="pre">ROTATE_90</span></code>, <code class="docutils literal notranslate"><span class="pre">ROTATE_180``and</span> <span class="pre">``ROTATE_270</span></code> to indicate no rotation, rotation 90, rotation 180 and rotation 270 respectively.</p></li>
+<li><p>Regarding how to package resource files into bin file, select the corresponding packaging tool according to the selected file system type. For tools, please consult FAE.</p></li>
+<li><p>LVGL’s project has been added to the automated partition list.If you want to reconfigure the partition size, just set the <code class="docutils literal notranslate"><span class="pre">bk7258_partition.csv</span></code> file in project directly and pay attention to some alignment requirements.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../projects/index.html" class="btn btn-neutral float-right" title="Reference Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

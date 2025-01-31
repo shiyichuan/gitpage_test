@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSRAM MEM Config &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19145764"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Video Codec" href="../video_codec/index.html" />
+    <link rel="prev" title="UVC Camera Introduction" href="../camera/uvc_camera_introduction/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Psram mem config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#function-overview">1. Function overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#psram-type">2. PSRAM Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#division-of-psram">3. Division of PSRAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#psram-used-for-heap">4. PSRAM used for heap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#psram-in-the-multimedia-division">5. PSRAM in the multimedia division</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#each-module-of-multimedia-memory-adjustment">6. Each module of multimedia memory adjustment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-psram-on-multimedia">7. Using psram on multimedia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PSRAM MEM Config</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="psram-mem-config">
+<h1>PSRAM MEM Config<a class="headerlink" href="#psram-mem-config" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../zh_CN/latest/psram_config/index.html">[中文]</a></p>
+<section id="function-overview">
+<h2>1. Function overview<a class="headerlink" href="#function-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>PSRAM provides enough memory space for different modules to use, the current BK7258 supports two types of PSRAM, their memory size is different,
+respectively, 8Mbyte and 16Mbyte, using different macros to distinguish. There are four types of modules in multimedia that need to use PSRAM.
+Since PSRAM is also used as heap on different cpus, not all of the PSRAM space is used by multimedia, and the length and space need to be distinguished.</p>
+</div></blockquote>
+</section>
+<section id="psram-type">
+<h2>2. PSRAM Type<a class="headerlink" href="#psram-type" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The BK7258 supports two types of PSRAM, which are configured as follows:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>size(Mbyte)</p></td>
+</tr>
+<tr class="row-even"><td><p>APS6408L_O</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>APS128XXO_OB9</p></td>
+<td><p>16</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Note: Different projects use different psram types by default, you need to see the compiled sdkconfig file.</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="division-of-psram">
+<h2>3. Division of PSRAM<a class="headerlink" href="#division-of-psram" title="Link to this heading"></a></h2>
+<blockquote>
+<div><blockquote>
+<div><p>PSRAM is mainly divided into two parts, one part is used as data memory, the other part is used as heap space of different cpus,
+you need to refer to the following macro definition to identify the size of their use:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>marco</p></td>
+<td><p>value</p></td>
+<td><p>implication</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_PSRAM</p></td>
+<td><p>Y</p></td>
+<td><p>enable PSRAM module</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIG_PSRAM_AS_SYS_MEMORY</p></td>
+<td><p>Y</p></td>
+<td><p>enable PSRAM as Heap</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_USE_PSRAM_HEAP_AT_SRAM_OOM</p></td>
+<td><p>Y</p></td>
+<td><p>enable alloc from sram fail, then alloc from psram</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIG_PSRAM_HEAP_BASE</p></td>
+<td><p>0x60700000</p></td>
+<td><p>the start address of psram as heap in current cpu</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_PSRAM_HEAP_SIZE</p></td>
+<td><p>0x80000</p></td>
+<td><p>the size psram as heap in cluurent cpu</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER</p></td>
+<td><p>0x60700000</p></td>
+<td><p>the start address of psram as heap in this chip</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Function switch CONFIG_PSRAM_AS_SYS_MEMORY depends on CONFIG_PSRAM and CONFIG_FREERTOS_V10</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above values are defined differently on different cores, CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER indicates that PSRAM serves as the heap starting address,
+and that psram serves as the heap space from this address. By default, the starting address of PSRAM (0x60000000) through CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER
+is allocated for multimedia use, and the rest is allocated for Heap use. Use the macro CONFIG_PSRAM_HEAP_BASE Define PSRAM on the current kernel as the Heap start address,
+and use CONFIG_PSRAM_HEAP_SIZE to define the space size. Different cores have different defined values, CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER has the same value on different cores.
+This should be consistent with the minimum value of CONFIG_PSRAM_HEAP_BASE on different cores, such as the default BK7258 project, CONFIG_PSRAM_HEAP_BASE=0x60700000 on CPU0,
+CONFIG_PSRAM_HEAP_BASE=0x60700000, CONFIG_PSRAM_HEAP_SIZE=0x80000, then CPU1 CONFIG_PSRAM_HEAP_BASE=0x60780000, CONFIG_PSRAM_HEAP_SIZE=0x80000,
+PSRAM is not used as Heap by default on CPU2. So CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER=0x60700000. Whether psram is required as heap on a kernel is
+controlled by CONFIG_PSRAM_AS_SYS_MEMORY.</p>
+</div>
+</section>
+<section id="psram-used-for-heap">
+<h2>4. PSRAM used for heap<a class="headerlink" href="#psram-used-for-heap" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul>
+<li><p>Configure the starting address and size of psram heap through the following two configuration items:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_PSRAM_HEAP_BASE</span> <span class="n">configures</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">address</span> <span class="n">of</span> <span class="n">psram</span> <span class="n">heap</span>
+<span class="n">CONFIG_PSRAM_HEAP_SIZE</span> <span class="n">configures</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">address</span> <span class="n">of</span> <span class="n">psram</span> <span class="n">size</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>Memory application and release interface:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="o">*</span><span class="n">psram_malloc</span><span class="p">(</span><span class="n">size_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="n">void</span>  <span class="n">psram_free</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>The low-voltage function PARAM of the BK7258 chip will be powered off. If the psram memory used by the upper layer is not released, it will result in the inability to enter low voltage. You can print the current psram memory usage through the following interface:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">bk_psram_heap_get_used_state</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>The API of create task on psram:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">rtos_create_psram_thread</span><span class="p">(</span><span class="n">beken_thread_t</span> <span class="o">*</span><span class="n">thread</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">priority</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n">beken_thread_function_t</span> <span class="n">function</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">stack_size</span><span class="p">,</span> <span class="n">beken_thread_arg_t</span> <span class="n">arg</span><span class="p">);</span>
+<span class="n">bk_err_t</span> <span class="n">rtos_delete_thread</span><span class="p">(</span><span class="n">beken_thread_t</span> <span class="o">*</span><span class="n">thread</span><span class="p">);</span> <span class="o">//</span> <span class="n">The</span> <span class="n">API</span> <span class="n">of</span> <span class="n">delete</span> <span class="n">task</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">change</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="psram-in-the-multimedia-division">
+<h2>5. PSRAM in the multimedia division<a class="headerlink" href="#psram-in-the-multimedia-division" title="Link to this heading"></a></h2>
+<blockquote>
+<div><blockquote>
+<div><p>PSRAM is used in multimedia and is divided into four modules according to function, reference structure: <cite>psram_heap_type_t</cite>, position: <cite>bk_idk/include/driver/psram_types.h</cite>.</p>
+<p>The memory used by each module is defined by the structure: <cite>psram_mem_slab_mapping</cite>. The amount of memory allocated by each module is controlled by macros,
+reference position: <cite>bk_avdk_main/components/media_utils</cite>, as follows:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>marco</p></td>
+<td><p>value(byte)</p></td>
+<td><p>implication</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_PSRAM_MEM_SLAB_USER_SIZE</p></td>
+<td><p>102400</p></td>
+<td><p>the size alloc to user</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIG_PSRAM_MEM_SLAB_AUDIO_SIZE</p></td>
+<td><p>102400</p></td>
+<td><p>the size alloc to audio</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_PSRAM_MEM_SLAB_ENCODE_SIZE</p></td>
+<td><p>1433600</p></td>
+<td><p>the size alloc to encode(jpeg/h264)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIG_PSRAM_MEM_SLAB_DISPLAY_SIZE</p></td>
+<td><p>5701632</p></td>
+<td><p>the size alloc to display</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Note: The value defined by the above macro is defined by default, which can be dynamically adjusted according to its own needs when used,
+and can be modified directly in the cpu config of the corresponding project. However, note that the length added up above cannot exceed the address used by the
+Heap(CONFIG_PSRAM_HEAP_CPU0_BASE_ADDER), otherwise there will be problems.</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="each-module-of-multimedia-memory-adjustment">
+<h2>6. Each module of multimedia memory adjustment<a class="headerlink" href="#each-module-of-multimedia-memory-adjustment" title="Link to this heading"></a></h2>
+<blockquote>
+<div><blockquote>
+<div><p>According to the previous section, psram is divided into four modules, different modules store different types of data, as follows:</p>
+<ul class="simple">
+<li><p>UASER: allocated to users. The allocated size is defined by the macro CONFIG_PSRAM_MEM_SLAB_USER_SIZE.</p></li>
+<li><p>AUDIO: allocated to audio. The allocated size is defined by the macro CONFIG_PSRAM_MEM_SLAB_AUDIO_SIZE. It stores audio data;</p></li>
+<li><p>ENCODE: allocated to encoding, the allocated size is defined by the macro CONFIG_PSRAM_MEM_SLAB_ENCODE_SIZE, which stores complete JPEG images or H264 images;</p></li>
+<li><p>DISPLAY: allocated to the display. The allocated size is defined by the macro CONFIG_PSRAM_MEM_SLAB_DISPLAY_SIZE, which stores the displayed data type, such as YUV, RGB565, RGB888, etc.</p></li>
+</ul>
+<p>The amount of data stored varies according to the function and size of the module above. For example, the ENCODE module can store more than one frame of JPEG image or H264 image.
+The size of the system also defines a frame of macros, reference files: <code class="docutils literal notranslate"><span class="pre">./bk_idk/middleware/driver/camera/Kconfig</span></code>:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>marco</p></td>
+<td><p>value(byte)</p></td>
+<td><p>implication</p></td>
+<td><p>range</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_JPEG_FRAME_SIZE</p></td>
+<td><p>153600</p></td>
+<td><p>the size of one complete jpeg frame</p></td>
+<td><p>[0, 204800]</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIG_H264_FRAME_SIZE</p></td>
+<td><p>65536</p></td>
+<td><p>the size of one complete h264 frame</p></td>
+<td><p>[0, 204800]</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>The above size needs to be adjusted according to their own needs, such as the need to store 1280X720 JPEG images, 150K space may not be enough,
+need to be changed to 200K(204800), or even larger, according to the actual use of adjustment. Also for H264 data, sometimes need to adjust the
+compression rate of H264, in order to achieve a clearer picture quality, the default 64K May not be enough, need to continue to increase,
+so also need to adjust according to the actual situation.</p>
+<p>According to the size defined above, the number of different block storage can be calculated. Assuming the RGB565 used by the DISPLAY module, and the resolution is 800X480,
+then the size of an image is 800*480*2=768000. The number that can be stored is: CONFIG_PSRAM_MEM_SLAB_DISPLAY_SIZE/768000=7, which means that the maximum storage capacity
+is 7 frames of 800X480 RGB565 images.</p>
+<p>Assuming the ENCODE module is used to store JPEG images, the maximum number of stores is: CONFIG_PSRAM_MEM_SLAB_ENCODE_SIZE/CONFIG_JPEG_FRAME_SIZE=9;
+However, the actual situation will store both JPEG and H264 data, which is defined in the code the largest number, each image module reference:
+<code class="docutils literal notranslate"><span class="pre">./bk_avdk_main/components/multimedia/comm/frame_buffer.c</span></code>, definition in the following statement:</p>
+<p><code class="docutils literal notranslate"><span class="pre">uint8_t</span> <span class="pre">fb_count[FB_INDEX_MAX]</span> <span class="pre">=</span> <span class="pre">{5,</span> <span class="pre">4,</span> <span class="pre">H264_GOP_FRAME_CNT</span> <span class="pre">*</span> <span class="pre">2};</span></code></p>
+<p>It means that the maximum storage is 5 frames of DISPLAY data, 4 frames of JPEG data, H264_GOP_FRAME_CNT*2 frames of H264 data.
+The above quantity can be adjusted, as long as the total amount of data does not exceed the size of the respective module.</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="using-psram-on-multimedia">
+<h2>7. Using psram on multimedia<a class="headerlink" href="#using-psram-on-multimedia" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Because all multimedia functions are used in CPU1, the use of PSRAM can only be directly invoked in CPU1. After CPU1 is started,
+the system will automatically initialize the entire PSRAM for the multimedia, and users do not need to invoke the implementation themselves.
+When CPU1 is powered down, multimedia do not use PSRAM, and no additional call to the logged out interface is required to free up the corresponding memory.</p>
+</div></blockquote>
+<ul>
+<li><p>Memory initialization interface</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_psram_frame_buffer_init</span>
+</pre></div>
+</div>
+</li>
+<li><p>Memory request and release interface</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="o">*</span><span class="n">bk_psram_frame_buffer_malloc</span><span class="p">(</span><span class="n">psram_heap_type_t</span> <span class="nb">type</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="n">void</span> <span class="n">bk_psram_frame_buffer_free</span><span class="p">(</span><span class="n">void</span><span class="o">*</span> <span class="n">mem_ptr</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When used by customers, it is recommended to use the system interface to apply for and release psram memory (psram_mallocpsram_free),
+and it is not recommended to use the above multimedia module defined interface to apply for and release psram memory.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../video_codec/index.html" class="btn btn-neutral float-right" title="Video Codec" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../camera/uvc_camera_introduction/index.html" class="btn btn-neutral float-left" title="UVC Camera Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

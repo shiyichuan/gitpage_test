@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doorbell &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Doorbell_8M" href="../doorbell_8M/index.html" />
+    <link rel="prev" title="Multi-media Projects" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">Bluetooth</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Multi-media</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">doorbell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framework-diagram">2. Framework diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">3. Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstration-explanation">4. Demonstration explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-explanation">5. Code explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_8M/index.html">doorbell_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_720p/index.html">doorbell_720p</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorviewer/index.html">doorviewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorviewer_8M/index.html">doorviewer_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audio_player/index.html">audio_player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../av_client/index.html">av_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../av_server/index.html">av_server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_qspi/index.html">lcd_qspi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_8080/index.html">lcd_8080</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_rgb/index.html">lcd_rgb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thirdparty/index.html">thirdparty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/index.html">Peripheral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Multi-media Projects</a></li>
+      <li class="breadcrumb-item active">Doorbell</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="doorbell">
+<h1>Doorbell<a class="headerlink" href="#doorbell" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/media/doorbell/index.html">[中文]</a></p>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>This project is a demo of a USB camera door lock, supporting end-to-end (BK7258 device) to mobile app demonstrations.</p>
+<section id="specifications">
+<h3>1.1 Specifications<a class="headerlink" href="#specifications" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Hardware configuration:</dt><dd><ul>
+<li><p>Core board, <strong>BK7258_QFN88_9X9_V3.2</strong></p></li>
+<li><p>Display adapter board, <strong>BK7258_LCD_interface_V3.0</strong></p></li>
+<li><p>Mac Xiaoban, <strong>BK_madule_Microphone_V1.1</strong></p></li>
+<li><p>Speaker small board, <strong>BKnModule_Speaker_V1.1</strong></p></li>
+<li><p>PSRAM 8M/16M</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, UVC</dt><dd><ul>
+<li><p>Reference peripherals, UVC resolution of <strong>864 * 480</strong></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, UAC</p></li>
+<li><p>Support, TCP LAN image transmission</p></li>
+<li><p>Support UDP LAN image transmission</p></li>
+<li><p>Support, Shangyun, P2P image transfer</p></li>
+<li><dl class="simple">
+<dt>Support, LCD RGB/MCU I8080 display</dt><dd><ul>
+<li><p>Reference peripherals, <strong>ST7701SN</strong>, 480 * 854 RGB LCD</p></li>
+<li><p>RGB565/RGB888</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, hardware/software rotation</dt><dd><ul>
+<li><p>0°, 90°, 180°, 270°</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, onboard speaker</p></li>
+<li><p>Support, Micro</p></li>
+<li><dl class="simple">
+<dt>Support, MJPEG hardware decoding</dt><dd><ul>
+<li><p>YUV422</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, MJPEG software decoding</dt><dd><ul>
+<li><p>YUV420</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, H264 hardware decoding</p></li>
+<li><dl class="simple">
+<dt>Support, OSD display</dt><dd><ul>
+<li><p>ARGB888[PNG]</p></li>
+<li><p>Custom Font</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please use reference peripherals to familiarize and learn about demo projects.
+If the specifications of the peripherals are different, the code may need to be reconfigured.</p>
+</div>
+<p>1.2 Path</p>
+<blockquote>
+<div><p>&lt;bk_avdk source code path&gt;/projects/media/doorbell</p>
+</div></blockquote>
+</section>
+</section>
+<section id="framework-diagram">
+<h2>2. Framework diagram<a class="headerlink" href="#framework-diagram" title="Link to this heading"></a></h2>
+<section id="software-module-architecture-diagram">
+<h3>2.1 Software Module Architecture Diagram<a class="headerlink" href="#software-module-architecture-diagram" title="Link to this heading"></a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>As shown in the following figure, BK7258 has multiple CPUs:</dt><dd><ul class="simple">
+<li><p>CPU0, running WIFI/BLE as a low-power CPU.</p></li>
+<li><p>CPU1, runs multimedia and serves as a high-performance multimedia CPU.</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<figure class="align-center" id="id10">
+<img alt="module architecture Overview" src="../../../_images/doorbell_arch.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. software module architecture</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<blockquote>
+<div><ul class="simple">
+<li><p>In the UVC scheme, we adopt a pipeline approach to improve overall performance.</p></li>
+<li><dl class="simple">
+<dt>The images output by UVC cameras can be divided into two types: YUV420 MJPEG and YUV422 MJPEG.</dt><dd><ul>
+<li><p>The software will automatically recognize and use a hardware decoder to decode YUV422 MJPEG. YUV420 MJPEG uses CPU1 and CPU2 for software decoding.</p></li>
+<li><p>When decoding hardware, the image resolution needs to be a multiple of 32 for wide resolution and a multiple of 16 for high resolution.</p></li>
+<li><p>YUV pixel arrangement is divided into planar format, packed format, and semi planar format. Hardware encoded data, in packet format when required.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MJPEG HW Decoder, in pipeline mode, due to the encoding data of H264, it needs to be decoded based on MJPEG before encoding. Therefore, both local display and image transmission will use this hardware module.</dt><dd><ul>
+<li><p>When closing, it is important to note that both the display and image transfer are closed before closing this module. The default demo already includes this logic.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MJPEG SW Decoder, two decoders will not work simultaneously at the same time.</dt><dd><ul>
+<li><p>Once the image is confirmed to be YUV420 or YUV422, it is decided whether to use software decoding or hardware decoding.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Rota HW and Rota SW will only use one type of rotating module at the same time.</dt><dd><ul>
+<li><p>Rota HW, supports RGB 565 image output, supports 0°, 90°, 270°.</p></li>
+<li><p>Rota SW supports 0°, 90°, 180°, and 270°.</p></li>
+<li><p>If you need to use RGB888 output or support 180°, and meet one of the conditions, you need to switch to software decoding.</p></li>
+<li><p>How to make decisions on Rota HW and Rota SW currently is determined by the SDK software. Users only need to input the rotation angle and output image format parameters into the corresponding interface when opening the LCD.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="code-module-relationship-diagram">
+<h3>2.2 Code Module Relationship Diagram<a class="headerlink" href="#code-module-relationship-diagram" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>As shown in the following figure, multimedia interfaces are defined in <strong>media_app.h</strong> and <strong>aud_intf.h</strong>.</p>
+</div></blockquote>
+<figure class="align-center" id="id11">
+<img alt="relationship diagram Overview" src="../../../_images/doorbell_sw_relationship_diag.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2. module relationship diagram</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="configuration">
+<h2>3. Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="bluetooth-and-multimedia-memory-reuse">
+<h3>3.1 Bluetooth and Multimedia Memory Reuse<a class="headerlink" href="#bluetooth-and-multimedia-memory-reuse" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>In order to further save memory, in the default project, the multimedia memory encoding and decoding memory and Bluetooth memory are multiplexed, mainly using the following two macros.
+If you want to use two modules in parallel, you can close them yourself. Please confirm if the overall memory is sufficient before closing.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kconfig</p></th>
+<th class="head"><p>CPU</p></th>
+<th class="head"><p>Format</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CONFIG_BT_REUSE_MEDIA_MEMORY</p></td>
+<td><p>CPU0 &amp;&amp; CPU1</p></td>
+<td><p>bool</p></td>
+<td><p>y</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFIG_BT_REUSE_MEDIA_MEM_SIZE</p></td>
+<td><p>CPU0 &amp;&amp; CPU1</p></td>
+<td><p>hex</p></td>
+<td><p>0x1B000</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>In order to solve memory reuse conflicts during actual use, it is necessary to check the status of Bluetooth and disable or uninstall Bluetooth before using the multimedia module.</p></li>
+<li><p>If the multimedia modules have already been turned off and you want to use them again, you need to reinitialize Bluetooth. Please refer to the following code.</p></li>
+<li><p>The range of values is based on the maximum memory required by the Bluetooth hardware module and the maximum memory required for multimedia hardware encoding, with one value being the maximum.</p></li>
+<li><p>The hardware memory requirements for general Bluetooth are relatively small [actual statistics need to be calculated based on the compiled map program]. Because it is generally configured according to the maximum memory capacity of multimedia hardware.</p></li>
+</ul>
+</div></blockquote>
+<section id="uninstalling-bluetooth">
+<h4>3.1.1 Uninstalling Bluetooth<a class="headerlink" href="#uninstalling-bluetooth" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifdef CONFIG_BT_REUSE_MEDIA_MEMORY</span>
+<span class="c1">#if CONFIG_BLUETOOTH</span>
+    <span class="n">bk_bluetooth_deinit</span><span class="p">();</span>
+<span class="c1">#endif</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="initialize-bluetooth">
+<h4>3.1.2 Initialize Bluetooth<a class="headerlink" href="#initialize-bluetooth" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_bluetooth_init</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="hardware-decoding-memory-configuration-instructions">
+<h3>3.2 Hardware Decoding Memory Configuration Instructions<a class="headerlink" href="#hardware-decoding-memory-configuration-instructions" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>A hardware accelerator requires a portion of memory, which is optimized based on the actual resolution.
+The default configuration parameters are LCD with a 480 * 854 vertical screen and Camera with an 864 * 480 MJPEG image.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">The</span> <span class="n">recommended</span> <span class="n">output</span> <span class="n">resolution</span> <span class="ow">and</span> <span class="n">width</span> <span class="k">for</span> <span class="n">Camera</span> <span class="n">are</span> <span class="n">multiples</span> <span class="n">of</span> <span class="mf">32.</span> <span class="n">When</span> <span class="n">the</span> <span class="n">default</span> <span class="n">configuration</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span> <span class="ow">and</span> <span class="n">camera</span> <span class="ow">is</span> <span class="n">small</span><span class="p">,</span> <span class="n">memory</span> <span class="n">can</span> <span class="n">be</span> <span class="n">optimized</span> <span class="n">by</span> <span class="n">modifying</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">macro</span><span class="o">.</span>
+<span class="c1">#define IMAGE_MAX_WIDTH (864)</span>
+<span class="c1">#define IMAGE_MAX_HEIGHT (480)</span>
+
+<span class="o">//</span><span class="n">When</span> <span class="n">starting</span> <span class="n">the</span> <span class="n">scaling</span> <span class="n">module</span><span class="p">,</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">necessary</span> <span class="n">to</span> <span class="n">pay</span> <span class="n">attention</span> <span class="n">to</span> <span class="n">these</span> <span class="n">two</span> <span class="n">sets</span> <span class="n">of</span> <span class="n">parameters</span><span class="o">.</span> <span class="n">The</span> <span class="n">default</span> <span class="n">recommendation</span> <span class="ow">is</span> <span class="n">that</span> <span class="n">the</span> <span class="n">width</span> <span class="n">should</span> <span class="n">be</span> <span class="n">slightly</span> <span class="n">larger</span> <span class="n">than</span> <span class="n">the</span> <span class="n">screen</span><span class="o">.</span>
+<span class="c1">#define DISPLAY_MAX_WIDTH (864)</span>
+<span class="c1">#define DISPLAY_MAX_HEIGHT (480)</span>
+
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+<span class="c1">#if SUPPORTED_IMAGE_MAX_720P</span>
+    <span class="n">uint8_t</span> <span class="n">decoder</span><span class="p">[</span><span class="n">DECODE_MAX_PIPELINE_LINE_SIZE</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>
+    <span class="n">uint8_t</span> <span class="n">scale</span><span class="p">[</span><span class="n">SCALE_MAX_PIPELINE_LINE_SIZE</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>
+    <span class="n">uint8_t</span> <span class="n">rotate</span><span class="p">[</span><span class="n">ROTATE_MAX_PIPELINE_LINE_SIZE</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>
+<span class="c1">#else</span>
+    <span class="n">uint8_t</span> <span class="n">decoder</span><span class="p">[</span><span class="n">DECODE_MAX_PIPELINE_LINE_SIZE</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>
+    <span class="n">uint8_t</span> <span class="n">rotate</span><span class="p">[</span><span class="n">ROTATE_MAX_PIPELINE_LINE_SIZE</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>
+<span class="c1">#endif</span>
+
+<span class="p">}</span> <span class="n">mux_sram_buffer_t</span><span class="p">;</span>
+
+<span class="o">*</span> <span class="n">If</span> <span class="n">rotation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">required</span><span class="p">,</span> <span class="n">the</span> <span class="n">memory</span> <span class="n">of</span> <span class="n">the</span> <span class="n">rotating</span> <span class="n">part</span> <span class="n">can</span> <span class="n">be</span> <span class="n">saved</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">Attention</span> <span class="n">should</span> <span class="n">be</span> <span class="n">paid</span> <span class="n">to</span> <span class="n">the</span> <span class="n">resolution</span> <span class="n">of</span> <span class="n">scaling</span><span class="o">.</span> <span class="n">The</span> <span class="n">scaled</span> <span class="n">resolution</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="ow">and</span> <span class="n">height</span> <span class="n">must</span> <span class="nb">all</span> <span class="n">be</span> <span class="n">multiples</span> <span class="n">of</span> <span class="mf">8.</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>When the VNet BT-REUSEUMEDIA.MMORY macro is opened, this portion of memory will be reused with Bluetooth hardware memory.</p>
+</div>
+</section>
+</section>
+<section id="demonstration-explanation">
+<h2>4. Demonstration explanation<a class="headerlink" href="#demonstration-explanation" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Please visit <a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/app_usage/app_usage_guide/index.html#debug">APP Usage Document</a>.</p>
+</div></blockquote>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you do not have cloud account permissions, you can use debug mode to set the local area network TCP image transmission method.</p>
+</div>
+</section>
+<section id="code-explanation">
+<h2>5. Code explanation<a class="headerlink" href="#code-explanation" title="Link to this heading"></a></h2>
+<section id="uvc-camera">
+<h3>5.1 UVC Camera<a class="headerlink" href="#uvc-camera" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Supported peripherals, please refer to <a class="reference external" href="../../../support_peripherals/index.html">Support Peripherals</a></p>
+</div></blockquote>
+<section id="turn-on-uvc">
+<h4>5.1.1 Turn on UVC<a class="headerlink" href="#turn-on-uvc" title="Link to this heading"></a></h4>
+<section id="application-code">
+<h5>5.1.1.1 Application Code<a class="headerlink" href="#application-code" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_camera_turn_on</span><span class="p">(</span><span class="n">camera_parameters_t</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">turn</span> <span class="n">onUVCcamera</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_camera_open</span><span class="p">(</span><span class="o">&amp;</span><span class="n">device</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">local</span> <span class="n">display</span> <span class="n">rotation</span><span class="o">.</span>
+    <span class="o">//</span><span class="n">It</span> <span class="n">should</span> <span class="n">be</span> <span class="n">noted</span> <span class="n">that</span><span class="p">:</span>
+    <span class="o">//</span>    <span class="mf">1.</span><span class="n">When</span> <span class="n">MJPEG</span> <span class="ow">is</span> <span class="n">YUV422</span> <span class="n">MJPEG</span><span class="p">,</span> <span class="n">only</span> <span class="n">the</span> <span class="n">local</span> <span class="n">display</span> <span class="n">will</span> <span class="n">rotate</span><span class="o">.</span> <span class="n">That</span> <span class="ow">is</span><span class="p">,</span> <span class="n">H264</span> <span class="n">images</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">rotate</span><span class="o">.</span>
+    <span class="o">//</span>    <span class="mf">2.</span><span class="n">When</span> <span class="n">MJPEG</span> <span class="ow">is</span> <span class="n">YUV420</span> <span class="n">MJPEG</span><span class="p">,</span> <span class="n">rotation</span> <span class="n">will</span> <span class="n">be</span> <span class="n">performed</span> <span class="n">during</span> <span class="n">software</span> <span class="n">decoding</span><span class="o">.</span> <span class="n">Both</span> <span class="n">local</span> <span class="n">display</span> <span class="ow">and</span> <span class="n">H264</span> <span class="n">encoded</span> <span class="n">images</span> <span class="n">are</span> <span class="n">rotated</span> <span class="n">data</span><span class="o">.</span>
+    <span class="n">media_app_pipline_set_rotate</span><span class="p">(</span><span class="n">rot_angle</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Open</span> <span class="n">H264</span> <span class="n">Hardware</span> <span class="n">Encoding</span> <span class="n">Accelerator</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_h264_pipeline_open</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="interface-code">
+<h5>5.1.1.2 Interface Code<a class="headerlink" href="#interface-code" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_camera_open</span><span class="p">(</span><span class="n">media_camera_device_t</span> <span class="o">*</span><span class="n">device</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Uninstall</span> <span class="n">Bluetooth</span>
+    <span class="c1">#ifdef CONFIG_BT_REUSE_MEDIA_MEMORY</span>
+    <span class="c1">#if CONFIG_BLUETOOTH</span>
+        <span class="n">bk_bluetooth_deinit</span><span class="p">();</span>
+    <span class="c1">#endif</span>
+    <span class="c1">#endif</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">activate</span> <span class="n">CPU1</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">turned</span> <span class="n">off</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_EN</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_ON</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Notify</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">on</span> <span class="n">the</span> <span class="n">UVC</span> <span class="n">camera</span><span class="o">.</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_CAM_UVC_OPEN_IND</span><span class="p">,</span> <span class="p">(</span><span class="n">uint32_t</span><span class="p">)</span><span class="n">device</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="obtain-an-image">
+<h4>5.1.2 Obtain an image<a class="headerlink" href="#obtain-an-image" title="Link to this heading"></a></h4>
+<section id="id1">
+<h5>5.1.2.1 Application Code<a class="headerlink" href="#id1" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">uvc</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU1</span>
+
+<span class="n">bk_err_t</span> <span class="n">bk_uvc_camera_open</span><span class="p">(</span><span class="n">media_camera_device_t</span> <span class="o">*</span><span class="n">device</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Register</span> <span class="n">the</span> <span class="n">MJPEG</span> <span class="n">data</span> <span class="n">callback</span> <span class="k">for</span> <span class="n">obtaining</span> <span class="n">UVC</span> <span class="n">images</span><span class="o">.</span>
+    <span class="o">//</span><span class="n">If</span> <span class="n">frame</span> <span class="n">loss</span> <span class="n">processing</span> <span class="ow">is</span> <span class="n">required</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="n">done</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">callback</span><span class="o">.</span>
+    <span class="n">uvc_camera_config_st</span><span class="o">-&gt;</span><span class="n">jpeg_cb</span><span class="o">.</span><span class="n">push</span>   <span class="o">=</span> <span class="n">frame_buffer_fb_push</span><span class="p">;</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h5>5.1.2.2 Interface Code<a class="headerlink" href="#id2" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">bk_idk</span><span class="o">/</span><span class="n">middleware</span><span class="o">/</span><span class="n">driver</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">uvc_camera</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU1</span>
+<span class="n">static</span> <span class="n">void</span> <span class="n">uvc_camera_eof_handle</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">idx_uvc</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">stack</span> <span class="n">of</span> <span class="n">data</span> <span class="n">streams</span> <span class="n">obtained</span> <span class="n">through</span> <span class="n">ISO</span> <span class="ow">or</span> <span class="n">BULK</span> <span class="n">transfer</span> <span class="kn">from</span><span class="w"> </span><span class="nn">USB.</span> <span class="n">And</span> <span class="n">unpacking</span><span class="p">,</span> <span class="n">grouping</span><span class="p">,</span> <span class="ow">and</span> <span class="k">finally</span> <span class="n">obtaining</span> <span class="n">a</span> <span class="n">complete</span> <span class="n">frame</span> <span class="n">of</span> <span class="n">UVC</span> <span class="n">data</span><span class="o">.</span> <span class="n">And</span> <span class="n">call</span> <span class="n">back</span> <span class="n">to</span> <span class="n">the</span> <span class="n">application</span> <span class="n">layer</span><span class="o">.</span>
+    <span class="n">uvc_camera_config_ptr</span><span class="o">-&gt;</span><span class="n">jpeg_cb</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">curr_frame_buffer</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Here is an introduction to how to obtain MJPEG images on CPU1. If your application is running on CPU0, it needs to be sent to CPU0 through a mailbox for use, and after use, it needs to be returned to CPU1 for release.</p>
+</div>
+</section>
+</section>
+<section id="turn-off-uvc">
+<h4>5.1.3 Turn off UVC<a class="headerlink" href="#turn-off-uvc" title="Link to this heading"></a></h4>
+<section id="id3">
+<h5>5.1.3.1 Application Code<a class="headerlink" href="#id3" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_camera_turn_off</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Disable</span> <span class="n">H264</span> <span class="n">encoding</span>
+    <span class="n">media_app_h264_pipeline_close</span><span class="p">();</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">UVC</span> <span class="n">camera</span>
+    <span class="n">media_app_camera_close</span><span class="p">(</span><span class="n">UVC_CAMERA</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h5>5.1.3.2 Interface Code<a class="headerlink" href="#id4" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_camera_close</span><span class="p">(</span><span class="n">camera_type_t</span> <span class="nb">type</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">UVC</span> <span class="n">camera</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_CAM_UVC_CLOSE_IND</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">be</span> <span class="n">turned</span> <span class="n">off</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">turned</span> <span class="n">off</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_EN</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_OFF</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>All operations involving multimedia require attention to the requirement of low power consumption. To turn on the device, it must be turned off, otherwise the entire system cannot enter low-power mode.</p></li>
+<li><p>The operation involving CPU1 voting, opening and closing, must appear in pairs, otherwise there will be a problem of CPU1 being unable to close and increasing power consumption.</p></li>
+<li><p>You can refer to the chapter on low power consumption</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="lcd-display">
+<h3>5.2 LCD Display<a class="headerlink" href="#lcd-display" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Supported peripherals, please refer to <a class="reference external" href="../../../support_peripherals/index.html">Support Peripherals</a></p>
+</div></blockquote>
+<section id="open-lcd">
+<h4>5.2.1 Open LCD<a class="headerlink" href="#open-lcd" title="Link to this heading"></a></h4>
+<section id="id6">
+<h5>5.2.1.1 Application Code<a class="headerlink" href="#id6" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_display_turn_on</span><span class="p">(</span><span class="n">uint16_t</span> <span class="nb">id</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">fmt</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">pixel</span> <span class="nb">format</span> <span class="k">for</span> <span class="n">display</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">media_app_lcd_fmt</span><span class="p">(</span><span class="n">PIXEL_FMT_RGB565_LE</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">media_app_lcd_fmt</span><span class="p">(</span><span class="n">PIXEL_FMT_RGB888</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">rotation</span> <span class="n">angle</span><span class="o">.</span>
+    <span class="n">switch</span> <span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">90</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_90</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">180</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_180</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">270</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_270</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">default</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_NONE</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">media_app_pipline_set_rotate</span><span class="p">(</span><span class="n">rot_angle</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Open</span> <span class="n">local</span> <span class="n">LCD</span> <span class="n">display</span>
+   <span class="n">media_app_lcd_pipeline_open</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lcd_open</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h5>5.2.1.2 Interface Code<a class="headerlink" href="#id7" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipeline_open</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">lcd_open</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_lcd_pipeline_disp_open</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
+
+    <span class="o">//</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_lcd_pipeline_jdec_open</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipeline_disp_open</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">config</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">activate</span> <span class="n">CPU1</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">turned</span> <span class="n">off</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_LCD</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_ON</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Notify</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">on</span> <span class="n">the</span> <span class="n">LCD</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_PIPELINE_LCD_DISP_OPEN_IND</span><span class="p">,</span> <span class="p">(</span><span class="n">uint32_t</span><span class="p">)</span><span class="n">ptr</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipeline_jdec_open</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">BK_OK</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">activate</span> <span class="n">CPU1</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">turned</span> <span class="n">off</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_DE</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_ON</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">rotation</span> <span class="n">angle</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_PIPELINE_SET_ROTATE_IND</span><span class="p">,</span> <span class="n">jpeg_decode_pipeline_param</span><span class="o">.</span><span class="n">rotate</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Open</span> <span class="n">the</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">scaling</span><span class="p">,</span> <span class="ow">and</span> <span class="n">decoding</span> <span class="n">modules</span> <span class="n">that</span> <span class="n">display</span> <span class="n">dependencies</span><span class="o">.</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_PIPELINE_LCD_JDEC_OPEN_IND</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="turn-off-lcd">
+<h4>5.2.2 Turn off LCD<a class="headerlink" href="#turn-off-lcd" title="Link to this heading"></a></h4>
+<section id="id8">
+<h5>5.2.2.1 Application Code<a class="headerlink" href="#id8" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_display_turn_off</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">local</span> <span class="n">LCD</span> <span class="n">display</span>
+    <span class="n">media_app_lcd_pipeline_close</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h5>5.2.2.2 Interface Code<a class="headerlink" href="#id9" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipeline_close</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Disable</span> <span class="n">MJPEG</span><span class="p">,</span> <span class="n">decoding</span><span class="o">/</span><span class="n">rotation</span><span class="p">,</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">functions</span><span class="o">.</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_lcd_pipeline_jdec_close</span><span class="p">();</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">the</span> <span class="n">display</span> <span class="n">LCD</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_lcd_pipeline_disp_close</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="osd-display">
+<h4>5.2.3 OSD Display<a class="headerlink" href="#osd-display" title="Link to this heading"></a></h4>
+</section>
+</section>
+<section id="audio">
+<h3>5.3 Audio<a class="headerlink" href="#audio" title="Link to this heading"></a></h3>
+<section id="open-uac-onboard-mic-speaker">
+<h4>5.3.1 Open UAC, onboard MIC/SPEAKER<a class="headerlink" href="#open-uac-onboard-mic-speaker" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_audio_turn_on</span><span class="p">(</span><span class="n">audio_parameters_t</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Enable</span> <span class="n">AEC</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="o">-&gt;</span><span class="n">aec</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">aec_enable</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">aec_enable</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">SPEAKER</span> <span class="n">single</span> <span class="n">ended</span> <span class="n">mode</span>
+    <span class="n">ud_voc_setup</span><span class="o">.</span><span class="n">spk_mode</span> <span class="o">=</span> <span class="n">AUD_DAC_WORK_MODE_SIGNAL_END</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">on</span> <span class="n">UAC</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="o">-&gt;</span><span class="n">uac</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">mic_type</span> <span class="o">=</span> <span class="n">AUD_INTF_MIC_TYPE_UAC</span><span class="p">;</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">spk_type</span> <span class="o">=</span> <span class="n">AUD_INTF_SPK_TYPE_UAC</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="o">//</span><span class="n">Activate</span> <span class="n">onboard</span> <span class="n">MIC</span> <span class="ow">and</span> <span class="n">SPEAKER</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">mic_type</span> <span class="o">=</span> <span class="n">AUD_INTF_MIC_TYPE_BOARD</span><span class="p">;</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">spk_type</span> <span class="o">=</span> <span class="n">AUD_INTF_SPK_TYPE_BOARD</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">mic_type</span> <span class="o">==</span> <span class="n">AUD_INTF_MIC_TYPE_BOARD</span> <span class="o">&amp;&amp;</span> <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">spk_type</span> <span class="o">==</span> <span class="n">AUD_INTF_SPK_TYPE_BOARD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">-&gt;</span><span class="n">rmt_recoder_fmt</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">sampling</span> <span class="n">rate</span>
+    <span class="n">switch</span> <span class="p">(</span><span class="n">parameters</span><span class="o">-&gt;</span><span class="n">rmt_recorder_sample_rate</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="n">DB_SAMPLE_RARE_8K</span><span class="p">:</span>
+            <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">samp_rate</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">DB_SAMPLE_RARE_16K</span><span class="p">:</span>
+            <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">samp_rate</span> <span class="o">=</span> <span class="mi">16000</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+        <span class="n">default</span><span class="p">:</span>
+            <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">samp_rate</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Register</span> <span class="n">MIC</span> <span class="n">data</span> <span class="n">callback</span>
+    <span class="n">aud_intf_drv_setup</span><span class="o">.</span><span class="n">aud_intf_tx_mic_data</span> <span class="o">=</span> <span class="n">doorbell_udp_voice_send_callback</span><span class="p">;</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="obtaining-uplink-mic-data">
+<h4>5.3.2 Obtaining uplink MIC data<a class="headerlink" href="#obtaining-uplink-mic-data" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="o">//</span><span class="n">Register</span> <span class="n">MIC</span> <span class="n">callback</span>
+<span class="n">aud_intf_drv_setup</span><span class="o">.</span><span class="n">aud_intf_tx_mic_data</span> <span class="o">=</span> <span class="n">doorbell_udp_voice_send_callback</span><span class="p">;</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">bk_aud_intf_drv_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">aud_intf_drv_setup</span><span class="p">);</span>
+
+<span class="nb">int</span> <span class="n">doorbell_udp_voice_send_callback</span><span class="p">(</span><span class="n">unsigned</span> <span class="n">char</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="nb">len</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">The</span> <span class="n">usual</span> <span class="n">callback</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">transmit</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">direction</span> <span class="n">of</span> <span class="n">WIFI</span><span class="o">.</span>
+    <span class="k">return</span> <span class="n">db_device_info</span><span class="o">-&gt;</span><span class="n">audio_transfer_cb</span><span class="o">-&gt;</span><span class="n">send</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">retry_cnt</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="play-downstream-speaker-data">
+<h4>5.3.3 Play downstream SPEAKER data<a class="headerlink" href="#play-downstream-speaker-data" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">void</span> <span class="n">doorbell_audio_data_callback</span><span class="p">(</span><span class="n">uint8_t</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Send</span> <span class="n">data</span> <span class="n">to</span> <span class="n">SPEAKER</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">bk_aud_intf_write_spk_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="aec-noise-reduction-treatment">
+<h4>5.3.4 AEC/Noise Reduction Treatment<a class="headerlink" href="#aec-noise-reduction-treatment" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>Please refer to <a class="reference external" href="../../../audio_algorithms/aec/index.html">AEC Debug</a></p>
+</div></blockquote>
+</section>
+<section id="turn-off-uac-onboard-mic-speaker">
+<h4>5.3.7 Turn off UAC, onboard MIC/SPEAKER<a class="headerlink" href="#turn-off-uac-onboard-mic-speaker" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_audio_turn_off</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="n">bk_aud_intf_voc_stop</span><span class="p">();</span>
+    <span class="n">bk_aud_intf_voc_deinit</span><span class="p">();</span>
+    <span class="o">/*</span> <span class="n">deinit</span> <span class="n">aud_tras</span> <span class="n">task</span> <span class="o">*/</span>
+    <span class="n">aud_work_mode</span> <span class="o">=</span> <span class="n">AUD_INTF_WORK_MODE_NULL</span><span class="p">;</span>
+    <span class="n">bk_aud_intf_set_mode</span><span class="p">(</span><span class="n">aud_work_mode</span><span class="p">);</span>
+    <span class="n">bk_aud_intf_drv_deinit</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="h264-encoding-and-decoding">
+<h3>5.4 H264 Encoding and Decoding<a class="headerlink" href="#h264-encoding-and-decoding" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Please refer to the <a class="reference external" href="../../../video_codec/H264_encoding/index.html">H264 encoding</a></p>
+</div></blockquote>
+</section>
+<section id="wifi-transmission">
+<h3>5.5 WIFI transmission<a class="headerlink" href="#wifi-transmission" title="Link to this heading"></a></h3>
+<section id="setting-up-wifi-network-data-transmission-callback">
+<h4>5.5.1 Setting up WIFI network data transmission callback<a class="headerlink" href="#setting-up-wifi-network-data-transmission-callback" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_udp_service</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">doorbell_udp_service_init</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Here</span><span class="p">,</span> <span class="n">we</span> <span class="n">have</span> <span class="nb">set</span> <span class="n">up</span> <span class="n">callbacks</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">and</span> <span class="n">audio</span> <span class="n">data</span> <span class="n">to</span> <span class="n">WIFI</span>
+    <span class="n">doorbell_devices_set_camera_transfer_callback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">doorbell_udp_img_channel</span><span class="p">);</span>
+    <span class="n">doorbell_devices_set_audio_transfer_callback</span><span class="p">(</span><span class="o">&amp;</span><span class="n">doorbell_udp_aud_channel</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+    <span class="o">//</span><span class="n">The</span> <span class="n">callback</span> <span class="k">for</span> <span class="n">the</span> <span class="n">final</span> <span class="n">data</span> <span class="n">transmission</span>
+    <span class="n">media_transfer_send_cb</span> <span class="n">send</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Packaging</span> <span class="n">of</span> <span class="n">Head</span> <span class="ow">and</span> <span class="n">Payload</span> <span class="n">before</span> <span class="n">Data</span> <span class="n">Transmission</span>
+    <span class="n">media_transfer_prepare_cb</span> <span class="n">prepare</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Optimize</span> <span class="n">packet</span> <span class="n">loss</span> <span class="n">handling</span> <span class="k">for</span> <span class="n">latency</span> <span class="n">optimization</span>
+    <span class="n">media_transfer_drop_check_cb</span> <span class="n">drop_check</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Obtain</span> <span class="n">the</span> <span class="n">TX</span> <span class="n">data</span> <span class="n">buffer</span> <span class="n">that</span> <span class="n">needs</span> <span class="n">to</span> <span class="n">be</span> <span class="n">filled</span>
+    <span class="n">media_transfer_get_tx_buf_cb</span> <span class="n">get_tx_buf</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Get</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">TX</span> <span class="n">buffer</span> <span class="n">to</span> <span class="n">be</span> <span class="n">filled</span>
+    <span class="n">media_transfer_get_tx_size_cb</span> <span class="n">get_tx_size</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">data</span> <span class="nb">format</span> <span class="n">of</span> <span class="n">the</span> <span class="n">image</span>
+    <span class="n">pixel_format_t</span> <span class="n">fmt</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">media_transfer_cb_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="obtaining-h264-image-data">
+<h4>5.5.1 Obtaining H264 image data<a class="headerlink" href="#obtaining-h264-image-data" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">wifi_transfer</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">wifi_transfer</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">bk_wifi_transfer_frame_open</span><span class="p">(</span><span class="n">const</span> <span class="n">media_transfer_cb_t</span> <span class="o">*</span><span class="n">cb</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Improve</span> <span class="n">the</span> <span class="n">performance</span> <span class="n">of</span> <span class="n">network</span> <span class="n">image</span> <span class="n">transmission</span>
+    <span class="n">bk_wifi_set_wifi_media_mode</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+    <span class="n">bk_wifi_set_video_quality</span><span class="p">(</span><span class="n">WIFI_VIDEO_QUALITY_SD</span><span class="p">);</span>
+
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Register</span> <span class="n">H264</span> <span class="n">image</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">obtain</span> <span class="n">callback</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_register_read_frame_callback</span><span class="p">(</span><span class="n">cb</span><span class="o">-&gt;</span><span class="n">fmt</span><span class="p">,</span> <span class="n">wifi_transfer_read_frame_callback</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="open-image-data-image-transfer">
+<h4>5.5.2 Open Image Data Image Transfer<a class="headerlink" href="#open-image-data-image-transfer" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_video_transfer_turn_on</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Open</span> <span class="n">image</span> <span class="n">transfer</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">bk_wifi_transfer_frame_open</span><span class="p">(</span><span class="n">db_device_info</span><span class="o">-&gt;</span><span class="n">camera_transfer_cb</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="close-image-data-image-transfer">
+<h4>5.5.2 Close Image Data Image Transfer<a class="headerlink" href="#close-image-data-image-transfer" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_video_transfer_turn_off</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Close</span> <span class="n">image</span> <span class="n">transfer</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">bk_wifi_transfer_frame_close</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../doorbell_8M/index.html" class="btn btn-neutral float-right" title="Doorbell_8M" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Multi-media Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

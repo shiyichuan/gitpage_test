@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Double-Board Intertransfer Mission (Server) &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="LCD_QSPI" href="../lcd_qspi/index.html" />
+    <link rel="prev" title="Double-Board Intertransfer Mission (Client)" href="../av_client/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">Bluetooth</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Multi-media</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../doorbell/index.html">doorbell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_8M/index.html">doorbell_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_720p/index.html">doorbell_720p</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorviewer/index.html">doorviewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorviewer_8M/index.html">doorviewer_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audio_player/index.html">audio_player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../av_client/index.html">av_client</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">av_server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-overview">1 Function Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frame-diagram">2. Frame Diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">3. Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstration-instructions">4. Demonstration Instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-explanation">5. Code Explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_qspi/index.html">lcd_qspi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_8080/index.html">lcd_8080</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_rgb/index.html">lcd_rgb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thirdparty/index.html">thirdparty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/index.html">Peripheral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Multi-media Projects</a></li>
+      <li class="breadcrumb-item active">Double-Board Intertransfer Mission (Server)</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="double-board-intertransfer-mission-server">
+<h1>Double-Board Intertransfer Mission (Server)<a class="headerlink" href="#double-board-intertransfer-mission-server" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/media/av_server/index.html">[中文]</a></p>
+<section id="function-overview">
+<h2>1 Function Overview<a class="headerlink" href="#function-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>This project demonstrates the functionality of unidirectional video transmission and bidirectional audio transmission between two BK7258 boards;
+the server side does not connect to an actual camera (dvp/uvc) and supports the current board to connect to an LCD screen for real-time display of the camera images transmitted from the client side.</p>
+</div></blockquote>
+<section id="specification">
+<h3>1.1 Specification<a class="headerlink" href="#specification" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Hardware Configuration:</dt><dd><ul>
+<li><p>Core board: <strong>BK7258_QFN88_9X9_V3.2</strong></p></li>
+<li><p>Display adapter board: <strong>BK7258_LCD_Interface_V3.0</strong></p></li>
+<li><p>Microphone module board: <strong>BK_Module_Microphone_V1.1</strong></p></li>
+<li><p>Speaker module board: <strong>BK_Module_Speaker_V1.1</strong></p></li>
+<li><p>PSRAM: 8M/16M</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, TCP LAN Image transmission</p></li>
+<li><p>Support, UDP LAN Image transmission</p></li>
+<li><dl class="simple">
+<dt>Support, LCD RGB/MCU I8080 display</dt><dd><ul>
+<li><p>Reference peripheral: <strong>ST7701SN</strong>, 480 * 854 RGB LCD</p></li>
+<li><p>RGB565/RGB888</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, Hardware rotation</dt><dd><ul>
+<li><p>0°, 90°, 180°, 270°</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, Onboard speaker</p></li>
+<li><p>Support, Onboard microphone</p></li>
+<li><dl class="simple">
+<dt>Support, MJPEG Hardware Decoding</dt><dd><ul>
+<li><p>YUV422</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, MJPEG Software Decoding</dt><dd><ul>
+<li><p>YUV420</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="frame-diagram">
+<h2>2. Frame Diagram<a class="headerlink" href="#frame-diagram" title="Link to this heading"></a></h2>
+<section id="software-module-architecture-diagram">
+<h3>2.1 Software Module Architecture Diagram<a class="headerlink" href="#software-module-architecture-diagram" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>As shown in the following figure, av_client is responsible for collecting images from the USB camera and transmitting them to av_server via Wi-Fi.
+At the same time, the av_client’s local lcd displays the collected images, while av_server displays the images transmitted by av_client.</p>
+<ul class="simple">
+<li><p>CPU0 runs Wi-Fi/BLE and serves as the low-power consumption CPU.</p></li>
+<li><p>CPU1 runs multimedia and serves as the high-performance multimedia CPU.</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id1">
+<img alt="module architecture Overview" src="../../../_images/av_architecture.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. software module architecture</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="code-module-relationship-diagram">
+<h3>2.2 Code Module Relationship Diagram<a class="headerlink" href="#code-module-relationship-diagram" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>As shown in the figure below, the interfaces for multimedia are all defined in <strong>media_app.h</strong> and <strong>aud_intf.h</strong>.</p>
+</div></blockquote>
+<figure class="align-center" id="id2">
+<img alt="relationship diagram Overview" src="../../../_images/av_server_framework.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2. module relationship diagram</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="configuration">
+<h2>3. Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="configuration-of-image-transmission-mode">
+<h3>3.1 Configuration of Image Transmission Mode<a class="headerlink" href="#configuration-of-image-transmission-mode" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Under the engineering path at config/bk7258/config, modify the macros to configure the image transmission mode; the current default transmission mode is UDP.</p>
+<p>//Transfer using UDP connections
+CONFIG_AV_DEMO_MODE_UDP=y
+CONFIG_AV_DEMO_MODE_TCP=n</p>
+<p>//Transfer using TCP connections
+CONFIG_AV_DEMO_MODE_UDP=n
+CONFIG_AV_DEMO_MODE_TCP=y</p>
+</div></blockquote>
+</section>
+</section>
+<section id="demonstration-instructions">
+<h2>4. Demonstration Instructions<a class="headerlink" href="#demonstration-instructions" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Two development boards are required for the two-board transmission, with av_client downloaded on Board A and av_server on Board B;</p>
+<p>Board B acts as an AP, with a fixed SSID of “av_demo”, no password, and needs to be powered on in front of Board A; it requires connection to the LCD.</p>
+<p>Board A acts as a STA, fixedly connected to the SSID “av_demo”; it requires connection to the USB camera and LCD.</p>
+<p>After powering on Board A, it defaults to connecting to the WiFi on Board B.
+After successful connection, the camera and LCD on Board A are turned on.
+Once Board A is successfully connected, the LCD on Board B displays the image output from the USB on Board A.</p>
+</div></blockquote>
+</section>
+<section id="code-explanation">
+<h2>5. Code Explanation<a class="headerlink" href="#code-explanation" title="Link to this heading"></a></h2>
+<section id="lcd-display">
+<h3>5.1 LCD Display<a class="headerlink" href="#lcd-display" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Supported Peripherals, please refer to <a class="reference external" href="../../../support_peripherals/index.html">Supported Peripherals</a></p>
+</div></blockquote>
+<section id="open-lcd">
+<h4>5.1.1 Open LCD<a class="headerlink" href="#open-lcd" title="Link to this heading"></a></h4>
+<section id="application-code">
+<h5>5.1.1.1 Application code<a class="headerlink" href="#application-code" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">av_server</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">av_server_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">av_server_display_turn_on</span><span class="p">(</span><span class="n">uint16_t</span> <span class="nb">id</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">fmt</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">pixel</span> <span class="nb">format</span> <span class="k">for</span> <span class="n">display</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">media_app_lcd_fmt</span><span class="p">(</span><span class="n">PIXEL_FMT_RGB565_LE</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">fmt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">media_app_lcd_fmt</span><span class="p">(</span><span class="n">PIXEL_FMT_RGB888</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">rotation</span> <span class="n">angle</span>
+    <span class="n">switch</span> <span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">90</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_90</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">180</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_180</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">270</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_270</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">default</span><span class="p">:</span>
+            <span class="n">rot_angle</span> <span class="o">=</span> <span class="n">ROTATE_NONE</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">media_app_pipline_set_rotate</span><span class="p">(</span><span class="n">rot_angle</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Open</span> <span class="n">the</span> <span class="n">local</span> <span class="n">LCD</span> <span class="n">display</span>
+            <span class="n">media_app_lcd_pipeline_open</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lcd_open</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="interface-code">
+<h5>5.1.1.2 Interface Code<a class="headerlink" href="#interface-code" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipeline_open</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">lcd_open</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_lcd_pipeline_disp_open</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
+
+    <span class="o">//</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_lcd_pipeline_jdec_open</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipeline_disp_open</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">config</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">start</span> <span class="n">CPU1</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vote</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">turned</span> <span class="n">off</span> <span class="n">when</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_LCD</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_ON</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Notify</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">on</span> <span class="n">the</span> <span class="n">LCD</span><span class="o">.</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_PIPELINE_LCD_DISP_OPEN_IND</span><span class="p">,</span> <span class="p">(</span><span class="n">uint32_t</span><span class="p">)</span><span class="n">ptr</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipeline_jdec_open</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">BK_OK</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">start</span> <span class="n">CPU1</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vote</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">turned</span> <span class="n">off</span> <span class="n">when</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_DE</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_ON</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">rotation</span> <span class="n">angle</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_PIPELINE_SET_ROTATE_IND</span><span class="p">,</span> <span class="n">jpeg_decode_pipeline_param</span><span class="o">.</span><span class="n">rotate</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">on</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="ow">and</span> <span class="n">decode</span> <span class="n">modules</span><span class="o">.</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_PIPELINE_LCD_JDEC_OPEN_IND</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="audio">
+<h3>5.2 Audio<a class="headerlink" href="#audio" title="Link to this heading"></a></h3>
+<section id="open-uac-or-onboard-mic-speaker">
+<h4>5.2.1 Open UAC or Onboard MIC/SPEAKER<a class="headerlink" href="#open-uac-or-onboard-mic-speaker" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">av_client</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">av_server_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">av_server_audio_turn_on</span><span class="p">(</span><span class="n">audio_parameters_t</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Enable</span> <span class="n">AEC</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="o">-&gt;</span><span class="n">aec</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">aec_enable</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">aec_enable</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">SPEAKER</span> <span class="n">to</span> <span class="n">single</span><span class="o">-</span><span class="n">ended</span> <span class="n">mode</span><span class="o">.</span>
+    <span class="n">ud_voc_setup</span><span class="o">.</span><span class="n">spk_mode</span> <span class="o">=</span> <span class="n">AUD_DAC_WORK_MODE_SIGNAL_END</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Enable</span> <span class="n">UAC</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="o">-&gt;</span><span class="n">uac</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">mic_type</span> <span class="o">=</span> <span class="n">AUD_INTF_MIC_TYPE_UAC</span><span class="p">;</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">spk_type</span> <span class="o">=</span> <span class="n">AUD_INTF_SPK_TYPE_UAC</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="o">//</span><span class="n">Enable</span> <span class="n">Onboard</span> <span class="n">MIC</span> <span class="ow">and</span> <span class="n">SPEAKER</span>
+    <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">mic_type</span> <span class="o">=</span> <span class="n">AUD_INTF_MIC_TYPE_BOARD</span><span class="p">;</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">spk_type</span> <span class="o">=</span> <span class="n">AUD_INTF_SPK_TYPE_BOARD</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">mic_type</span> <span class="o">==</span> <span class="n">AUD_INTF_MIC_TYPE_BOARD</span> <span class="o">&amp;&amp;</span> <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">spk_type</span> <span class="o">==</span> <span class="n">AUD_INTF_SPK_TYPE_BOARD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">data_type</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">-&gt;</span><span class="n">rmt_recoder_fmt</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">the</span> <span class="n">sampling</span> <span class="n">rate</span>
+    <span class="n">switch</span> <span class="p">(</span><span class="n">parameters</span><span class="o">-&gt;</span><span class="n">rmt_recorder_sample_rate</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="n">DB_SAMPLE_RARE_8K</span><span class="p">:</span>
+            <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">samp_rate</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="n">DB_SAMPLE_RARE_16K</span><span class="p">:</span>
+            <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">samp_rate</span> <span class="o">=</span> <span class="mi">16000</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+        <span class="n">default</span><span class="p">:</span>
+            <span class="n">aud_voc_setup</span><span class="o">.</span><span class="n">samp_rate</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Register</span> <span class="n">MIC</span> <span class="n">data</span> <span class="n">callback</span>
+    <span class="n">aud_intf_drv_setup</span><span class="o">.</span><span class="n">aud_intf_tx_mic_data</span> <span class="o">=</span> <span class="n">av_client_udp_voice_send_callback</span><span class="p">;</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="fetch-uplink-mic-data">
+<h4>5.2.2 Fetch uplink MIC data<a class="headerlink" href="#fetch-uplink-mic-data" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">av_server</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">av_server_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="o">//</span><span class="n">Register</span> <span class="n">MIC</span> <span class="n">data</span> <span class="n">callback</span>
+    <span class="n">aud_intf_drv_setup</span><span class="o">.</span><span class="n">aud_intf_tx_mic_data</span> <span class="o">=</span> <span class="n">av_client_udp_voice_send_callback</span><span class="p">;</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">bk_aud_intf_drv_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">aud_intf_drv_setup</span><span class="p">);</span>
+
+<span class="nb">int</span> <span class="n">av_server_udp_voice_send_callback</span><span class="p">(</span><span class="n">unsigned</span> <span class="n">char</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="nb">len</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">The</span> <span class="n">commonly</span> <span class="n">implemented</span> <span class="n">callback</span> <span class="n">typically</span> <span class="n">involves</span> <span class="n">transmitting</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">WiFi</span> <span class="n">direction</span><span class="o">.</span>
+    <span class="k">return</span> <span class="n">db_device_info</span><span class="o">-&gt;</span><span class="n">audio_transfer_cb</span><span class="o">-&gt;</span><span class="n">send</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">retry_cnt</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="play-downlink-speaker-data">
+<h4>5.2.3 Play downlink SPEAKER data<a class="headerlink" href="#play-downlink-speaker-data" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">av_server</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">av_server_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">void</span> <span class="n">av_server_audio_data_callback</span><span class="p">(</span><span class="n">uint8_t</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Send</span> <span class="n">data</span> <span class="n">to</span> <span class="n">the</span> <span class="n">SPEAKER</span><span class="o">.</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">bk_aud_intf_write_spk_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lcd_qspi/index.html" class="btn btn-neutral float-right" title="LCD_QSPI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../av_client/index.html" class="btn btn-neutral float-left" title="Double-Board Intertransfer Mission (Client)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

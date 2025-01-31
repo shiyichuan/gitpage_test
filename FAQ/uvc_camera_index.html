@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common Problems with UVC &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19145764"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Common Problems with DVP" href="dvp_camera_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">    FAQ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dvp_camera_index.html">DVP_CAMERA</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">UVC_CAMERA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Q&amp;A</a></li>
+      <li class="breadcrumb-item active">Common Problems with UVC</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-problems-with-uvc">
+<h1>Common Problems with UVC<a class="headerlink" href="#common-problems-with-uvc" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../zh_CN/latest/FAQ/uvc_camera_index.html">[中文]</a></p>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>When using UVC, some common issues may arise, and here are some debugging methods provided.</p>
+<p>Q: After calling the UVC open interface, the camera does not enumerate (no prompt of successful connection)</p>
+<p>A: This kind of problem is usually due to the camera not being powered on or insufficient power supply.
+It is recommended to supply 5.0V of voltage to the USB. The BK7258 controls the USB LDO through GPIO28,
+which can enable the USB power by pulling it high, and can shutdown the USB power by pulling it low.
+This can be configured through macros:</p>
+<p>Q: Enumeration was successful, but no image is displayed.</p>
+<p>A: This issue usually requires checking if the parameters are configured incorrectly, such as the camera not supporting the resolution you have configured,
+which would then require you to reconfigure it. When the resolution is configured incorrectly, you will see the following log: “uvc_camera_set_param,
+not support this format or resolution, please check!”. If this is not the case, you may need to capture packets to analyze whether the UVC data packets are normal,
+including headers and valid data, and that the valid data is within the normal range.</p>
+<p>Q: The frame rate is lower than expected.</p>
+<p>A: The “expected” refers to the frame rate in comparison to a PC, for example, if you configure it to 30fps but the actual output is only half that or much lower,
+plug it into the computer to analyze whether the frame rate is also low on the computer, which can help rule out issues with the camera itself. If it’s not an issue with the camera itself, then consider whether it’s a problem with the SDK. This requires log analysis or packet capture analysis using a protocol analyzer.</p>
+<p>Q: There are abnormal screen cutting issues in the image, and the image is incomplete.</p>
+<p>A: This situation usually requires checking if there are any misconfigurations in the transmission mode, ISO/BULK,
+and then checking if there are any errors in the upper layer unpacking logic.</p>
+<p>Q: The image displays abnormal halos and distortions.</p>
+<p>A: This is generally considered an issue with the camera itself. Try plugging it into a PC to analyze whether the same problem occurs.</p>
+<p>Q: The related to a log message: “bk_video_camera_packet_malloc, index:x [x,x,x,x]” or an abnormal screen switching during image synchronization.</p>
+<p>A: The cause of this issue is that when USB is requesting packets to store in the FIFO (First-In-First-Out) buffer,
+it cannot get them because all the packets are in use, with no free packets available. The underlying reasons are two-fold:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The consumption (parsing) efficiency of the packets already stored in the FIFO is too low, or it is stuck, leading to all the free packets being consumed, with the packet pool filled with packets waiting to be parsed. Reference code: “ ./bk_idk/middleware/driver/uvc_camera.c”, parsing function: uvc_camera_process_packet_handler(), analyze if this parsing function is stuck.</p></li>
+<li><p>Another reason is packet leakage, which can occur when the uvc_class runs on cpu1, while the uvc_driver runs on cpu0 or cpu2. The interaction between these two requires a mailbox, and if there is an abnormal mailbox operation, packet leakage may occur. Reference error log: “ [=] bk_usb_mailbox_video_camera_packet_push WAIT TIMEOUT”. The solution is that when it’s impossible to obtain a free packet, the state of the packets in the packet pool should be reset. Reference code as follows:</p></li>
+</ul>
+</div></blockquote>
+<p>The following macro defines the number of packets in the packet pool. Here is the translation into English:</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">bk_idk</span><span class="o">/</span><span class="n">middleware</span><span class="o">/</span><span class="n">driver</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">video_common_driver</span><span class="o">.</span><span class="n">c</span>
+
+<span class="n">camera_packet_t</span> <span class="o">*</span><span class="n">bk_video_camera_packet_malloc</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">malloc</span> <span class="n">a</span> <span class="n">free</span> <span class="n">packet</span> <span class="n">to</span> <span class="n">save</span> <span class="n">uvc</span> <span class="n">fifo</span> <span class="n">data</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span> <span class="k">while</span> <span class="n">can</span> <span class="ow">not</span> <span class="n">malloc</span> <span class="n">free</span> <span class="n">packet</span><span class="p">,</span> <span class="n">will</span> <span class="n">merge</span> <span class="n">other</span> <span class="n">state</span> <span class="n">packets</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">list_cnt</span><span class="p">)</span>
+    <span class="p">{</span>
+         <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">list_cnt</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+         <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">camera_packet_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">packet_state</span> <span class="o">==</span> <span class="n">CAM_STREAM_READY</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">LOGW</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, index:</span><span class="si">%d</span><span class="s2"> [</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,</span><span class="si">%d</span><span class="s2">]</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="vm">__func__</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="n">camera_packet_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">packet_state</span><span class="p">,</span>
+                        <span class="n">camera_packet_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">packet_state</span><span class="p">,</span>
+                        <span class="n">camera_packet_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">packet_state</span><span class="p">,</span>
+                        <span class="n">camera_packet_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">packet_state</span><span class="p">);</span>
+                <span class="n">camera_packet_list</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">packet_state</span> <span class="o">=</span> <span class="n">CAM_STREAM_IDLE</span><span class="p">;</span>
+                <span class="n">i</span><span class="o">--</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+         <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<blockquote>
+<div><p>Q: When using UVC for H.264 pipeline encoding, the log “h264_encode_finish_handle 26430-65536, error:1” is printed.</p>
+<p>A: There are two reasons for this log message:</p>
+<ul>
+<li><p>One is that when the first number (26430) is greater than the second number (65536), it indicates that the length of the I frame is greater than the length of the frame_buffer (the second number).</p>
+<p>Modification method: Increase the value of the macro CONFIG_H264_FRAME_SIZE to a larger number.</p>
+</li>
+<li><p>The other is that “error:” has a value of 1, indicating that the length of the decoded JPEG image is incorrect. This suggests that the JPEG image has padding bits. To prevent image anomalies, the decoder performs strict length checks on the image internally.</p></li>
+</ul>
+<p>Modification method: It is recommended to modify the camera firmware to ensure that the UVC output JPEG image does not have padding bits.
+Such padding bits are usually at the end and are either 0xFF or 0x00.</p>
+<p>Another method is to lower the internal length check mechanism of the decoder, which is not recommended as it may lead to JPEG anomalies causing the screen to display incorrectly.
+Reference code modification.</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">path</span>        <span class="p">:</span> <span class="n">bk_idk</span><span class="o">/</span><span class="n">middleware</span><span class="o">/</span><span class="n">driver</span><span class="o">/</span><span class="n">jpeg_dec_driver</span><span class="o">.</span><span class="n">c</span>
+
+<span class="nb">bool</span> <span class="n">jpeg_dec_comp_status</span><span class="p">(</span><span class="n">uint8_t</span> <span class="o">*</span><span class="n">src</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">src_size</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">dec_size</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">max</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">strip</span> <span class="o">+</span> <span class="n">dec_size</span> <span class="o">==</span> <span class="n">src_size</span> <span class="o">-</span> <span class="n">JPEG_TAIL_SIZE</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">max</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">src_size</span> <span class="o">-</span> <span class="n">dec_size</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">src</span><span class="p">[</span><span class="n">src_size</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x00</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">LOGD</span><span class="p">(</span><span class="s2">&quot;decoder_error, </span><span class="si">%u</span><span class="s2">, </span><span class="si">%u</span><span class="s2">, </span><span class="si">%u</span><span class="s2">, </span><span class="si">%u</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">src_size</span><span class="p">,</span> <span class="n">dec_size</span><span class="p">,</span> <span class="n">strip</span><span class="p">,</span> <span class="nb">max</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<blockquote>
+<div><p>Q: In BULK transmission, the image is displayed normally on the PC end, but not on the board,
+and the log prints “uvc_drv:W(18012):seq:0 ok:39654, error:0, emp:70614, eof_not_ffd9:0, end_not_ffd9:xxxx”;</p>
+<p>A: In the above log, the seq is always 0, indicating that no images are output. The ok value is not 0 and keeps increasing,
+which means that normal data is being transmitted over USB. The end_not_ffd9 value is not 0 and keeps increasing,
+indicating an abnormal packet parsing. The general cause of this problem is typically that there are empty packets
+(only containing header but no valid data) in the transmission. For BULK transmission, the current firmware defaults to not allow
+the transmission of empty packets. It is recommended to modify the firmware to ensure no empty packets are transmitted;
+alternatively, you can disable the macro CONFIG_UVC_CHECK_BULK_JPEG_HEADER.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="dvp_camera_index.html" class="btn btn-neutral float-left" title="Common Problems with DVP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

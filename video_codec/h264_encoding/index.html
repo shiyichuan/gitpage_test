@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H264 Encoding &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="H264 Decoding" href="../h264_decoding/index.html" />
+    <link rel="prev" title="Video Codec" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Video Codec</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">H264 Encode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#function-overview">1. Function overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#develop-materials">2. Develop materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-description">3. Interface description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-gear-adjust">4. Code gear adjust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjustment-of-p-frame-count">5.Adjustment of P-Frame Count</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#suggestions-for-adjusting-image-quality">6.Suggestions for Adjusting Image Quality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../h264_decoding/index.html">H264 Decode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jpeg_encoding/index.html">JPEG Eecode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jpeg_decoding_sw/index.html">JPEG Decode SW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jpeg_encoding_sw/index.html">JPEG Encode SW</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Video Codec</a></li>
+      <li class="breadcrumb-item active">H264 Encoding</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="h264-encoding">
+<h1>H264 Encoding<a class="headerlink" href="#h264-encoding" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/video_codec/h264_encoding/index.html">[中文]</a></p>
+<section id="function-overview">
+<h2>1. Function overview<a class="headerlink" href="#function-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>h264 coding is mainly used to encode YUV422 data through hardware, output h264 image data, and compress image data</p>
+</div></blockquote>
+</section>
+<section id="develop-materials">
+<h2>2. Develop materials<a class="headerlink" href="#develop-materials" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Currently avdk provides a detailed sdk interface, refer to the file path:<cite>.bk_idkmiddlewaredriverh264</cite></p>
+<p>In order to facilitate the use of customers, re-packaging the coding function, the current only need to switch the camera, and then for the image quality, also provide an api interface to adjust, reference <a class="reference external" href="file:.componentsmultimediaappmedia_app.c">file:.componentsmultimediaappmedia_app.c</a> ‘</p>
+</div></blockquote>
+</section>
+<section id="interface-description">
+<h2>3. Interface description<a class="headerlink" href="#interface-description" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Debugging description based on h264 image quality: media_app_set_compression_ratio</p>
+<p>Structure parameter description: <code class="docutils literal notranslate"><span class="pre">compress_ratio_t</span></code></p>
+<ul class="simple">
+<li><p>yuv_mode_t mode:              The current mode to be adjusted. Only JPEG and H264 are supported. Select H264</p></li>
+<li><p>h264_qp_t  h264_qp:   The qp value of h264 encode value</p></li>
+<li><p>uint8_t    enable:    enables compression adjustment, which is supported only in JPEG mode</p></li>
+<li><p>uint16_t   jpeg_up:   Upper limit of data JPEG image size, in byte, valid only in JPEG mode</p></li>
+<li><p>uint16_t   jpeg_low:  Lower limit of data JPEG image size, in byte, valid only in JPEG mode</p></li>
+<li><p>uint16_t   imb_bits:  The size of the I frame macro block encoded by H264, in byte. This parameter is valid only in H264 mode. The larger the value, the smaller the compression rate, the higher the image quality and the larger the encoded output image, range [1, 4095].</p></li>
+<li><p>uint16_t   pmb_bits:  The size of the H264 output P-frame macro block, in byte, is valid only in H264 mode. The larger the value, the smaller the compression rate, the higher the image quality, and the larger the encoded output image, range [1, 4095].</p></li>
+</ul>
+<p>Structure parameter description: <code class="docutils literal notranslate"><span class="pre">h264_qp_t</span></code></p>
+<ul class="simple">
+<li><p>uint8_t init_qp;              The init qp value,range [0, 51];</p></li>
+<li><p>uint8_t i_min_qp;             The minimum qp of I frame encode, range [0, 51];</p></li>
+<li><p>uint8_t i_max_qp;             The maximum qp of I frame encode, range [0, 51];</p></li>
+<li><p>uint8_t p_min_qp;             The minimum qp of P frame encode, range [0, 51];</p></li>
+<li><p>uint8_t p_max_qp;             The maximum qp of P frame encode, range [0, 51];</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition to paying attention to the valid range of the above values, it is also necessary to pay attention to the maximum value of the corresponding encoding
+must be greater than the minimum value. The image quality can be adjusted through the above interface. It should be noted that improving the image quality will
+undoubtedly increase the amount of data. At present, the maximum output space of a frame of yuv422 data encoding is 64KB.
+The encoded H264 image output is larger than 64K, and there will be instability.</p>
+</div>
+</section>
+<section id="code-gear-adjust">
+<h2>4. Code gear adjust<a class="headerlink" href="#code-gear-adjust" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The default SDK provides the configuration of h264 encoded gear adjustment, which is defined by the configuration macro: <code class="docutils literal notranslate"><span class="pre">CONFIG_H264_QUALITY_LEVEL</span></code>, which is described as follows:</p>
+<ul class="simple">
+<li><p>Value range: [0, 3], define three gears, the values are 1/2/3, corresponding to the h264 compressed image quality from low to high, the clearer the image is.</p></li>
+<li><p>If CONFIG_H264_QUALITY_LEVEL=0, the default value is used instead of the three-gear parameter. The default value reference path: <code class="docutils literal notranslate"><span class="pre">.\bk_idk\middleware\soc\bk7258\hal\h264_default_config.h</span></code>, you can change the default value to achieve the desired effect.</p></li>
+<li><p>The default SDK gear is defined in the middle gear, CONFIG_H264_QUALITY_LEVEL=2. You can change this value in project config.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="adjustment-of-p-frame-count">
+<h2>5.Adjustment of P-Frame Count<a class="headerlink" href="#adjustment-of-p-frame-count" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Under the default SDK configuration, the number of P-frames per GOP in H264 encoding is 5, which can be adjusted through the macro: <code class="docutils literal notranslate"><span class="pre">CONFIG_H264_P_FRAME_CNT</span></code>.
+The valid range is [0, 1023]. Increasing the number of P-frames can lead to a reduction in the overall bitrate of the encoded output.</p>
+</div></blockquote>
+</section>
+<section id="suggestions-for-adjusting-image-quality">
+<h2>6.Suggestions for Adjusting Image Quality<a class="headerlink" href="#suggestions-for-adjusting-image-quality" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The SDK provides three predefined H264 image quality levels, which can be controlled through the macro: <code class="docutils literal notranslate"><span class="pre">CONFIG_H264_QUALITY_LEVEL</span></code>.
+Adjusting image quality primarily involves parameters within the structure of: <code class="docutils literal notranslate"><span class="pre">compress_ratio_t</span></code>.</p>
+<p>Debugging Steps:</p>
+<p>1.Adjust the number of P-frames: Increase the number of P-frames based on the variation in image content to reduce bitrate.</p>
+<p>2.Adjust the frame buffer size: The default is 64K. Adjust it as needed to prevent I-frames from being too large and causing the output to fail. It is recommended to set the CONFIG_H264_FRAME_SIZE to 102400 (100K).</p>
+<p>3.Configure the H264 image quality level: Use CONFIG_H264_QUALITY_LEVEL=0 to use the SDK’s original encoding parameters.</p>
+<p>4.Real-time compression rate adjustment: Monitor image quality and bitrate simultaneously, and use a controlled variable method to change one parameter at a time.</p>
+<p>5.Obtain/configure encoding parameters: Use the command-line tool to get encoding parameters. To obtain: media h264 get_config, and to configure: media compress h264 init_qp iframe_max_qp pframe_max_qp num_ibits num_pbits.</p>
+<p>6.Adjust the initial quantization parameter (init_qp): Start from 1 and increase by 5 each time, with a maximum value of no more than 51 until the image does not show obvious macroblock motion.</p>
+<p>7.Adjust the I-frame encoding parameter (num_ibits): Increase this value by 20 each time until the image quality is satisfactory, but be cautious not to increase it too much to avoid increased bitrate, with a suggested maximum value of no more than 200.</p>
+<p>8.Adjust the P-frame encoding parameter (num_pbits): Adjust this similarly, but be cautious not to increase it too much to avoid increased bitrate; a suggested maximum value is no more than 150.</p>
+<p>9.Repeat steps 7-8: Continue adjusting until the best parameters are found.</p>
+<p>10.Adjust the maximum quantization parameters for I-frames and P-frames (iframe_max_qp and pframe_max_qp): Reducing these values can improve image quality, but will also increase bitrate. These should not be set lower than 32.</p>
+<p>11.Adjust the frame buffer size: After achieving the final effect, if the I-frame size does not exceed 64K, you can revert it to the default value CONFIG_H264_FRAME_SIZE=65536 (64K).</p>
+<p>Through these steps, you can optimize the number of P-frames and image quality in the H264 encoding process to meet specific application requirements.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../h264_decoding/index.html" class="btn btn-neutral float-right" title="H264 Decoding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Video Codec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

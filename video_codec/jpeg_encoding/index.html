@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JPEG Encoding &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="JPEG Decode SW" href="../jpeg_decoding_sw/index.html" />
+    <link rel="prev" title="H264 Decoding" href="../h264_decoding/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Video Codec</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../h264_encoding/index.html">H264 Encode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../h264_decoding/index.html">H264 Decode</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">JPEG Eecode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#function-overview">1. Function overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#develop-materials">2. Develop materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-description">3. Interface description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#driver-code">4. Driver code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../jpeg_decoding_sw/index.html">JPEG Decode SW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jpeg_encoding_sw/index.html">JPEG Encode SW</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Video Codec</a></li>
+      <li class="breadcrumb-item active">JPEG Encoding</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jpeg-encoding">
+<h1>JPEG Encoding<a class="headerlink" href="#jpeg-encoding" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/video_codec/jpeg_encoding/index.html">[中文]</a></p>
+<section id="function-overview">
+<h2>1. Function overview<a class="headerlink" href="#function-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>JPEG encoding is mainly used to encode YUV422 data through hardware, output JPEG image data, and compress image data. At present, JPEG function is mainly used in DVP camera, DVP camera output YUV422 data to</p>
+</div></blockquote>
+<p>Chip, chip compression into JPEG image. It also supports compression of external YUV422 data into JPEG images. Since BK7258 has a module, YUV_BUF, that deals specifically with YUV data, the JPEG module also needs to rely on it.</p>
+</section>
+<section id="develop-materials">
+<h2>2. Develop materials<a class="headerlink" href="#develop-materials" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Currently avdk provides a detailed sdk interface, reference file path:<code class="docutils literal notranslate"><span class="pre">.\bk_idk\include\driver\jpeg_enc.h</span></code>,
+<code class="docutils literal notranslate"><span class="pre">.\bk_idk\include\driver\jpeg_enc.h</span></code>.</p>
+<p>In order to facilitate the use of customers, re-packaging the coding function, the current only need to switch the camera,
+and then for the image quality, also provide an api interface to adjust, reference file:<code class="docutils literal notranslate"><span class="pre">.\components\multimedia\app\media_app.c</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="interface-description">
+<h2>3. Interface description<a class="headerlink" href="#interface-description" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>BK7258 supports the encoding of DVP camera data into JPEG, H264 and synchronous output of YUV422 data for LCD display.</p>
+</div></blockquote>
+<ul>
+<li><p>Open DVP camera interface:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_camera_open</span><span class="p">(</span><span class="n">media_camera_device_t</span> <span class="o">*</span><span class="n">device</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Close DVP camera interface:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_camera_close</span><span class="p">(</span><span class="n">camera_type_t</span> <span class="nb">type</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>You need to pay attention to the data structure passed into the parameter</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span>
+<span class="p">{</span>
+        <span class="n">UNKNOW_CAMERA</span><span class="p">,</span>
+        <span class="n">DVP_CAMERA</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">dvp</span> <span class="n">camera</span> <span class="o">*/</span>
+        <span class="n">UVC_CAMERA</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">uvc</span> <span class="n">camera</span> <span class="o">*/</span>
+        <span class="n">NET_CAMERA</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">net</span> <span class="n">camera</span><span class="p">,</span> <span class="n">use</span> <span class="n">dual</span> <span class="n">chip</span> <span class="n">transfer</span> <span class="n">each</span> <span class="n">other</span><span class="o">*/</span>
+<span class="p">}</span> <span class="n">camera_type_t</span><span class="p">;</span>
+
+<span class="n">typedef</span> <span class="n">enum</span>
+<span class="p">{</span>
+        <span class="n">UNKNOW_MODE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">YUV_MODE</span><span class="p">,</span>     <span class="o">/**&lt;</span> <span class="n">output</span> <span class="n">yuv</span> <span class="n">data</span> <span class="o">*/</span>
+        <span class="n">GRAY_MODE</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">output</span> <span class="n">gray</span> <span class="n">data</span> <span class="o">*/</span>
+        <span class="n">JPEG_MODE</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">output</span> <span class="n">jpeg</span> <span class="n">data</span> <span class="o">*/</span>
+        <span class="n">H264_MODE</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">output</span> <span class="n">h264</span> <span class="n">data</span> <span class="o">*/</span>
+        <span class="n">H265_MODE</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">output</span> <span class="n">h265</span> <span class="n">data</span> <span class="o">*/</span>
+        <span class="n">JPEG_YUV_MODE</span><span class="p">,</span><span class="o">/**&lt;</span> <span class="n">output</span> <span class="n">jpeg</span> <span class="o">&amp;</span> <span class="n">yuv</span> <span class="n">data</span> <span class="o">*/</span>
+        <span class="n">H264_YUV_MODE</span><span class="p">,</span><span class="o">/**&lt;</span> <span class="n">output</span> <span class="n">h264</span> <span class="o">&amp;</span> <span class="n">yuv</span> <span class="n">data</span> <span class="o">*/</span>
+<span class="p">}</span> <span class="n">yuv_mode_t</span><span class="p">;</span>
+
+<span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+        <span class="n">camera_type_t</span>  <span class="nb">type</span><span class="p">;</span> <span class="o">/**&lt;</span> <span class="n">camera</span> <span class="nb">type</span> <span class="o">*/</span>
+        <span class="n">yuv_mode_t</span>     <span class="n">mode</span><span class="p">;</span> <span class="o">/**&lt;</span> <span class="n">work</span> <span class="n">mode</span> <span class="o">*/</span>
+        <span class="n">pixel_format_t</span> <span class="n">fmt</span><span class="p">;</span>  <span class="o">/**&lt;</span> <span class="n">camera</span> <span class="n">output</span> <span class="n">data</span> <span class="nb">format</span> <span class="o">*/</span>
+        <span class="n">frame_info_t</span>   <span class="n">info</span><span class="p">;</span> <span class="o">/**&lt;</span> <span class="n">camera</span> <span class="n">output</span> <span class="n">resolution</span> <span class="ow">and</span> <span class="n">fps</span> <span class="o">*/</span>
+<span class="p">}</span> <span class="n">media_camera_device_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>According to the above data structure, the corresponding parameters are configured and passed into the interface to achieve
+the corresponding expected result. For example, the current use of DVP camera, then the camera type is DVP_CAMERA,
+if you want to output JPEG and YUV data, Then the yuv mode is set to JPEG_YUV_MODE, or if only JPEG images are needed,
+the yuv mode is set to YUV_MODE.</p>
+<ul>
+<li><p>Interface for adjusting compression rate</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_set_compression_ratio</span><span class="p">(</span><span class="n">compress_ratio_t</span> <span class="o">*</span><span class="n">ratio</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>According to the data structure of the passed parameters, the compression rate adjustment is supported in both JPEG and H264,
+and this interface supports calling during the encoding process.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">struct</span> <span class="p">{</span>
+        <span class="n">yuv_mode_t</span> <span class="n">mode</span><span class="p">;</span>   <span class="o">/**&lt;</span> <span class="n">The</span> <span class="n">mode</span> <span class="n">to</span> <span class="n">be</span> <span class="n">adjusted</span><span class="o">.</span> <span class="n">Only</span> <span class="n">JPEG_MODE</span> <span class="ow">and</span> <span class="n">H264_MODE</span> <span class="o">*/</span> <span class="n">are</span> <span class="n">supported</span>
+        <span class="n">h264_qp_t</span> <span class="n">qp</span><span class="p">;</span>      <span class="o">/**&lt;</span> <span class="n">The</span> <span class="n">initial</span> <span class="n">qp</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">h264</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">the</span> <span class="n">smaller</span> <span class="n">the</span> <span class="n">qp</span> <span class="n">value</span><span class="p">,</span> <span class="n">the</span> <span class="n">larger</span> <span class="n">the</span> <span class="n">compression</span> <span class="n">rate</span> <span class="o">*/</span>
+        <span class="n">uint8_t</span>  <span class="n">enable</span><span class="p">;</span>   <span class="o">/**&lt;</span> <span class="n">Enable</span> <span class="n">encoding</span> <span class="n">adjustment</span> <span class="o">*/</span>
+        <span class="n">uint16_t</span> <span class="n">jpeg_up</span><span class="p">;</span>  <span class="o">/**&lt;</span> <span class="n">Adjust</span> <span class="n">the</span> <span class="n">upper</span> <span class="n">limit</span> <span class="n">of</span> <span class="n">jpeg</span> <span class="n">compression</span><span class="p">,</span> <span class="n">target</span> <span class="n">image</span> <span class="n">output</span> <span class="n">size</span><span class="p">,</span> <span class="ow">in</span> <span class="n">byte</span> <span class="o">*/</span>
+        <span class="n">uint16_t</span> <span class="n">jpeg_low</span><span class="p">;</span> <span class="o">/**&lt;</span> <span class="n">Adjust</span> <span class="n">the</span> <span class="n">upper</span> <span class="n">limit</span> <span class="n">of</span> <span class="n">jpeg</span> <span class="n">compression</span><span class="p">,</span> <span class="n">target</span> <span class="n">image</span> <span class="n">output</span> <span class="n">size</span><span class="p">,</span> <span class="ow">in</span> <span class="n">byte</span> <span class="o">*/</span>
+        <span class="n">uint16_t</span> <span class="n">imb_bits</span><span class="p">;</span> <span class="o">/**&lt;</span> <span class="n">h264</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">upper</span> <span class="n">limit</span> <span class="n">of</span> <span class="n">target</span> <span class="n">I</span> <span class="n">frame</span> <span class="n">output</span> <span class="n">size</span><span class="p">,</span> <span class="n">unit</span> <span class="n">byte</span> <span class="o">*/</span>
+        <span class="n">uint16_t</span> <span class="n">pmb_bits</span><span class="p">;</span> <span class="o">/**&lt;</span> <span class="n">h264</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">upper</span> <span class="n">limit</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">target</span> <span class="n">P</span><span class="o">-</span><span class="n">frame</span><span class="p">,</span> <span class="n">unit</span> <span class="n">byte</span> <span class="o">*/</span>
+<span class="p">}</span> <span class="n">compress_ratio_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>According to the above data structure, the corresponding parameters are configured and passed into the interface to achieve
+the corresponding expected result. For example, adjust the JPEG encoding compression rate, mode set to JPEG_MODE, jpeg encoding process,
+when output a frame. If the size of the image exceeds jpeg_up, it is further compressed so that the amount of data is no more than
+jpeg_up and no less than jpeg_low.</p>
+</section>
+<section id="driver-code">
+<h2>4. Driver code<a class="headerlink" href="#driver-code" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>DVP camera driver code path:<code class="docutils literal notranslate"><span class="pre">.\bk_idk\middleware\camera\dvp_camera.c</span></code>.</p>
+<p>Underlying driver ocde path:<code class="docutils literal notranslate"><span class="pre">.\bk_idk\middleware\jpeg</span></code>, <code class="docutils literal notranslate"><span class="pre">.\bk_idk\middleware\yuv_buf</span></code>.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../jpeg_decoding_sw/index.html" class="btn btn-neutral float-right" title="JPEG Decode SW" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../h264_decoding/index.html" class="btn btn-neutral float-left" title="H264 Decoding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

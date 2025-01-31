@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agora-iot-sdk demo &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Wanson asr demo" href="../wanson_asr/index.html" />
+    <link rel="prev" title="thirdparty projects code" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../media/index.html">Multi-media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">thirdparty</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">agora</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#functional-overview">1 Functional Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-path">2 Code Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cli-command-introduction">3 Cli command introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstration-introduction">4. Demonstration introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#audio-configuration">5. Audio configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#video-configuration">6. Video configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference-materials">7. Reference materials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../wanson_asr/index.html">wanson-asr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2/index.html">doorbell_cs2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2_8M/index.html">doorbell_cs2_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2_720p/index.html">doorbell_cs2_720p</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/index.html">Peripheral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">thirdparty projects code</a></li>
+      <li class="breadcrumb-item active">Agora-iot-sdk demo</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="agora-iot-sdk-demo">
+<h1>Agora-iot-sdk demo<a class="headerlink" href="#agora-iot-sdk-demo" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/thirdparty/agora/index.html">[中文]</a></p>
+<section id="functional-overview">
+<h2>1 Functional Overview<a class="headerlink" href="#functional-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The sound network-based Agora-IoT-SDK connecting sound network cloud to realize the one-way diagram of equipment, mobile phone voice calls and equipment to mobile phones and rotate display</p>
+</div></blockquote>
+</section>
+<section id="code-path">
+<h2>2 Code Path<a class="headerlink" href="#code-path" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>demo path: <code class="docutils literal notranslate"><span class="pre">\projects\thirdparty\agora</span></code></p>
+<p>For the detailed description of the API interface of the Agora-iot-sdk library, please refer to the source file: <code class="docutils literal notranslate"><span class="pre">\components\bk_thirdparty\agora-iot-sdk\include\agora_rtc_api.h</span></code></p>
+</div></blockquote>
+</section>
+<section id="cli-command-introduction">
+<h2>3 Cli command introduction<a class="headerlink" href="#cli-command-introduction" title="Link to this heading"></a></h2>
+<p>The commands supported by the demo are as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>agora_test {audio start|stop appid audio_type sampple_rate aec_en}</p></td>
+<td><p>voice call</p></td>
+</tr>
+<tr class="row-odd"><td><p>agora_test {video start|stop appid video_type video_ppi}</p></td>
+<td><p>image transmission</p></td>
+</tr>
+<tr class="row-even"><td><p>agora_test {both start|stop appid audio_type sample_rate video_type video_ppi aec_en lcd_ppi lcd_driver}</p></td>
+<td><p>voice call, image transmission and rotate display</p></td>
+</tr>
+</tbody>
+</table>
+<p>The command parameters are described as follows:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>appid</p></td>
+<td><p>an appid for registration</p></td>
+</tr>
+<tr class="row-even"><td><p>audio_type</p></td>
+<td><dl class="simple">
+<dt>mic and speaker type:</dt><dd><ul class="simple">
+<li><p>0: <code class="docutils literal notranslate"><span class="pre">onboard</span></code></p></li>
+<li><p>1: <code class="docutils literal notranslate"><span class="pre">UAC</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>sampple_rate</p></td>
+<td><dl class="simple">
+<dt>sample rate:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">8000</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">16000</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>aec_en</p></td>
+<td><dl class="simple">
+<dt>AEC function control:</dt><dd><ul class="simple">
+<li><p>0: <code class="docutils literal notranslate"><span class="pre">disable</span> <span class="pre">AEC</span></code></p></li>
+<li><p>1: <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">AEC</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>video_type</p></td>
+<td><dl class="simple">
+<dt>camera type:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">APP_CAMERA_DVP_JPEG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">APP_CAMERA_DVP_YUV</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">APP_CAMERA_UVC_MJPEG</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>video_ppi</p></td>
+<td><dl class="simple">
+<dt>resolution:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_320X240</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_320X480</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_480X320</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_480X480</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_480X800</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_640X480</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_800X480</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>lcd_driver</p></td>
+<td><dl class="simple">
+<dt>lcd driver name:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">st7282</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gc9503v</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h050iwv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hx8282</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">md0430r</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">md0700r</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nt35512</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nt35510</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">st7796s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">st7710s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">st7701s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sn5st7701s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">st7701s_ly</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>lcd_ppi</p></td>
+<td><dl class="simple">
+<dt>resolution:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_320X240</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_320X480</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_480X320</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_480X480</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_480X800</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_640X480</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPI_800X480</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Project Compilation instruction: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">bk7258</span> <span class="pre">PROJECT</span> <span class="pre">=</span> <span class="pre">thirdparty/agora</span></code></p>
+</section>
+<section id="demonstration-introduction">
+<h2>4. Demonstration introduction<a class="headerlink" href="#demonstration-introduction" title="Link to this heading"></a></h2>
+<p>The preparation of DEMO execution is as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1.Prepare the Android machine that can be connected to the external network and install the APK <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Live</span></code> to test the test</p></li>
+<li><p>2.Go to Agora official website to register to apply for testing for testing <code class="docutils literal notranslate"><span class="pre">appid</span></code> , please refer to the information below for detailed operation</p></li>
+<li><p>3.Prepare to access the 2.4GHz hotspot of the external network for Demo board connection and use</p></li>
+</ul>
+</div></blockquote>
+<p>The steps of demo execution are as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Mobile APK configuration</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Live</span></code> APK, enter the registration application <code class="docutils literal notranslate"><span class="pre">appid</span></code> , click <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to enter</p></li>
+<li><p>Enter Channel name `` hello_bk7258demo`` , click Join ROOM to enter, select <code class="docutils literal notranslate"><span class="pre">BroadCaster</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>2.Demo board wifi connection</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>DEMO board sending instructions <code class="docutils literal notranslate"><span class="pre">sta</span> <span class="pre">test</span> <span class="pre">xxxxxxx</span></code> connect 2.4GHz hot spots named TEST</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Open and close voice calls</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>The demo board sends the command <code class="docutils literal notranslate"><span class="pre">agora_test</span> <span class="pre">audio</span> <span class="pre">start</span> <span class="pre">appid</span> <span class="pre">audio_type</span> <span class="pre">sample_rate</span> <span class="pre">aec_en</span></code> to open the voice call</p></li>
+<li><p>The demo board sends the command <code class="docutils literal notranslate"><span class="pre">agora_test</span> <span class="pre">audio</span> <span class="pre">stop</span> <span class="pre">appid</span> <span class="pre">audio_type</span> <span class="pre">sample_rate</span> <span class="pre">aec_en</span></code> to close the voice call</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Turn on and off video transmission</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>The demo board sends the command <code class="docutils literal notranslate"><span class="pre">agora_test</span> <span class="pre">video</span> <span class="pre">start</span> <span class="pre">appid</span> <span class="pre">video_type</span> <span class="pre">video_ppi</span></code> to open the image transmission</p></li>
+<li><p>The demo board sends the command <code class="docutils literal notranslate"><span class="pre">agora_test</span> <span class="pre">video</span> <span class="pre">stop</span> <span class="pre">appid</span> <span class="pre">video_type</span> <span class="pre">video_ppi</span></code> to close the image transmission</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Turn on and off voice call and image transmission</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>The demo board sends the command <code class="docutils literal notranslate"><span class="pre">agora_test</span> <span class="pre">both</span> <span class="pre">start</span> <span class="pre">appid</span> <span class="pre">audio_type</span> <span class="pre">sample_rate</span> <span class="pre">video_type</span> <span class="pre">video_ppi</span> <span class="pre">aec_en</span> <span class="pre">lcd_ppi</span> <span class="pre">lcd_driver</span></code> to open voice call, image transmission and rotate display</p></li>
+<li><p>The demo board sends the command <code class="docutils literal notranslate"><span class="pre">agora_test</span> <span class="pre">both</span> <span class="pre">stop</span> <span class="pre">appid</span> <span class="pre">audio_type</span> <span class="pre">sample_rate</span> <span class="pre">video_type</span> <span class="pre">video_ppi</span> <span class="pre">aec_en</span> <span class="pre">lcd_ppi</span> <span class="pre">lcd_driver</span></code> to turn off voice calls, image transmission and rotate display</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="audio-configuration">
+<h2>5. Audio configuration<a class="headerlink" href="#audio-configuration" title="Link to this heading"></a></h2>
+<p>The audio code in the demo is developed based on the <code class="docutils literal notranslate"><span class="pre">aud_intf</span></code> component. By configuring the input parameters of the <code class="docutils literal notranslate"><span class="pre">bk_aud_intf_voc_init</span></code> interface, the selection of mic and speaker types and the setting of the sampling rate can be realized.</p>
+<dl class="simple">
+<dt>The supported sample rates are as follows:</dt><dd><ul class="simple">
+<li><p>1.AUD_INTF_VOC_SAMP_RATE_8K: 8K sampling rate (recommended configuration)</p></li>
+<li><p>2.AUD_INTF_VOC_SAMP_RATE_16K: 16K sampling rate (Currently, the SoundNet SDK does not support)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>16K sampling rate will increase the load of network bandwidth, which will affect the frame rate of image transmission, so it is recommended to sample at 8K sampling rate</p>
+</div>
+<dl class="simple">
+<dt>The supported mic and speaker types are as follows:</dt><dd><ul class="simple">
+<li><p>1.AUD_INTF_MIC_TYPE_BOARD: onboard mic (recommended configuration)</p></li>
+<li><p>2.AUD_INTF_MIC_TYPE_UAC: uac type mic</p></li>
+<li><p>3.AUD_INTF_SPK_TYPE_BOARD: onboard speaker (recommended configuration)</p></li>
+<li><p>4.AUD_INTF_SPK_TYPE_UAC: uac type speaker</p></li>
+</ul>
+</dd>
+</dl>
+<p>For detailed description of Aud_Intf API interface, please refer to the same page: <code class="docutils literal notranslate"><span class="pre">/api-reference/multi_media/bk_aud_intf.html</span></code></p>
+</section>
+<section id="video-configuration">
+<h2>6. Video configuration<a class="headerlink" href="#video-configuration" title="Link to this heading"></a></h2>
+<p>The part of the image transmission code in the demo is developed based on the <code class="docutils literal notranslate"><span class="pre">media</span></code> component. By configuring the input parameters of the <code class="docutils literal notranslate"><span class="pre">media_app_camera_open</span></code> interface, the selection of the camera type and the setting of the resolution can be realized.</p>
+<dl class="simple">
+<dt>The supported types are as follows:</dt><dd><ul class="simple">
+<li><p>1.APP_CAMERA_DVP_JPEG: DVP camera in JPEG format (recommended configuration)</p></li>
+<li><p>2.APP_CAMERA_DVP_YUV: DVP camera in YUV format (Currently, the SoundNet SDK does not support)</p></li>
+<li><p>3.APP_CAMERA_UVC_MJPEG: UVC camera in MJPEG format</p></li>
+</ul>
+</dd>
+<dt>The supported resolutions are as follows:</dt><dd><ul class="simple">
+<li><p>1.PPI_320X240</p></li>
+<li><p>2.PPI_320X480</p></li>
+<li><p>3.PPI_480X320</p></li>
+<li><p>4.PPI_480X480</p></li>
+<li><p>5.PPI_480X800</p></li>
+<li><p>6.PPI_640X480</p></li>
+<li><p>7.PPI_800X480</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>1.The underlying hardware supports a variety of common resolutions, but it is not recommended to configure a higher sampling rate due to the limitations of the Acoustics SDK and network bandwidth</p></li>
+</ul>
+</div>
+</section>
+<section id="reference-materials">
+<h2>7. Reference materials<a class="headerlink" href="#reference-materials" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p><a class="reference external" href="../../../developer-guide/agora/index.html">agora development guide</a></p>
+<p>agora reference document: <a class="reference external" href="https://docs.agora.io/cn/Agora%20Platform/manage_projects?platform=Android">https://docs.agora.io/cn/Agora%20Platform/manage_projects?platform=Android</a></p>
+<p>Agora appid register link:https://sso2.agora.io/cn/v5/login?_gl=1%2ardr355%2a_ga%2aMzkyNDM4ODYyLjE2NzM1MTM3MTU.%2a_ga_BFVGG7E02W%2aMTY3ODg1MjM0My4xMi4wLjE2Nzg4NTIzNDYuMC4wLjA.</p>
+<p>Apk download link: <a class="reference external" href="http://dl.bekencorp.com/apk/shengwang/OpenLive_input_appid.apk">http://dl.bekencorp.com/apk/shengwang/OpenLive_input_appid.apk</a></p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../wanson_asr/index.html" class="btn btn-neutral float-right" title="Wanson asr demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="thirdparty projects code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

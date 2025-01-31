@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEC Debug &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Q&amp;A" href="../../FAQ/index.html" />
+    <link rel="prev" title="Audio Algorithms" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">    Audio Algorithms</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AEC Debug</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">1.Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-overview-engineering-code-path">2.Function Overview Engineering Code Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-of-aec-echo-cancellation-effect">3.Debugging of AEC echo cancellation effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-link">4.Reference link</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Audio Algorithms</a></li>
+      <li class="breadcrumb-item active">AEC Debug</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aec-debug">
+<h1>AEC Debug<a class="headerlink" href="#aec-debug" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/audio_algorithms/aec/index.html">[中文]</a></p>
+<section id="overview">
+<h2>1.Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The AEC echo cancellation algorithm is mainly used in bidirectional voice call scenarios, which eliminates the audio played by the speaker collected by the device end mic through the algorithm to obtain clean human voices.</p>
+</div></blockquote>
+</section>
+<section id="function-overview-engineering-code-path">
+<h2>2.Function Overview Engineering Code Path<a class="headerlink" href="#function-overview-engineering-code-path" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The reference demo path for using the AEC algorithm is as follows: <code class="docutils literal notranslate"><span class="pre">./components/audio_algorithm/aec</span></code></p>
+<p>The demo provides methods for testing and verifying the AEC algorithm’s PCM data and interface usage.</p>
+</div></blockquote>
+</section>
+<section id="debugging-of-aec-echo-cancellation-effect">
+<h2>3.Debugging of AEC echo cancellation effect<a class="headerlink" href="#debugging-of-aec-echo-cancellation-effect" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>AEC debugging precautions:</p>
+</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The echo situation is closely related to the device’s mic sensitivity, mic gain, speaker sensitivity, speaker gain, product casing layout, sound intensity, etc. Different echo situations require different AEC parameters to handle, so before starting to debug AEC parameters, it is necessary to ensure that the following prerequisites are completed:</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>The mic model must be fixed, and the sensitivity of different models may vary. The higher the sensitivity, the greater the echo. Therefore, it is advisable to choose a mic with lower sensitivity while meeting the requirements of the usage scenario.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>The gain of the mic must be fixed, and the magnitude of the gain will affect the amplitude of the audio signal.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>The speaker model must be fixed, and the power of different models may vary. The higher the power, the louder the sound, and the greater the echo. Therefore, it is advisable to choose a speaker with lower power while meeting the requirements of the usage scenario.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p>The gain of the speaker (including PA and DAC gain inside the digital chip) must be fixed. The larger the gain, the louder the speaker’s volume, and the greater the echo. Therefore, it is possible to lower the gain of the speaker as much as possible while meeting the requirements of the usage scenario.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="5">
+<li><p>The product casing and sound chamber must be fixed. Different casings and sound chambers can cause different echo conditions of the equipment, so the product casing and sound chamber must be fixed.</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<p>The voice call application developed based on the aud-intf component needs to debug the effect of AEC echo cancellation, mainly by adjusting the following parameters: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">depth</span></code> , <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">amplitude</span></code> , <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">amplitude</span></code> , <code class="docutils literal notranslate"><span class="pre">noise</span> <span class="pre">level</span></code> , and <code class="docutils literal notranslate"><span class="pre">noise</span> <span class="pre">param</span></code> .</p>
+<dl class="simple">
+<dt>The debugging steps are as follows:</dt><dd><ul class="simple">
+<li><p>1.Ensure that the two devices involved in the call (usually the phone and the board) are in remote mode, ensuring that the sound of the phone’s speech is not captured by the board’s mic, and then open the voice call;</p></li>
+<li><p>2.Based on the echo effect heard, use the UART to send a serial command <code class="docutils literal notranslate"><span class="pre">aud-intf_set-aec_param_test</span> <span class="pre">{param</span> <span class="pre">value}</span></code> to set the values of each parameter and debug the AEC parameters online;</p></li>
+<li><p>3.Send the serial command <code class="docutils literal notranslate"><span class="pre">aud_intf_set_aec_param_test</span> <span class="pre">ec_depth</span> <span class="pre">{value}</span></code> to set the <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">depth</span></code> . The larger the echo, the greater the value. When the value continues to increase but cannot improve the echo cancellation effect, stop setting the value;</p></li>
+<li><p>4.Send the serial commands <code class="docutils literal notranslate"><span class="pre">aud_intf_set_aec_param_test</span> <span class="pre">TxRxThr</span> <span class="pre">{value}</span></code> and <code class="docutils literal notranslate"><span class="pre">aud_intf_set_aec_param_test</span> <span class="pre">TxRxFlr</span> <span class="pre">{value}</span></code> based on the range of echo size to set the values of <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">amplitude</span></code> and <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">amplitude</span></code> , optimizing the echo cancellation effect;</p></li>
+<li><p>5.Send the serial command <code class="docutils literal notranslate"><span class="pre">aud_intf_set_aec_param_test</span> <span class="pre">ns_level</span> <span class="pre">{value}</span></code> based on the size of the background noise heard to set the <code class="docutils literal notranslate"><span class="pre">noise</span> <span class="pre">level</span></code> to optimize the effect of background noise elimination. The larger the background noise, the larger the value set;</p></li>
+<li><p>4.Send the serial command <code class="docutils literal notranslate"><span class="pre">aud_intf_set_aec_param_test</span> <span class="pre">ns_para</span> <span class="pre">{value}</span></code> to set the value of <code class="docutils literal notranslate"><span class="pre">noise</span> <span class="pre">param</span></code> to 0, 1, and 2, respectively, and select the best value;</p></li>
+<li><p>5.Send the serial command <code class="docutils literal notranslate"><span class="pre">aud_intf_get_aec_param_test</span></code> to obtain and record the online debugging results of all parameters, and set them as the default parameters for AEC during voice initialization.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>To ensure the effectiveness of the serial command <code class="docutils literal notranslate"><span class="pre">aud-intf_set-aec_param_test</span> <span class="pre">{param</span> <span class="pre">value}</span></code> , open the macro <code class="docutils literal notranslate"><span class="pre">PROFIG-AUD-INTF-TEST=y</span></code>.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>Failure to tune AEC parameters can result in occasional abnormal sounds heard by the opposite end of the board (usually on the mobile phone), such as occasional silence or partial echo.</p></li>
+</ol>
+</li>
+</ul>
+</div>
+</section>
+<section id="reference-link">
+<h2>4.Reference link<a class="headerlink" href="#reference-link" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p><a class="reference external" href="../../api-reference/multi_media/bk_aec.html">API Reference :</a> Introduced the AEC API interface</p>
+<p><a class="reference external" href="../../audio_algorithms/aec/index.html">User and Developer Guide :</a> Introduced common usage scenarios of AEC</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../FAQ/index.html" class="btn btn-neutral float-right" title="Q&amp;A" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Audio Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

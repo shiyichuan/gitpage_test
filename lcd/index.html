@@ -1,0 +1,556 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LCD &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19145764"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Camera" href="../camera/index.html" />
+    <link rel="prev" title="Support Peripherals" href="../support_peripherals/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LCD display</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lcd-physical-structure">LCD physical structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lcd-driver-interface">LCD driver interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lcd-hardware-interface">8080 LCD hardware interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lcd-interface-driving-principle">8080 LCD interface driving principle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tearing-effect">Tearing Effect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rgb-lcd-hardware-interface">RGB LCD hardware interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rgb-lcd-interface-driving-principle">RGB LCD interface driving principle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qspi-lcd-hardware-interface">QSPI LCD hardware interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qspi-lcd-interface-driving-principle">QSPI LCD interface driving principle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-design">software design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#related-data-structures">related data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-interface">code interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-configuration-process">code configuration process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LCD</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lcd">
+<h1>LCD<a class="headerlink" href="#lcd" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../zh_CN/latest/lcd/index.html">[中文]</a></p>
+<p>LCD screen is the abbreviation of Liquid Crystal Display. The structure of LCD is to place liquid crystals between two parallel pieces of glass.
+There are many vertical and horizontal small wires between the two pieces of glass.
+By controlling whether the rod-shaped crystal molecules are energized or not, the direction is changed, and the light is refracted to create a picture.
+Liquid crystal is an organic compound composed of long rod-shaped molecules.
+In their natural state, the long axes of these rod-like molecules are roughly parallel.</p>
+<section id="lcd-physical-structure">
+<h2>LCD physical structure<a class="headerlink" href="#lcd-physical-structure" title="Link to this heading"></a></h2>
+<p>LCD screen panels are mainly composed of glass substrates, polarizing plates, color filters,
+liquid crystal materials, alignmentLayer, optical films, drive circuits and other components.</p>
+<p>1.glass substrates
+A glass substrate is actually a thin piece of glass with a flat surface.
+There is a transparent conductive layer of In2O3 or SnO2 evaporated on the surface,
+which is the ITO film layer. After photolithography and processing, a transparent conductive pattern is made.
+These graphics are composed of the smallest image unit, pixel graphics and outer lead graphics of all the
+chromaticity and brightness of an image. Therefore, the outer leads must not be soldered by traditional soldering.
+Connections can only be made via conductive rubber strips or conductive tape, etc.
+If it is scratched, cut or corroded, the device will be scrapped.</p>
+<p>2.color filters
+The reason why the LCD panel can display colors is because the light passes through the color filter.
+Then the liquid crystal panel is changed by the voltage of the driving chip,
+so that the liquid crystal molecules stand in a row or appear in a twisted state.
+After forming the gate, you then choose whether the light from the backlight source penetrates or not,
+and finally the picture is produced. But this is only a difference in the degree of light transmission,
+and the colors produced are only black and white. If you want to form a colorful picture,
+It needs to rely on a combination of three light sources: red, green, and blue.</p>
+<p>3.alignment film
+Alignment film is the most critical material to control the quality of LCD display.
+In order to achieve a good rotation effect of the liquid crystal material,
+it is necessary to apply an alignment film on the inside of the upper and lower electrode substrates of the LCD display screen.
+After the alignment film is coated, the friction process will be carried out.
+The surface of the alignment film will form a groove arranged in a certain direction due to friction.
+The liquid crystal material on the alignment film will also reach the desired height due to the force between molecules.
+A directional effect that produces alignment. In this way, we can control the predetermined direction
+and predetermined tilt angle arrangement of the liquid crystal molecules, which is very conducive to the movement of the LCD display.</p>
+<p>4.liquid crystal material
+Liquid crystal material is the main material of LCD display screen.
+Most liquid crystal materials are mixed from several or even more than a dozen types of single liquid crystal materials.
+Each liquid crystal material has its own fixed clearing point TL and crystallization point TS.
+Therefore, each type of LCD display must be used or stored within a certain temperature range between TS and TL.
+If the temperature is too low, crystallization will destroy the orientation layer of the LCD display; and If the temperature is too high,
+The liquid crystal will lose its liquid crystal state, and then it will lose all the functions of the LCD display.</p>
+<p>5.polarizer
+The main purpose of polarizers is to polarize light that passes through the dichroic medium of the polarizing film.</p>
+<p>6.drive circuit
+The biggest function of the drive circuit is to build on the drive circuit by adjusting a series of parameters such as voltage, phase,
+peak value, frequency, timing, effective value, duty cycle, etc. applied to the pixel electrode.</p>
+<figure class="align-center" id="id1">
+<img alt="lcd" src="../_images/tft_lcd.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. lcd</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="lcd-driver-interface">
+<h2>LCD driver interface<a class="headerlink" href="#lcd-driver-interface" title="Link to this heading"></a></h2>
+<p>The current mainstream LCD driver interfaces include SPI, I8080, QSPI, RGB, etc.</p>
+<figure class="align-center" id="id2">
+<img alt="driver interface" src="../_images/driver_interface.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2. driver interface</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="lcd-hardware-interface">
+<h2>8080 LCD hardware interface<a class="headerlink" href="#lcd-hardware-interface" title="Link to this heading"></a></h2>
+<p>The data transmission of the 8080 interface is 8-bit, 9-bit, 16-bit and 18-bit. The interface bus introduced in this document is 8-bit.
+The hardware schematic diagram is as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>3.5”(diagonal), 320x3 RGB x 480 dots, 262K colors TFT LCD module</p></li>
+<li><p>Driving IC: ST7796S</p></li>
+<li><p>RGB serial interface</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id3">
+<img alt="lcd" src="../_images/lcd_8080_pin.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3. 8080 lcd pin</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<img alt="lcd" src="../_images/lcd_8080.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4. 8080 lcd floor plan</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The chip IO resources occupied by the Display 8080 interface are as follows:</p>
+<figure class="align-center" id="id5">
+<img alt="lcd" src="../_images/lcd_8080_gpio.png" />
+<figcaption>
+<p><span class="caption-text">Figure 5. 8080 lcd pin function</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="lcd-interface-driving-principle">
+<h2>8080 LCD interface driving principle<a class="headerlink" href="#lcd-interface-driving-principle" title="Link to this heading"></a></h2>
+<p>The data transmission of the I8080 protocol is carried out in the format of cmd+parameter. Through the method of cmd + param,
+the initialization of the screen, the configuration of module functions, and the transmission of image data are realized.
+The following is a timing diagram for writing commands and data:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESET is set to 1 when transmitting</p></li>
+<li><p>When sending DB data, CSX is set low and WRX is pulled low.</p></li>
+<li><p>If it is COMMAND data, DCX is set low; if it is DATA data, DCX is set high.</p></li>
+<li><p>During write data transfer, the DB line needs to remain stable on the rising edge of WR.</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id6">
+<img alt="lcd" src="../_images/lcd_8080_timing_1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 6. 8080 lcd timing</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id7">
+<img alt="lcd" src="../_images/lcd_8080_timing_2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 7. 8080 lcd data transmission</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>8080 hardware implementation of LCD is as follows:</p>
+<figure class="align-center" id="id8">
+<img alt="lcd" src="../_images/lcd_8080_timing_3.png" />
+<figcaption>
+<p><span class="caption-text">Figure 8. 8080 lcd hardware process</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="tearing-effect">
+<h2>Tearing Effect<a class="headerlink" href="#tearing-effect" title="Link to this heading"></a></h2>
+<p>The Tearing Effect output line supplies to the MPU a Panel synchronization signal.The signal can be used by the MPU to
+synchronize Frame Memory Writing when displaying video images.
+if the lcd not have TE single, the controller should select adapt clk to reduce tearing</p>
+</section>
+<section id="rgb-lcd-hardware-interface">
+<h2>RGB LCD hardware interface<a class="headerlink" href="#rgb-lcd-hardware-interface" title="Link to this heading"></a></h2>
+<p>The RGB interface, also known as the DPI (Display Pixel Iterface) interface,
+is a parallel interface that uses ordinary synchronous clock and signal lines to transmit data.
+The data lines and control lines of its interface are separated.
+Because there is no GRAM inside the screen, the protocol data speed is fast and the cost is low.
+The screen can be refreshed directly. It is usually used for driving large screens.
+The data types of the RGB protocol include RGB565, RGB88, RGB666, etc.
+The color components are red, green, and blue. By changing the three color channels,
+the colors are superimposed on each other to obtain a variety of colors.
+This module uses RGB565 data type.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Resolution : 480(H) x 3(RGB) x 272(V) pixels</p></li>
+<li><p>Input Data: Parallel RGB565 16-bit</p></li>
+<li><p>Driver IC:  ST7282</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id9">
+<img alt="lcd" src="../_images/lcd_rgb_pin.png" />
+<figcaption>
+<p><span class="caption-text">Figure 9. rgb lcd pin</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<img alt="lcd" src="../_images/lcd_rgb.png" />
+<figcaption>
+<p><span class="caption-text">Figure 10. rgb lcd floor plan</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The chip IO resources occupied by the Display rgb interface are as follows:</p>
+<figure class="align-center" id="id11">
+<img alt="lcd" src="../_images/lcd_rgb_gpio.png" />
+<figcaption>
+<p><span class="caption-text">Figure 11. rgb lcd pin function</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rgb-lcd-interface-driving-principle">
+<h2>RGB LCD interface driving principle<a class="headerlink" href="#rgb-lcd-interface-driving-principle" title="Link to this heading"></a></h2>
+<p>The RGB LCD protocol timing diagram is as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>DCLK pixel clock signal: output to the driving clock of the external screen to ensure the correctness of data transmission,
+and read RGB data on the falling edge (or rising edge) of the clock</p></li>
+<li><p>VSYNC indicates the beginning of scanning a frame. During the data transmission of a frame,
+VSYNC will be set to 1 until the transmission of a frame is completed.</p></li>
+<li><p>HSYNC represents the beginning of scanning a line, will be set to 1 before each line of data transmission,
+and will be set to 0 at the end of each line of data transmission.</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id12">
+<img alt="lcd" src="../_images/lcd_rgb_timing_1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 12. rgb lcd timing</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The RGB protocol data format is as follows:</p>
+<figure class="align-center" id="id13">
+<img alt="lcd" src="../_images/lcd_rgb_timing_2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 13. rgb lcd protocol</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Hardware implementation of RGB LCD:</p>
+<figure class="align-center" id="id14">
+<img alt="lcd" src="../_images/lcd_rgb_timing_3.png" />
+<figcaption>
+<p><span class="caption-text">Figure 14. rgb lcd hardware process</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qspi-lcd-hardware-interface">
+<h2>QSPI LCD hardware interface<a class="headerlink" href="#qspi-lcd-hardware-interface" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Resolution: 454(W) x RGB x 454(H)</p></li>
+<li><p>Driver IC: SH8601A</p></li>
+<li><p>Interface: QSPI</p></li>
+<li><p>Display mode: MOLED</p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center" id="id15">
+<img alt="lcd" src="../_images/lcd_qspi_pin.png" />
+<figcaption>
+<p><span class="caption-text">Figure 15. qspi lcd pin</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id16">
+<img alt="lcd" src="../_images/lcd_qspi.png" />
+<figcaption>
+<p><span class="caption-text">Figure 16. qspi lcd floor plan</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The chip IO resources occupied by the Display qspi interface are as follows:</p>
+<figure class="align-center" id="id17">
+<img alt="lcd" src="../_images/lcd_qspi_gpio.png" />
+<figcaption>
+<p><span class="caption-text">Figure 17. qspi lcd pin function</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qspi-lcd-interface-driving-principle">
+<h2>QSPI LCD interface driving principle<a class="headerlink" href="#qspi-lcd-interface-driving-principle" title="Link to this heading"></a></h2>
+<p>The QSPI LCD protocol timing diagram is as follows:</p>
+<figure class="align-center" id="id18">
+<img alt="lcd" src="../_images/lcd_qspi_timing_1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 18. qspi lcd timing</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The qspi driver interface is similar to spi. The difference lies in the number of data pins.
+qspi has two more data transmission pins and is faster than spi.</p>
+<p>Hardware implementation of QSPI LCD:</p>
+<figure class="align-center" id="id19">
+<img alt="lcd" src="../_images/lcd_rgb_timing_2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 19. qspi lcd hardware process</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="software-design">
+<h2>software design<a class="headerlink" href="#software-design" title="Link to this heading"></a></h2>
+<p>The design layering idea of the software code in the project is as follows:</p>
+<figure class="align-center" id="id20">
+<img alt="lcd" src="../_images/lcd_software.png" />
+<figcaption>
+<p><span class="caption-text">Figure 20. software architecture</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Driver layer meaning: For different chip boards, even if the SOC layer is different, the LCD driver interface called is the same.
+Code design idea: Since the LCD has three different interfaces,
+the APIs that need to be independently packaged for each interface need to be named 8080_lcd, rgb_lcd,
+qspi_lcd to distinguish them, while the public API names are not distinguished.</p>
+</section>
+<section id="related-data-structures">
+<h2>related data structures<a class="headerlink" href="#related-data-structures" title="Link to this heading"></a></h2>
+<p>enumeration definition of image format:</p>
+<figure class="align-center" id="id21">
+<img alt="lcd" src="../_images/pixel_format.png" />
+<figcaption>
+<p><span class="caption-text">Figure 21. format enum</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>enumeration definition of LCD screen device:</p>
+<figure class="align-center" id="id22">
+<img alt="lcd" src="../_images/lcd_device_id.png" />
+<figcaption>
+<p><span class="caption-text">Figure 22. lcd device model enumeration</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>enumeration definition of LCD pixels:</p>
+<figure class="align-center" id="id23">
+<img alt="lcd" src="../_images/media_ppi.png" />
+<figcaption>
+<p><span class="caption-text">Figure 23. pixel enum</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>enumeration definition of FPS:</p>
+<figure class="align-center" id="id24">
+<img alt="lcd" src="../_images/frame_fps.png" />
+<figcaption>
+<p><span class="caption-text">Figure 24. fps enum</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="code-interface">
+<h2>code interface<a class="headerlink" href="#code-interface" title="Link to this heading"></a></h2>
+<p>code API as follows:</p>
+<figure class="align-center" id="id25">
+<img alt="lcd" src="../_images/api_1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_1</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id26">
+<img alt="lcd" src="../_images/api_2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_2</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id27">
+<img alt="lcd" src="../_images/api_3.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_3</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id28">
+<img alt="lcd" src="../_images/api_4.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_4</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id29">
+<img alt="lcd" src="../_images/api_5.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_5</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id30">
+<img alt="lcd" src="../_images/api_6.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_6</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id31">
+<img alt="lcd" src="../_images/api_7.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_7</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id32">
+<img alt="lcd" src="../_images/api_8.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_8</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id33">
+<img alt="lcd" src="../_images/api_9.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_9</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id34">
+<img alt="lcd" src="../_images/api_10.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_10</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id35">
+<img alt="lcd" src="../_images/api_11.png" />
+<figcaption>
+<p><span class="caption-text">Figure 25. api_11</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="code-configuration-process">
+<h2>code configuration process<a class="headerlink" href="#code-configuration-process" title="Link to this heading"></a></h2>
+<p>LCD 8080 configuration flow chart is as follows:</p>
+<figure class="align-center" id="id36">
+<img alt="lcd" src="../_images/lcd_8080_config.png" />
+<figcaption>
+<p><span class="caption-text">Figure 26. 8080 configuration flow chart</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>LCD RGB configuration flow chart is as follows:</p>
+<figure class="align-center" id="id37">
+<img alt="lcd" src="../_images/lcd_rgb_config.png" />
+<figcaption>
+<p><span class="caption-text">Figure 27. rgb configuration flow chart</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The flow chart for setting up special area display is as follows:</p>
+<figure class="align-center" id="id38">
+<img alt="lcd" src="../_images/lcd_parcical_display.png" />
+<figcaption>
+<p><span class="caption-text">Figure 28. special area configuration diagram</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>partial display diagram:</p>
+<figure class="align-center" id="id39">
+<img alt="lcd" src="../_images/lcd_area.png" />
+<figcaption>
+<p><span class="caption-text">Figure 29. special area display map</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>for the use of the RGB, please refer to the project   “<a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/en/v2.0.1/projects_work/media/lcd_rgb/index.htmll">https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/en/v2.0.1/projects_work/media/lcd_rgb/index.htmll</a>”</p>
+<p>for the use of the 8080, please refer to the project  “<a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/en/v2.0.1/projects_work/media/lcd_8080/index.html">https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/en/v2.0.1/projects_work/media/lcd_8080/index.html</a>”</p>
+<p>for the use of the QSPI, please refer to the project “<a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/en/v2.0.1/projects_work/media/lcd_qspi/index.html">https://docs.bekencorp.com/arminodoc/bk_avdk/bk7258/en/v2.0.1/projects_work/media/lcd_qspi/index.html</a>”</p>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../camera/index.html" class="btn btn-neutral float-right" title="Camera" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../support_peripherals/index.html" class="btn btn-neutral float-left" title="Support Peripherals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

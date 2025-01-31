@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multimedia power consumption &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19145764"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Audio Algorithms" href="../audio_algorithms/index.html" />
+    <link rel="prev" title="8080 LCD" href="../projects/peripheral/lcd_8080/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Power Save</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-multimedia-power-consumption">1 Overview of multimedia power consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multimedia-applications">2 Multimedia applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multimedia-voting">3 Multimedia voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multimedia-low-power-inspection">4 multimedia low power inspection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Multimedia power consumption</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multimedia-power-consumption">
+<h1>Multimedia power consumption<a class="headerlink" href="#multimedia-power-consumption" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../zh_CN/latest/power_save/index.html">[中文]</a></p>
+<section id="overview-of-multimedia-power-consumption">
+<h2>1 Overview of multimedia power consumption<a class="headerlink" href="#overview-of-multimedia-power-consumption" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Based on BK7258 projects, multimedia functions are implemented on CPU1, and each hardware module, such as PSRAM, LCD, H264, USB, etc.,
+has the corresponding clock configuration, power management, etc. In order to achieve lower power consumption, the switch needs to be used symmetrically.</p>
+</div></blockquote>
+</section>
+<section id="multimedia-applications">
+<h2>2 Multimedia applications<a class="headerlink" href="#multimedia-applications" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Multimedia SDK provides a feature-rich and complete interface, for the use of the user, and user does not need to consider the vote of the application of the interface, is the need to make sure that is symmetric call, interface reference address: <code class="docutils literal notranslate"><span class="pre">./components/multimedia/include/media_app.h</span></code>,
+The description is as follows.</p>
+<p>Enable/disable the camera, need to pay attention to the content of the parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_camera_open</span><span class="p">(</span><span class="n">media_camera_device_t</span> <span class="o">*</span><span class="n">device</span><span class="p">);</span>
+<span class="n">bk_err_t</span> <span class="n">media_app_camera_close</span><span class="p">(</span><span class="n">camera_type_t</span> <span class="nb">type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Enable/disable the interface to get images. Different types of images need to be passed different types of parameters, allowing the acquired image data to be processed directly in the callback function (parameter cb), this interface can only be effective after the camera is turned on:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_register_read_frame_callback</span><span class="p">(</span><span class="n">pixel_format_t</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">frame_cb_t</span> <span class="n">cb</span><span class="p">);</span>
+<span class="n">bk_err_t</span> <span class="n">media_app_unregister_read_frame_callback</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Enable/disable h264 encoding function, this interface supports JPEG image decoding, image conversion to YUV format, and then H264 encoding output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_h264_pipeline_open</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+<span class="n">bk_err_t</span> <span class="n">media_app_h264_pipeline_close</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Enable/disable image rotation function, this interface supports JPEG decoded images, rotation at any Angle, and then display on the corresponding LCD screen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipline_rotate_open</span><span class="p">(</span><span class="n">media_rotate_t</span> <span class="n">rotate</span><span class="p">);</span>
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_pipline_rotate_close</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In addition to the above basic functions, it also supports some additional functions, such as when the UVC camera is opened, support registration callback function to obtain UVC enumeration information and connection status, after obtaining the need to call the parameter configuration interface, so that UVC really start.
+Support to set parameters directly in the registered callback function to start UVC:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_uvc_register_info_notify_cb</span><span class="p">(</span><span class="n">uvc_device_info_t</span> <span class="n">cb</span><span class="p">);</span>
+<span class="n">bk_err_t</span> <span class="n">media_app_set_uvc_device_param</span><span class="p">(</span><span class="n">bk_uvc_config_t</span> <span class="o">*</span><span class="n">config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Support in H264 encoding, adjust the compression rate to achieve a better image effect, specific debugging instructions please refer to the H264 encoding document, this interface only after the H264 encoding function is opened:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">media_app_set_compression_ratio</span><span class="p">(</span><span class="n">compress_ratio_t</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The interface has a corresponding reference case, please refer: <code class="docutils literal notranslate"><span class="pre">./components/multimedia/cli/media_cli.c</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="multimedia-voting">
+<h2>3 Multimedia voting<a class="headerlink" href="#multimedia-voting" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>All multimedia functions are implemented on CPU1. If the SDK interface is invoked, CPU1 will vote on by default and then process the corresponding process.
+The voting interface is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">pm_boot_cp1_module_name_e</span> <span class="n">module</span><span class="p">,</span><span class="n">pm_power_module_state_e</span> <span class="n">power_state</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The interface supports different modules to vote and power on or off. For details, reference:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span>
+<span class="p">{</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_FFT</span>          <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_AUDP_SBC</span>        <span class="p">,</span><span class="o">//</span> <span class="mi">1</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_AUDP_AUDIO</span>      <span class="p">,</span><span class="o">//</span> <span class="mi">2</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_AUDP_I2S</span>        <span class="p">,</span><span class="o">//</span> <span class="mi">3</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_EN</span>    <span class="p">,</span><span class="o">//</span> <span class="mi">4</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_DE</span>    <span class="p">,</span><span class="o">//</span> <span class="mi">5</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_DMA2D</span>      <span class="p">,</span><span class="o">//</span> <span class="mi">6</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_LCD</span>        <span class="p">,</span><span class="o">//</span> <span class="mi">7</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_MULTIMEDIA</span>      <span class="p">,</span><span class="o">//</span> <span class="mi">8</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_APP</span>             <span class="p">,</span><span class="o">//</span> <span class="mi">9</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_ROTATE</span>     <span class="p">,</span><span class="o">//</span> <span class="mi">10</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_SCALE</span>      <span class="p">,</span><span class="o">//</span> <span class="mi">11</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_GET_MEDIA_MSG</span>   <span class="p">,</span><span class="o">//</span> <span class="mi">12</span>
+    <span class="n">PM_BOOT_CP1_MODULE_NAME_MAX</span>             <span class="p">,</span><span class="o">//</span> <span class="n">attention</span><span class="p">:</span> <span class="n">MAX</span> <span class="n">value</span> <span class="n">can</span> <span class="ow">not</span> <span class="n">exceed</span> <span class="mf">31.</span>
+<span class="p">}</span><span class="n">pm_boot_cp1_module_name_e</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The power supply of different modules also needs to be controlled by voting to ensure that the modules share the power domain. When a module needs to be used,
+the power supply needs to be turned on. When all modules do not need to work, the power failure process is carried out. Customers do not need to pay attention
+to it when using it, but they can pay attention to whether the corresponding module is really powered off when entering the low power mode. The voting interface is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">bk_pm_module_vote_power_ctrl</span><span class="p">(</span><span class="n">pm_power_module_name_e</span> <span class="n">module</span><span class="p">,</span><span class="n">pm_power_module_state_e</span> <span class="n">power_state</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The above interface can achieve the switch function of different modules by configuring different parameters.
+The type reference file of the first parameter is: <code class="docutils literal notranslate"><span class="pre">./bk_idk/include/modules/pm.h</span></code>. The following are the tickets defined by the multimedia module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*----</span><span class="n">SUB</span> <span class="n">POWER</span> <span class="n">DOMAIN</span> <span class="n">VIDP</span><span class="o">--------*/</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_DMA2D            (POWER_SUB_MODULE_NAME_VIDP_DMA2D)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_YUVBUF           (POWER_SUB_MODULE_NAME_VIDP_YUVBUF)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_JPEG_EN          (POWER_SUB_MODULE_NAME_VIDP_JPEG_EN)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_JPEG_DE          (POWER_SUB_MODULE_NAME_VIDP_JPEG_DE)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_LCD              (POWER_SUB_MODULE_NAME_VIDP_LCD)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_ROTT             (POWER_SUB_MODULE_NAME_VIDP_ROTT)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_SCAL0            (POWER_SUB_MODULE_NAME_VIDP_SCAL0)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_SCAL1            (POWER_SUB_MODULE_NAME_VIDP_SCAL1)</span>
+<span class="c1">#define PM_POWER_SUB_MODULE_NAME_VIDP_H264             (POWER_SUB_MODULE_NAME_VIDP_H264)</span>
+</pre></div>
+</div>
+<p>When different PASRAM modules are used, they will also vote to ensure normal function and low power consumption. The voting interface is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_err_t</span> <span class="n">bk_pm_module_vote_psram_ctrl</span><span class="p">(</span><span class="n">pm_power_psram_module_name_e</span> <span class="n">module</span><span class="p">,</span><span class="n">pm_power_module_state_e</span> <span class="n">power_state</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The above interface can achieve the control of PASRAM by different modules by configuring different parameters. The enumerated values of different modules are as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">typedef</span> <span class="n">enum</span>
+<span class="p">{</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_FFT</span>       <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_AUDP_SBC</span>     <span class="p">,</span><span class="o">//</span> <span class="mi">1</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_AUDP_AUDIO</span>   <span class="p">,</span><span class="o">//</span> <span class="mi">2</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_AUDP_I2S</span>     <span class="p">,</span><span class="o">//</span> <span class="mi">3</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_VIDP_JPEG_EN</span> <span class="p">,</span><span class="o">//</span> <span class="mi">4</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_VIDP_H264_EN</span> <span class="p">,</span><span class="o">//</span> <span class="mi">5</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_VIDP_JPEG_DE</span> <span class="p">,</span><span class="o">//</span> <span class="mi">6</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_VIDP_DMA2D</span>   <span class="p">,</span><span class="o">//</span> <span class="mi">7</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_VIDP_LCD</span>     <span class="p">,</span><span class="o">//</span> <span class="mi">8</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_APP</span>          <span class="p">,</span><span class="o">//</span> <span class="mi">9</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_AS_MEM</span>       <span class="p">,</span><span class="o">//</span> <span class="mi">10</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_CPU1</span>         <span class="p">,</span><span class="o">//</span> <span class="mi">11</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_MEDIA</span>        <span class="p">,</span><span class="o">//</span> <span class="mi">12</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_LVGL_CODE_RUN</span><span class="p">,</span><span class="o">//</span> <span class="mi">13</span>
+    <span class="n">PM_POWER_PSRAM_MODULE_NAME_MAX</span>          <span class="p">,</span><span class="o">//</span> <span class="n">attention</span><span class="p">:</span> <span class="n">MAX</span> <span class="n">value</span> <span class="n">can</span> <span class="ow">not</span> <span class="n">exceed</span> <span class="mf">31.</span>
+<span class="p">}</span><span class="n">pm_power_psram_module_name_e</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="multimedia-low-power-inspection">
+<h2>4 multimedia low power inspection<a class="headerlink" href="#multimedia-low-power-inspection" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>When it is necessary to enter the low power consumption, all peripherals need to be turned off, including PSRAM, to ensure that all modules are powered off,
+you can send the following command to check:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pm_debug</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<p>By default, for example, when the command is powered on, the output is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">pm</span> <span class="n">video</span> <span class="ow">and</span> <span class="n">audio</span> <span class="n">state</span><span class="p">:</span><span class="mh">0x0</span> <span class="mh">0x0</span>
+
+<span class="mf">2.</span> <span class="n">pm</span> <span class="n">ahpb</span> <span class="ow">and</span> <span class="n">bakp</span> <span class="n">state</span><span class="p">:</span><span class="mh">0x0</span> <span class="mh">0x10001</span>
+
+<span class="mf">3.</span> <span class="n">pm</span> <span class="n">low</span> <span class="n">vol</span><span class="p">[</span><span class="n">module</span><span class="p">:</span><span class="mh">0xffbfefff</span><span class="p">]</span> <span class="p">[</span><span class="n">need</span> <span class="n">module</span><span class="p">:</span><span class="mh">0xffffffff</span><span class="p">]</span>
+
+<span class="mf">4.</span> <span class="n">pm</span> <span class="n">deepsleep</span><span class="p">[</span><span class="n">module</span><span class="p">:</span><span class="mh">0xc0</span><span class="p">][</span><span class="n">need</span> <span class="n">module</span><span class="p">:</span><span class="mh">0x3c0</span><span class="p">]</span>
+
+<span class="mf">5.</span> <span class="n">pm</span> <span class="n">power</span> <span class="ow">and</span> <span class="n">pmu</span> <span class="n">state</span><span class="p">[</span><span class="mh">0x200000c8</span><span class="p">][</span><span class="mh">0x2f1</span><span class="p">]</span>
+
+<span class="mf">6.</span> <span class="n">Attention</span> <span class="n">the</span> <span class="n">bakp</span> <span class="ow">not</span> <span class="n">power</span> <span class="n">down</span><span class="p">[</span><span class="n">modulue</span><span class="p">:</span><span class="mh">0x10001</span><span class="p">]</span>
+
+<span class="mf">7.</span> <span class="n">pm_psram_ctrl_state</span><span class="p">:</span><span class="mh">0x0</span> <span class="mh">0x0</span>
+
+<span class="mf">8.</span> <span class="n">pm_cp1_ctrl_state</span><span class="p">:</span><span class="mh">0x0</span>
+
+<span class="mf">9.</span> <span class="n">pm_cp1_boot_ready</span><span class="p">:</span><span class="mh">0x0</span> <span class="mh">0xffffffff</span>
+
+<span class="mf">10.</span> <span class="n">pm_module_lv_sleep_state</span><span class="p">:</span><span class="mh">0x0</span>
+</pre></div>
+</div>
+<p>For the multimedia module, pay attention to the first line (indicating the internal power control of each multimedia module, and the corresponding ticket
+is pm_power_module_name_e, which should be 0 when not used) and the seventh line (indicating the power control of PSRAM, because several modules use PARAM.
+Line 8 (indicates that different modules voted for CPU1 to start, and the corresponding vote is pm_boot_cp1_module_name_e, which should be 0 when not applicable).</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above interfaces do not require the user to encapsulate the call, when using multimedia functions, these functions have been encapsulated into the internal logic
+of the switch, only need to ensure that the switch is symmetric when used. In addition, the above command is a check method that depends on the CLI command function.
+CLI functions may not be enabled.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../audio_algorithms/index.html" class="btn btn-neutral float-right" title="Audio Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../projects/peripheral/lcd_8080/index.html" class="btn btn-neutral float-left" title="8080 LCD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

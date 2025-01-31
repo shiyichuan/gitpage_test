@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central Project &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Headset" href="../headset/index.html" />
+    <link rel="prev" title="Bluetooth Project" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Bluetooth</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Central</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function-overview">1 Function Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-path">2 Code Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project-path">2 project path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a2dp-source-cli-introduce">3 a2dp source cli introduce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a2dp-source-test-procedure">4 a2dp source test procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attention">6 Attention</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../headset/index.html">Headset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../media/index.html">Multi-media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thirdparty/index.html">thirdparty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/index.html">Peripheral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Bluetooth Project</a></li>
+      <li class="breadcrumb-item active">Central Project</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="central-project">
+<h1>Central Project<a class="headerlink" href="#central-project" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/bluetooth/central/index.html">[中文]</a></p>
+<section id="function-overview">
+<h2>1 Function Overview<a class="headerlink" href="#function-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>This project show how pad work with main function: bluetooth a2dp source/avrcp tg ct/ble</p>
+</div></blockquote>
+</section>
+<section id="code-path">
+<h2>2 Code Path<a class="headerlink" href="#code-path" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>demo:<a class="reference external" href="https://gitlab.bekencorp.com/wifi/armino/-/tree/main/projects/bluetooth/central">./projects/bluetooth/central</a></p>
+<p>build cmd:<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">bk7258</span> <span class="pre">PROJECT=bluetooth/central</span></code></p>
+</div></blockquote>
+</section>
+<section id="project-path">
+<h2>2 project path<a class="headerlink" href="#project-path" title="Link to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>central: <code class="docutils literal notranslate"><span class="pre">project/bluetooth/central</span></code></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="a2dp-source-cli-introduce">
+<h2>3 a2dp source cli introduce<a class="headerlink" href="#a2dp-source-cli-introduce" title="Link to this heading"></a></h2>
+<blockquote>
+<div><table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>a2dp_player connect &lt;xx:xx:xx:xx:xx:xx&gt;</p></td>
+<td><p>connect to soundbar</p></td>
+</tr>
+<tr class="row-even"><td><p>a2dp_player disconnect &lt;xx:xx:xx:xx:xx:xx&gt;</p></td>
+<td><p>disconnect</p></td>
+</tr>
+<tr class="row-odd"><td><p>a2dp_player play &lt;xxx.mp3&gt;</p></td>
+<td><p>play mp3</p></td>
+</tr>
+<tr class="row-even"><td><p>a2dp_player stop</p></td>
+<td><p>stop play</p></td>
+</tr>
+<tr class="row-odd"><td><p>a2dp_player pause</p></td>
+<td><p>pause</p></td>
+</tr>
+<tr class="row-even"><td><p>a2dp_player resume</p></td>
+<td><p>resume</p></td>
+</tr>
+<tr class="row-odd"><td><p>a2dp_player abs_vol &lt;xxx&gt;</p></td>
+<td><p>set remote absolute volume 0 ~ 127
+(depend on peer impl)</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</section>
+<section id="a2dp-source-test-procedure">
+<h2>4 a2dp source test procedure<a class="headerlink" href="#a2dp-source-test-procedure" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">1.Find a sdcard format exfat, copy project/bluetooth/central/1_qcs.mp3 to root dir. (Must be 16bits mp3)</div>
+<div class="line">2.Insert sdcard and power on.</div>
+<div class="line">3.Make soundbar enter pair mode.</div>
+<div class="line">4.Input <code class="docutils literal notranslate"><span class="pre">a2dp_player</span> <span class="pre">connect</span> <span class="pre">xx:xx:xx:xx:xx:xx</span></code> (xx means soundbar addr).</div>
+<div class="line">5.Input <code class="docutils literal notranslate"><span class="pre">a2dp_player</span> <span class="pre">play</span> <span class="pre">xxx.mp3</span></code></div>
+<div class="line">6.Now you can here soundbar playing music.(You should play after connection complete as soon as possible, and don’t stop, ref chapter 5)</div>
+<div class="line">7.You can stop or pause when play, play when stop.</div>
+</div>
+</div></blockquote>
+<p>5 compatibility describes</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">1.In music playing scenario, some soundbars(e.g. JBL) would disconnect(JBL would power up bluetooth) link when stop(local a2dp_player stop or peer avdtp suspend) too long. log will show “bt_api_event_cb:Disconnected from xx:xx:xx:xx:xx:xx”</div>
+<div class="line">2.Some soundbars(e.g. xiaomi) would not register avrcp playback and could express inconformitily status between local and peer.</div>
+<div class="line">3.Some soundbars(e.g. xiaomi) would not report avrcp volume changed evt, so central could not know.
+| 4.Some soundbars(e.g. xiaomi) does not support absolute volume.</div>
+</div>
+</div></blockquote>
+</section>
+<section id="attention">
+<h2>6 Attention<a class="headerlink" href="#attention" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">1.Log would show “f_mount failed” or “read data crc error” when sdcard failed.</div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../headset/index.html" class="btn btn-neutral float-right" title="Headset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Bluetooth Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

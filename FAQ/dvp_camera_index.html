@@ -1,0 +1,198 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common Problems with DVP &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19145764"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Common Problems with UVC" href="uvc_camera_index.html" />
+    <link rel="prev" title="Q&amp;A" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">    FAQ</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DVP_CAMERA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="uvc_camera_index.html">UVC_CAMERA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Q&amp;A</a></li>
+      <li class="breadcrumb-item active">Common Problems with DVP</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-problems-with-dvp">
+<h1>Common Problems with DVP<a class="headerlink" href="#common-problems-with-dvp" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../zh_CN/latest/FAQ/dvp_camera_index.html">[中文]</a></p>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>This section mainly describes the common problems and solutions encountered during debugging and using DVP cameras.</p>
+<p>Q: Unable to recognize camera</p>
+<p>A: Use <a class="reference external" href="../../projects/peripheral/dvp/index.html">dvp</a> Sample project, testing the adapted sample sensor, gc2145,
+If it cannot be recognized, it indicates that there is an error in the parameter configuration of the newly adapted sensor in dvp_xxx.c.
+The most fundamental issue is the I2C read-write address and CHIP_ID of the new sensor.
+If even gc2145 cannot recognize it, check whether the sensor power supply DVDD and IOVDD meet the protocol requirements,
+whether the GPIO controlling the power on the hardware is also GPIO28, and whether I2C is also corresponding to GPO0 and GPO1.
+In addition, attention should be paid to contact issues, which may also be due to insufficient physical connection, resulting in malfunction.</p>
+<p>Q: Abnormal image output and printing: “Sensor’s yuyv data resolution is not right”.</p>
+<p>A: The DVP data collected by the main control does not match the configured resolution. The VSync/HSync/PCLK signals can be captured through a logic analyzer.
+The following conditions must be followed: if the resolution configured for the main control is 640X480, then a VSync must contain 480 HSync pulses internally,
+and an HSync must contain 640 * 2=1280 PCLK pulses internally.
+If it does not meet the requirements, it will inevitably result in abnormal graphics.
+This problem may be caused by poor physical contact, and needs to be unplugged and reinstalled.
+Possible data collection anomalies may be caused by inconsistent line sequence with the default BK7258.
+Perhaps due to electromagnetic interference from the board, the sampling of the main control may be inaccurate in PCLK. A pull-up filter capacitor 8-22pf can be connected to PLK.</p>
+<p>Q: Abnormal image output and printing: “sensor FIFO is full”.</p>
+<p>A: The main control is receiving DVP data too slowly, causing sensor FIFO overflow. The solution can be tried:
+Reduce frame rate/reduce resolution/increase YUV_BUF hardware module clock (current default JPEG: 120MHz, YUV_BUF:120MHz, H264:120MHz).</p>
+<p>Q: Abnormal image output and printing: “JPEG code rate is slow than sensor data rate”.</p>
+<p>A: Indicates that the encoding speed is too slow. The solution can be to try reducing the frame rate/resolution/increasing the clock of the encoding hardware module
+(currently default JPEG: 120MHz H264:120MHz).</p>
+<p>Q: Abnormal image output and printing: “h264 encode error”.</p>
+<p>A: Indicates H264 encoding error, which may be caused by the sensor’s frame gap time being too low, resulting in abnormal control;
+It is also possible that the previous frame has not been fully encoded before the start of the H264 encoding for the new frame.
+In this case, the software code has already covered and the relevant hardware modules can be reset directly.</p>
+<p>Q: I2C abnormality after switching, camera cannot communicate normally.</p>
+<p>A: This situation usually occurs when other peripherals share a set of I2C with DVP, and this I2C is cut off and used by other peripherals;
+It is recommended to use software I2C to prevent the problem of not working after reuse. Open the software I2C function macro control:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>marco</p></td>
+<td><p>value</p></td>
+<td><p>implication</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_SIM_I2C</p></td>
+<td><p>Y</p></td>
+<td><p>Enable software to simulate I2C functionality</p></td>
+</tr>
+</tbody>
+</table>
+<p>Q: Configure to h264/JPEG encoding mode, abnormal printing occurs: “···· size no match ····”</p>
+<p>A: In general, the length of data transferred by DMA is not consistent with the actual encoding length.
+This will result in the software discarding such erroneous frames by default to prevent screen flickering and other issues, and resetting the corresponding module.</p>
+<p>Q: The perspective is not in the center when creating the image.</p>
+<p>A: This problem is caused by configuring the parameters (registers) of DVP. It is recommended to find an engineer from the sensor factory to reconfigure it.
+Currently, the configuration provided by the SDK only guarantees normal image output.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uvc_camera_index.html" class="btn btn-neutral float-right" title="Common Problems with UVC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Q&amp;A" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

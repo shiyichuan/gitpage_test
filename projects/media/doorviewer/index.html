@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doorviewer &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="doorviewer_8M" href="../doorviewer_8M/index.html" />
+    <link rel="prev" title="Doorbell_720p" href="../doorbell_720p/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">Bluetooth</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Multi-media</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../doorbell/index.html">doorbell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_8M/index.html">doorbell_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_720p/index.html">doorbell_720p</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">doorviewer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framework-diagram">2. Framework diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">3. Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstration-explanation">4. Demonstration explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-explanation">5. Code explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../doorviewer_8M/index.html">doorviewer_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../audio_player/index.html">audio_player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../av_client/index.html">av_client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../av_server/index.html">av_server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_qspi/index.html">lcd_qspi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_8080/index.html">lcd_8080</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_rgb/index.html">lcd_rgb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thirdparty/index.html">thirdparty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/index.html">Peripheral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Multi-media Projects</a></li>
+      <li class="breadcrumb-item active">Doorviewer</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="doorviewer">
+<h1>Doorviewer<a class="headerlink" href="#doorviewer" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/media/doorviewer/index.html">[中文]</a></p>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>This project is a demo of a USB/DVP camera door lock, supporting end-to-end (BK7258 device) to mobile app demonstrations. Default use of 16Mbyte PSRAM</p>
+<section id="specifications">
+<h3>1.1 Specifications<a class="headerlink" href="#specifications" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Hardware configuration:</dt><dd><ul>
+<li><p>Core board, <strong>BK7258_QFN88_9X9_V3.2</strong></p></li>
+<li><p>Display adapter board, <strong>BK7258_LCD_interface_V3.0</strong></p></li>
+<li><p>Mac Xiaoban, <strong>BK_madule_Microphone_V1.1</strong></p></li>
+<li><p>Speaker small board, <strong>BKnModule_Speaker_V1.1</strong></p></li>
+<li><p>PSRAM 8M/16M</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, UVC/DVP</dt><dd><ul>
+<li><p>Reference peripherals, UVC resolution of <strong>864 * 480</strong></p></li>
+<li><p>Reference peripherals, DVP resolution of <strong>640 * 480</strong>, <strong>1280 * 720</strong></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, UAC</p></li>
+<li><p>Support, TCP LAN image transmission</p></li>
+<li><p>Support UDP LAN image transmission</p></li>
+<li><p>Support, Shangyun, P2P image transfer</p></li>
+<li><dl class="simple">
+<dt>Support, LCD RGB/MCU I8080 display</dt><dd><ul>
+<li><p>Reference peripherals, <strong>ST7701SN</strong>, 480 * 854 RGB LCD</p></li>
+<li><p>RGB565/RGB888</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, hardware/software rotation</dt><dd><ul>
+<li><p>0°, 90°, 180°, 270°</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, onboard speaker</p></li>
+<li><p>Support, Micro</p></li>
+<li><dl class="simple">
+<dt>Support, MJPEG hardware decoding</dt><dd><ul>
+<li><p>YUV422</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Support, MJPEG software decoding</dt><dd><ul>
+<li><p>YUV420</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Support, H264 hardware decoding</p></li>
+<li><dl class="simple">
+<dt>Support, OSD display</dt><dd><ul>
+<li><p>ARGB888[PNG]</p></li>
+<li><p>Custom Font</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please use reference peripherals to familiarize and learn about demo projects.
+If the specifications of the peripherals are different, the code may need to be reconfigured.</p>
+</div>
+</section>
+<section id="path">
+<h3>1.2 Path<a class="headerlink" href="#path" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>&lt;bk_avdk source code path&gt;/projects/media/doorviewer</p>
+</div></blockquote>
+</section>
+</section>
+<section id="framework-diagram">
+<h2>2. Framework diagram<a class="headerlink" href="#framework-diagram" title="Link to this heading"></a></h2>
+<section id="software-module-architecture-diagram">
+<h3>2.1 Software Module Architecture Diagram<a class="headerlink" href="#software-module-architecture-diagram" title="Link to this heading"></a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>As shown in the following figure, BK7258 has multiple CPUs:</dt><dd><ul class="simple">
+<li><p>CPU0, running WIFI/BLE as a low-power CPU.</p></li>
+<li><p>CPU1, runs multimedia and serves as a high-performance multimedia CPU.</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<figure class="align-center" id="id12">
+<img alt="module architecture Overview" src="../../../_images/doorviewer_arch.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. software module architecture
+doorviewer software module architecture</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<blockquote>
+<div><ul>
+<li><p>In the UVC scheme, a frame method is used to generate a JPEG image, which triggers another task to perform decoding, rotation, or scaling operations, and ultimately displays it on the desired LCD screen.</p></li>
+<li><dl class="simple">
+<dt>The images output by UVC cameras can be divided into two types: YUV420 MJPEG and YUV422 MJPEG.</dt><dd><ul class="simple">
+<li><p>JPEG images are directly transmitted and displayed via WiFi.</p></li>
+<li><p>The software will automatically recognize and use a hardware decoder to decode YUV422 MJPEG. YUV420 MJPEG uses CPU1 for software decoding.</p></li>
+<li><p>When decoding hardware, the image resolution needs to be a multiple of 32 for wide resolution and a multiple of 16 for high resolution.</p></li>
+<li><p>YUV pixel arrangement is divided into planar format, packed format, and semi planar format. Hardware encoded data, in packet format when required.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>In the DVP scheme, a dual stream approach is used to generate one frame of JPEG/H264 image while synchronously generating one frame of YUV image, which triggers another task to perform rotation or scaling operations, and ultimately displays it on the desired LCD screen.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>DVP cameras support single/dual stream modes, and users can configure them according to their needs.</p></li>
+<li><p>Single stream only supports any one of YUV422/JPEG/H264.</p></li>
+<li><p>Dual stream supports either JPEG/H264 and outputs YUV422 simultaneously.</p></li>
+<li><p>The MJPEG image output by DVP is YUV422 MJPEG.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>MJPEG HW Decoder, after obtaining a frame of JPEG image, directly decodes it.</p></li>
+<li><p>MJPEG SW Decoder, direct decoding</p></li>
+<li><dl class="simple">
+<dt>Rota HW and Rota SW will only use one type of rotating module at the same time.</dt><dd><ul class="simple">
+<li><p>Rota HW, supports RGB 565 image output, supports 0°, 90°, 270°.</p></li>
+<li><p>Rota SW supports 0°, 90°, 180°, and 270°.</p></li>
+<li><p>If you need to use RGB888 output or support 180°, and meet one of the conditions, you need to switch to software decoding.</p></li>
+<li><p>How to make decisions on Rota HW and Rota SW currently is determined by the SDK software. Users only need to input the rotation angle and output image format parameters into the corresponding interface when opening the LCD.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Scale requires clear input and output resolutions, as well as image formats for input and output.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="code-module-relationship-diagram">
+<h3>2.2 Code Module Relationship Diagram<a class="headerlink" href="#code-module-relationship-diagram" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>As shown in the following figure, multimedia interfaces are defined in <strong>media_app.h</strong> and <strong>aud_intf.h</strong>.</p>
+</div></blockquote>
+<figure class="align-center" id="id13">
+<img alt="relationship diagram Overview" src="../../../_images/doorviewer_sw_relationship_diag.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2. module relationship diagram</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+<div class="legend">
+<p>doorviewer module relationship diagram</p>
+</div>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="configuration">
+<h2>3. Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="bluetooth-and-multimedia-memory-reuse">
+<h3>3.1 Bluetooth and Multimedia Memory Reuse<a class="headerlink" href="#bluetooth-and-multimedia-memory-reuse" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Using the doorviewer project, decoding, rotation, and scaling are all executed in frames, so memory does not need to be shared with Bluetooth.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>marco</p></td>
+<td><p>value</p></td>
+<td><p>implication</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_BT_REUSE_MEDIA_MEMORY</p></td>
+<td><p>N</p></td>
+<td><p>Multimedia and Bluetooth share one SRAM (time-division multiplexing)</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<section id="uninstalling-bluetooth">
+<h4>3.1.1 Uninstalling Bluetooth<a class="headerlink" href="#uninstalling-bluetooth" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifdef CONFIG_BT_REUSE_MEDIA_MEMORY</span>
+<span class="c1">#if CONFIG_BLUETOOTH</span>
+    <span class="n">bk_bluetooth_deinit</span><span class="p">();</span>
+<span class="c1">#endif</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="initialize-bluetooth">
+<h4>3.1.2 Initialize Bluetooth<a class="headerlink" href="#initialize-bluetooth" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bk_bluetooth_init</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="demonstration-explanation">
+<h2>4. Demonstration explanation<a class="headerlink" href="#demonstration-explanation" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Please visit <a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/app_usage/app_usage_guide/index.html#debug">APP Usage Document</a>.</p>
+<p>Demo result: During runtime, UVC/DVP, LCD, and AUDIO will be launched. The LCD will display UVC output JPEG (864X480) images, which are decoded and rotated 90 ° before being displayed on the LCD (480X854),
+The same JPEG image will be transmitted to the phone for display via WIFI (864X480).</p>
+</div></blockquote>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you do not have cloud account permissions, you can use debug mode to set the local area network TCP image transmission method.</p>
+</div>
+</section>
+<section id="code-explanation">
+<h2>5. Code explanation<a class="headerlink" href="#code-explanation" title="Link to this heading"></a></h2>
+<section id="camera">
+<h3>5.1 Camera<a class="headerlink" href="#camera" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Supported peripherals, please refer to <a class="reference external" href="../../../support_peripherals/index.html">Support Peripherals</a></p>
+</div></blockquote>
+<section id="turn-on-camera">
+<h4>5.1.1 Turn on Camera<a class="headerlink" href="#turn-on-camera" title="Link to this heading"></a></h4>
+<section id="application-code">
+<h5>5.1.1.1 Application Code<a class="headerlink" href="#application-code" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_camera_turn_on</span><span class="p">(</span><span class="n">camera_parameters_t</span> <span class="o">*</span><span class="n">parameters</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span><span class="o">-&gt;</span><span class="nb">id</span> <span class="o">==</span> <span class="n">UVC_DEVICE_ID</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">UVC_CAMERA</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">DVP_CAMERA</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">device</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">resolution</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">;</span>
+    <span class="n">device</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">resolution</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">;</span>
+    <span class="n">device</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="n">FPS30</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Open</span> <span class="n">the</span> <span class="n">UVC</span><span class="o">/</span><span class="n">DVP</span> <span class="n">camera</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_app_camera_open</span><span class="p">(</span><span class="o">&amp;</span><span class="n">device</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="interface-code">
+<h5>5.1.1.2 Interface Code<a class="headerlink" href="#interface-code" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_camera_open</span><span class="p">(</span><span class="n">media_camera_device_t</span> <span class="o">*</span><span class="n">device</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Uninstall</span> <span class="n">Bluetooth</span>
+    <span class="c1">#ifdef CONFIG_BT_REUSE_MEDIA_MEMORY</span>
+    <span class="c1">#if CONFIG_BLUETOOTH</span>
+        <span class="n">bk_bluetooth_deinit</span><span class="p">();</span>
+    <span class="c1">#endif</span>
+    <span class="c1">#endif</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">activate</span> <span class="n">CPU1</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">shut</span> <span class="n">down</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_EN</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_ON</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Notify</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">on</span> <span class="n">the</span> <span class="n">UVC</span> <span class="n">camera</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_CAM_UVC_OPEN_IND</span><span class="p">,</span> <span class="p">(</span><span class="n">uint32_t</span><span class="p">)</span><span class="n">device</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="obtain-an-image">
+<h4>5.1.2 Obtain an image<a class="headerlink" href="#obtain-an-image" title="Link to this heading"></a></h4>
+<blockquote>
+<div><p>Because the current multimedia runs on CPU1, whether it is DVP/UVC storing one frame of image, it is all placed on PSRAM. When CPU1 needs to obtain a frame of image, the following interface needs to be called:</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//Path      : components/multimedia/comm/frame_buffer.c
+//Loaction  :  CPU1
+
+bk_err_t frame_buffer_fb_register(frame_module_t index, fb_type_t type)
+{
+    bk_err_t ret = BK_FAIL;
+
+    ...
+
+    //index: Indicate the module that needs to read images, referring to the corresponding structural meaning.
+
+    //type: This module represents the type of image that needs to be obtained.
+
+    return ret;
+}
+
+frame_buffer_t *frame_buffer_fb_read(frame_module_t index)
+{
+    frame_buffer_t *frame = NULL;
+
+    ...
+
+    //index: Indicate the module that needs to read images, referring to the corresponding structural meaning.
+
+    //The return may be an invalid frame, and it is necessary to determine the return value of this function. If it is NULL, the call needs to continue,
+    //this interface is usually called in a loop within a task.
+    return frame;
+}
+
+void frame_buffer_fb_free(frame_buffer_t *frame, frame_module_t index)
+{
+    ...
+
+    //When using the interface frame_fuffer_fc_read above and reading a valid frame, after completion of use, the frame image needs to be released and this interface needs to be called.
+}
+
+bk_err_t frame_buffer_fb_deregister(frame_module_t index, fb_type_t type)
+{
+    bk_err_t ret = BK_FAIL;
+
+    ...
+
+    //Similar to frame_fuffer_fb_register, when no reading is required, it needs to be logged out
+    return ret;
+}
+
+When obtaining an image frame on CPU0, it needs to be transmitted through a mailbox, and the general process is as follows. When CPU0 is not needed, operations on CPU0 can be deleted. Please refer to the attached image for details:
+``transfer_app_act.c``, ``transfer_major_act.c``.
+</pre></div>
+</div>
+<figure class="align-center" id="id14">
+<img alt="get frame Overview" src="../../../_images/multimedia_get_frame.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3. get frame diagram</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+<div class="legend">
+<p>multimeida get frame diagram</p>
+</div>
+</figcaption>
+</figure>
+<section id="id1">
+<h5>5.1.2.1 Application Code<a class="headerlink" href="#id1" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">uvc</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU1</span>
+
+<span class="n">bk_err_t</span> <span class="n">bk_uvc_camera_open</span><span class="p">(</span><span class="n">media_camera_device_t</span> <span class="o">*</span><span class="n">device</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Register</span> <span class="n">the</span> <span class="n">MJPEG</span> <span class="n">data</span> <span class="n">callback</span> <span class="k">for</span> <span class="n">obtaining</span> <span class="n">UVC</span> <span class="n">images</span><span class="o">.</span>
+    <span class="o">//</span><span class="n">If</span> <span class="n">frame</span> <span class="n">loss</span> <span class="n">processing</span> <span class="ow">is</span> <span class="n">required</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="n">done</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">callback</span><span class="o">.</span>
+    <span class="n">uvc_camera_config_st</span><span class="o">-&gt;</span><span class="n">jpeg_cb</span><span class="o">.</span><span class="n">push</span>   <span class="o">=</span> <span class="n">frame_buffer_fb_push</span><span class="p">;</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">dvp</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU1</span>
+
+<span class="n">bk_err_t</span> <span class="n">bk_dvp_camera_open</span><span class="p">(</span><span class="n">media_camera_device_t</span> <span class="o">*</span><span class="n">device</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Register</span> <span class="n">the</span> <span class="n">MJPEG</span> <span class="n">data</span> <span class="n">callback</span> <span class="k">for</span> <span class="n">obtaining</span> <span class="n">DVP</span> <span class="n">images</span><span class="o">.</span>
+    <span class="o">//</span><span class="n">If</span> <span class="n">frame</span> <span class="n">loss</span> <span class="n">processing</span> <span class="ow">is</span> <span class="n">required</span><span class="p">,</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="n">done</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">callback</span><span class="o">.</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">fb_complete</span> <span class="o">=</span> <span class="n">frame_buffer_fb_push</span><span class="p">;</span>
+
+    <span class="o">...</span>
+
+    <span class="k">return</span> <span class="n">bk_dvp_camera_driver_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">config</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h5>5.1.2.2 Interface Code<a class="headerlink" href="#id2" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">bk_idk</span><span class="o">/</span><span class="n">middleware</span><span class="o">/</span><span class="n">driver</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">uvc_camera</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU1</span>
+
+<span class="n">static</span> <span class="n">void</span> <span class="n">uvc_camera_eof_handle</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">idx_uvc</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Here</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">stack</span> <span class="n">of</span> <span class="n">data</span> <span class="n">streams</span> <span class="n">obtained</span> <span class="n">through</span> <span class="n">ISO</span> <span class="ow">or</span> <span class="n">BULK</span> <span class="n">transfer</span> <span class="kn">from</span><span class="w"> </span><span class="nn">USB.</span> <span class="n">And</span> <span class="n">unpacking</span><span class="p">,</span> <span class="n">grouping</span><span class="p">,</span> <span class="ow">and</span> <span class="k">finally</span> <span class="n">obtaining</span> <span class="n">a</span> <span class="n">complete</span> <span class="n">frame</span> <span class="n">of</span> <span class="n">UVC</span> <span class="n">data</span><span class="o">.</span> <span class="n">And</span> <span class="n">call</span> <span class="n">back</span> <span class="n">to</span> <span class="n">the</span> <span class="n">application</span> <span class="n">layer</span><span class="o">.</span>
+    <span class="n">uvc_camera_config_ptr</span><span class="o">-&gt;</span><span class="n">jpeg_cb</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">curr_frame_buffer</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">bk_idk</span><span class="o">/</span><span class="n">middleware</span><span class="o">/</span><span class="n">driver</span><span class="o">/</span><span class="n">camera</span><span class="o">/</span><span class="n">dvp_camera</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU1</span>
+
+<span class="n">static</span> <span class="n">void</span> <span class="n">dvp_camera_jpeg_eof_handler</span><span class="p">(</span><span class="n">jpeg_unit_t</span> <span class="nb">id</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">completion</span> <span class="n">interrupt</span> <span class="n">of</span> <span class="n">hardware</span> <span class="n">JPEG</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">where</span> <span class="n">a</span> <span class="n">complete</span> <span class="n">frame</span> <span class="n">of</span> <span class="n">DVP</span> <span class="n">data</span> <span class="ow">is</span> <span class="k">finally</span> <span class="n">obtained</span> <span class="ow">and</span> <span class="n">called</span> <span class="n">back</span> <span class="n">to</span> <span class="n">the</span> <span class="n">application</span> <span class="n">layer</span><span class="o">.</span>
+    <span class="n">dvp_camera_config</span><span class="o">-&gt;</span><span class="n">fb_complete</span><span class="p">(</span><span class="n">curr_encode_frame</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Here is an introduction to how to obtain MJPEG images on CPU1. If your application is running on CPU0, it needs to be sent to CPU0 through a mailbox for use, and after use, it needs to be returned to CPU1 for release.</p>
+</div>
+</section>
+</section>
+<section id="turn-off-camera">
+<h4>5.1.3 Turn off Camera<a class="headerlink" href="#turn-off-camera" title="Link to this heading"></a></h4>
+<section id="id3">
+<h5>5.1.3.1 Application Code<a class="headerlink" href="#id3" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_camera_turn_off</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">db_device_info</span><span class="o">-&gt;</span><span class="n">camera_id</span> <span class="o">==</span> <span class="n">UVC_DEVICE_ID</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">UVC</span> <span class="n">camera</span>
+        <span class="n">media_app_camera_close</span><span class="p">(</span><span class="n">UVC_CAMERA</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">DVP</span> <span class="n">camera</span>
+        <span class="n">media_app_camera_close</span><span class="p">(</span><span class="n">DVP_CAMERA</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h5>5.1.3.2 Interface Code<a class="headerlink" href="#id4" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_camera_close</span><span class="p">(</span><span class="n">camera_type_t</span> <span class="nb">type</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">camera</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">type</span> <span class="o">==</span> <span class="n">UVC_CAMERA</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_CAM_UVC_CLOSE_IND</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_CAM_DVP_CLOSE_IND</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">be</span> <span class="n">turned</span> <span class="n">off</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">shut</span> <span class="n">down</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_JPEG_EN</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_OFF</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>All operations involving multimedia require attention to the requirement of low power consumption. To turn on the device, it must be turned off, otherwise the entire system cannot enter low-power mode.</p></li>
+<li><p>The operation involving CPU1 voting, opening and closing, must appear in pairs, otherwise there will be a problem of CPU1 being unable to close and increasing power consumption.</p></li>
+<li><p>You can refer to the chapter on low power consumption</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section id="lcd-display">
+<h3>5.2 LCD Display<a class="headerlink" href="#lcd-display" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Supported peripherals, please refer to <a class="reference external" href="../../../support_peripherals/index.html">Support Peripherals</a></p>
+</div></blockquote>
+<section id="open-lcd">
+<h4>5.2.1 Open LCD<a class="headerlink" href="#open-lcd" title="Link to this heading"></a></h4>
+<section id="id6">
+<h5>5.2.1.1 Application Code<a class="headerlink" href="#id6" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_display_turn_on</span><span class="p">(</span><span class="n">uint16_t</span> <span class="nb">id</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">fmt</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Set</span> <span class="n">rotation</span> <span class="n">angle</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rotate</span> <span class="o">==</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">media_app_lcd_rotate</span><span class="p">(</span><span class="n">ROTATE_90</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">Open</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">LCD</span> <span class="n">screen</span> <span class="n">display</span>
+    <span class="n">media_app_lcd_open</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lcd_open</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h5>5.2.1.2 Interface Code<a class="headerlink" href="#id7" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_open</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">lcd_open</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">be</span> <span class="n">turned</span> <span class="n">off</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">shut</span> <span class="n">down</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_LCD</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_ON</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Notify</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">on</span> <span class="n">the</span> <span class="n">LCD</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_LCD_OPEN_IND</span><span class="p">,</span> <span class="p">(</span><span class="n">uint32_t</span><span class="p">)</span><span class="n">ptr</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="turn-off-lcd">
+<h4>5.2.2 Turn off LCD<a class="headerlink" href="#turn-off-lcd" title="Link to this heading"></a></h4>
+<section id="id8">
+<h5>5.2.2.1 Application Code<a class="headerlink" href="#id8" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span>  <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">doorbell_devices</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="nb">int</span> <span class="n">doorbell_display_turn_off</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">off</span> <span class="n">local</span> <span class="n">LCD</span> <span class="n">display</span>
+    <span class="n">media_app_lcd_close</span><span class="p">();</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h5>5.2.2.2 Interface Code<a class="headerlink" href="#id9" title="Link to this heading"></a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">Path</span>      <span class="p">:</span> <span class="n">components</span><span class="o">/</span><span class="n">multimedia</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">media_app</span><span class="o">.</span><span class="n">c</span>
+<span class="o">//</span><span class="n">Loaction</span>  <span class="p">:</span>  <span class="n">CPU0</span>
+
+<span class="n">bk_err_t</span> <span class="n">media_app_lcd_close</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="o">//</span><span class="n">urn</span> <span class="n">off</span> <span class="n">local</span> <span class="n">LCD</span> <span class="n">display</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">media_send_msg_sync</span><span class="p">(</span><span class="n">EVENT_LCD_CLOSE_IND</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="o">//</span><span class="n">Vote</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">CPU1</span> <span class="n">to</span> <span class="n">be</span> <span class="n">turned</span> <span class="n">off</span><span class="o">.</span> <span class="n">The</span> <span class="n">purpose</span> <span class="n">of</span> <span class="n">voting</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">CPU1</span> <span class="n">can</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">shut</span> <span class="n">down</span> <span class="n">when</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">use</span><span class="p">,</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">achieve</span> <span class="n">the</span> <span class="n">goal</span> <span class="n">of</span> <span class="n">low</span> <span class="n">power</span> <span class="n">consumption</span><span class="o">.</span>
+    <span class="n">bk_pm_module_vote_boot_cp1_ctrl</span><span class="p">(</span><span class="n">PM_BOOT_CP1_MODULE_NAME_VIDP_LCD</span><span class="p">,</span> <span class="n">PM_POWER_MODULE_STATE_OFF</span><span class="p">);</span>
+
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="osd-display">
+<h4>5.2.3 OSD Display<a class="headerlink" href="#osd-display" title="Link to this heading"></a></h4>
+</section>
+</section>
+<section id="audio">
+<h3>5.3 Audio<a class="headerlink" href="#audio" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Please refer to the <a class="reference external" href="../../doorbell/index.html#audio">Audio</a></p>
+</div></blockquote>
+</section>
+<section id="h264-encoding-and-decoding">
+<h3>5.4 H264 Encoding and Decoding<a class="headerlink" href="#h264-encoding-and-decoding" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Please refer to the <a class="reference external" href="../../../video_codec/H264_encoding/index.html">H264 encoding</a></p>
+</div></blockquote>
+</section>
+<section id="wifi-transmission">
+<h3>5.5 WIFI transmission<a class="headerlink" href="#wifi-transmission" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Please refer to the <a class="reference external" href="../../doorbell/index.html#wifi">WIFI transmission</a></p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../doorviewer_8M/index.html" class="btn btn-neutral float-right" title="doorviewer_8M" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../doorbell_720p/index.html" class="btn btn-neutral float-left" title="Doorbell_720p" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

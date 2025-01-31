@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RGB565 LCD &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="RGB888 LCD" href="../lcd_rgb888/index.html" />
+    <link rel="prev" title="SPI_LCD" href="../lcd_spi/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../media/index.html">Multi-media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../thirdparty/index.html">thirdparty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Peripheral</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../dvp/index.html">dvp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uvc/index.html">uvc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_qspi/index.html">lcd_qspi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_spi/index.html">lcd_spi</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lcd_rgb565</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">1 Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-path">2 Code Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-explanation">3.Code explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_rgb888/index.html">lcd_rgb888</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_rgb666/index.html">lcd_rgb666</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lcd_8080/index.html">lcd_8080</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Peripheral</a></li>
+      <li class="breadcrumb-item active">RGB565 LCD</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rgb565-lcd">
+<h1>RGB565 LCD<a class="headerlink" href="#rgb565-lcd" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/peripheral/lcd_rgb565/index.html">[中文]</a></p>
+<section id="introduction">
+<h2>1 Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>RGB565 project is verified RGB565 interface display function,randoms color are displayed every second after power on</p>
+<p>the main differences of RGB888/RGB565/RGB666 project is whether the screen supports RGB565 or rgb666 or rgb888,
+the data source is not mandatory ,it can be RGB565, RGB888 or YUYV.</p>
+</div></blockquote>
+</section>
+<section id="code-path">
+<h2>2 Code Path<a class="headerlink" href="#code-path" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>demo path:<code class="docutils literal notranslate"><span class="pre">./projects/peripheral/lcd_rgb565</span></code></p>
+</div></blockquote>
+</section>
+<section id="code-explanation">
+<h2>3.Code explanation<a class="headerlink" href="#code-explanation" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>compile commands:<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">bk7258</span> <span class="pre">PROJECT=peripheral/lcd_rgb565</span></code></p>
+</div></blockquote>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<blockquote>
+<div><p>LCD RGB565 or RGB666 or RGB888 is defined by lcd_device_t member “out_fmt”, alse can config by API:</p>
+</div></blockquote>
+<p>LCD conifig by default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">lcd_device_t</span> <span class="n">lcd_device_st7701sn</span> <span class="o">=</span>
+<span class="p">{</span>
+        <span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">LCD_DEVICE_ST7701SN</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;st7701sn&quot;</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">LCD_TYPE_RGB565</span><span class="p">,</span>    <span class="o">/**&lt;</span> <span class="n">lcd</span> <span class="n">device</span> <span class="n">hw</span> <span class="n">interface</span> <span class="o">*</span><span class="n">LCD_TYPE_RGB</span><span class="o">=</span><span class="n">LCD_TYPE_RGB565</span> <span class="o">*/</span>
+        <span class="o">.</span><span class="n">ppi</span> <span class="o">=</span> <span class="n">PPI_480X854</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lcd_rgb</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">src_fmt</span> <span class="o">=</span> <span class="n">PIXEL_FMT_RGB565</span><span class="p">,</span>   <span class="o">/**&lt;</span> <span class="n">source</span> <span class="n">data</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">input</span> <span class="n">to</span> <span class="n">display</span> <span class="n">module</span> <span class="n">data</span> <span class="nb">format</span><span class="p">(</span><span class="n">rgb565</span><span class="o">/</span><span class="n">rgb888</span><span class="o">/</span><span class="n">yuv</span><span class="p">)</span><span class="o">*/</span>
+        <span class="o">.</span><span class="n">out_fmt</span> <span class="o">=</span> <span class="n">PIXEL_FMT_RGB565</span><span class="p">,</span> <span class="o">/**&lt;</span> <span class="n">display</span> <span class="n">module</span> <span class="n">output</span> <span class="n">data</span> <span class="nb">format</span><span class="p">(</span><span class="n">rgb565</span><span class="o">/</span><span class="n">rgb666</span><span class="o">/</span><span class="n">rgb888</span><span class="p">),</span> <span class="nb">input</span> <span class="n">to</span> <span class="n">lcd</span> <span class="n">device</span><span class="p">,</span><span class="o">*/</span>
+        <span class="o">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">lcd_st7701sn_init</span><span class="p">,</span>
+        <span class="o">.</span><span class="n">lcd_off</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">,</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>user can also use API to config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lcd_hal_rgb_set_in_out_format</span><span class="p">(</span><span class="n">src_fmt</span><span class="p">,</span> <span class="n">out_fmt</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<section id="rgb565-lcd-config-step">
+<h3>RGB565 LCD config step<a class="headerlink" href="#rgb565-lcd-config-step" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>step 1: open lcd</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">media_app_lcd_pipeline_disp_open</span>
+<span class="n">media_app_lcd_example_display</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>step 2:malloc psram</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame_buffer_display_malloc</span>
+</pre></div>
+</div>
+<p>after psram malloc, should config frame:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">size</span> <span class="o">=</span> <span class="n">ppi_to_pixel_x</span><span class="p">(</span><span class="n">lcd_open</span><span class="o">-&gt;</span><span class="n">device_ppi</span><span class="p">)</span> <span class="o">*</span> <span class="n">ppi_to_pixel_y</span><span class="p">(</span><span class="n">lcd_open</span><span class="o">-&gt;</span><span class="n">device_ppi</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="n">frame</span> <span class="o">=</span> <span class="n">frame_buffer_display_malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+
+<span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span> <span class="o">=</span> <span class="n">ppi_to_pixel_x</span><span class="p">(</span><span class="n">lcd_open</span><span class="o">-&gt;</span><span class="n">device_ppi</span><span class="p">);</span>
+<span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span> <span class="o">=</span> <span class="n">ppi_to_pixel_y</span><span class="p">(</span><span class="n">lcd_open</span><span class="o">-&gt;</span><span class="n">device_ppi</span><span class="p">);</span>
+<span class="n">frame</span><span class="o">-&gt;</span><span class="n">fmt</span> <span class="o">=</span> <span class="n">PIXEL_FMT_RGB565</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>step 3:fill color</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lcd_fill_rand_color</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>step 4:display request</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lcd_display_frame_request</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>step 5:cycle step2-4</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../lcd_rgb888/index.html" class="btn btn-neutral float-right" title="RGB888 LCD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../lcd_spi/index.html" class="btn btn-neutral float-left" title="SPI_LCD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

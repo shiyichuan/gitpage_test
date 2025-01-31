@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Start Guide &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19145764"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HW Reference" href="../hw-reference/index.html" />
+    <link rel="prev" title="Beken Armino AVDK Development Document" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#armino-avdk-sdk-code-download">Armino AVDK SDK Code download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-compilation-environment">Build Compilation Environment:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-tool-chain">Install Tool Chain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-depended-libraries">Install Depended libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-python-dependencies">Install python dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-the-project">Build The Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-project">Configuration project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-new-project">Create New project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#burn-code">Burn Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quick Start Guide</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quick-start-guide">
+<h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../zh_CN/latest/get-started/index.html">[中文]</a></p>
+<section id="armino-avdk-sdk-code-download">
+<h2>Armino AVDK SDK Code download<a class="headerlink" href="#armino-avdk-sdk-code-download" title="Link to this heading"></a></h2>
+<p>We can download Armino AVDK SDK from gitlab:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">armino</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">armino</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">gitlab</span><span class="o">.</span><span class="n">bekencorp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">armino</span><span class="o">/</span><span class="n">bk_avdk</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>We also can download Armino AVDK SDK from github:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">armino</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">armino</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recurse</span><span class="o">-</span><span class="n">submodules</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">bekencorp</span><span class="o">/</span><span class="n">bk_avdk</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Then switch to the stable branch Tag node, such as v2.0.1.8:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">armino</span><span class="o">/</span><span class="n">bk_avdk</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">B</span> <span class="n">your_branch_name</span> <span class="n">v2</span><span class="mf">.0.1.8</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span> <span class="o">--</span><span class="n">init</span> <span class="o">--</span><span class="n">recursive</span>
+<span class="n">ls</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id1">
+<img alt="advk dir" src="../_images/bk_avdk_dir_1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. AVDK Directiry structure</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>!Note:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>The latest SDK code is downloaded from gitlab on the official website, and</dt><dd><p>relevant accounts can be found on the project to review the application.</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="build-compilation-environment">
+<h2>Build Compilation Environment:<a class="headerlink" href="#build-compilation-environment" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>Armino, currently supports compiling in Linux environment. This chapter willtake Ubuntu 20.04 LTS</dt><dd><p>as an example to introduce the construction of the entire compiling environment.</p>
+</dd>
+</dl>
+</div>
+<section id="install-tool-chain">
+<h3>Install Tool Chain<a class="headerlink" href="#install-tool-chain" title="Link to this heading"></a></h3>
+<p>Click <a class="reference external" href="https://dl.bekencorp.com/tools/toolchain/arm/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2">Download</a> to download the BK7258 toolchain.</p>
+<p>After downloading the tool kit, decompress it to ‘/opt/’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo tar -xvjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 -C /opt/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tool chain the default path is configured in the middleware/soc/bk7258/bk7258.defconfig, you can modify <code class="docutils literal notranslate"><span class="pre">CONFIG_TOOLCHAIN_PATH</span></code> to set to your owner toolchain path:</p>
+<blockquote>
+<div><p>CONFIG_TOOLCHAIN_PATH=”/opt/gcc-arm-none-eabi-10.3-2021.10/bin”</p>
+</div></blockquote>
+</div>
+</section>
+<section id="install-depended-libraries">
+<h3>Install Depended libraries<a class="headerlink" href="#install-depended-libraries" title="Link to this heading"></a></h3>
+<p>Enter the following command in the terminal to install python3,CMake,Ninja:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">architecture</span> <span class="n">i386</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">cmake</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">doxygen</span> <span class="n">ninja</span><span class="o">-</span><span class="n">build</span> <span class="n">libc6</span><span class="p">:</span><span class="n">i386</span> <span class="n">libstdc</span><span class="o">++</span><span class="mi">6</span><span class="p">:</span><span class="n">i386</span> <span class="n">libncurses5</span><span class="o">-</span><span class="n">dev</span> <span class="n">lib32z1</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pycrypto</span> <span class="n">click</span>
+</pre></div>
+</div>
+</section>
+<section id="install-python-dependencies">
+<h3>Install python dependencies<a class="headerlink" href="#install-python-dependencies" title="Link to this heading"></a></h3>
+<p>Enter the following command to install python dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">sphinx_rtd_theme</span> <span class="n">future</span> <span class="n">breathe</span> <span class="n">blockdiag</span> <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">seqdiag</span> <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">actdiag</span> <span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">nwdiag</span> <span class="n">sphinxcontrib</span><span class="o">.</span><span class="n">blockdiag</span>
+</pre></div>
+</div>
+<p>If you default Python is Python2, please set it to Python3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="build-the-project">
+<h2>Build The Project<a class="headerlink" href="#build-the-project" title="Link to this heading"></a></h2>
+<p>Run following commands to build BK7258 default doorbell project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">armino</span><span class="o">/</span><span class="n">bk_avdk</span>
+<span class="n">make</span> <span class="n">bk7258</span>
+</pre></div>
+</div>
+<p>You can also build projects with PROJECT parameter, e.g. run “make bk7258 PROJECT=media/doorbell”
+can build projects/media/doorbell etc.</p>
+</section>
+<section id="configuration-project">
+<h2>Configuration project<a class="headerlink" href="#configuration-project" title="Link to this heading"></a></h2>
+<p>We can also use the project configuration file for differentiated configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Project</span> <span class="n">Profile</span> <span class="n">Override</span> <span class="n">Chip</span> <span class="n">Profile</span> <span class="n">Override</span> <span class="n">Default</span> <span class="n">Configuration</span>
+<span class="n">Example</span><span class="p">:</span> <span class="n">config</span> <span class="o">&gt;&gt;</span> <span class="n">bk7258</span><span class="o">.</span><span class="n">defconfig</span> <span class="o">&gt;&gt;</span> <span class="n">KConfig</span>
+<span class="o">+</span> <span class="n">Example</span> <span class="n">of</span> <span class="n">project</span> <span class="n">configuration</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">projects</span><span class="o">/</span><span class="n">media</span><span class="o">/</span><span class="n">doorbell</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">bk7258</span><span class="o">/</span><span class="n">config</span>
+<span class="o">+</span> <span class="n">Sample</span> <span class="n">chip</span> <span class="n">configuration</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">middleware</span><span class="o">/</span><span class="n">soc</span><span class="o">/</span><span class="n">bk7258</span><span class="o">/</span><span class="n">bk7258</span><span class="o">.</span><span class="n">defconfig</span>
+<span class="o">+</span> <span class="n">Sample</span> <span class="n">KConfig</span> <span class="n">configuration</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">middleware</span><span class="o">/</span><span class="n">arch</span><span class="o">/</span><span class="n">cm33</span><span class="o">/</span><span class="n">Kconfig</span>
+    <span class="n">components</span><span class="o">/</span><span class="n">bk_cli</span><span class="o">/</span><span class="n">Kconfig</span>
+</pre></div>
+</div>
+</section>
+<section id="create-new-project">
+<h2>Create New project<a class="headerlink" href="#create-new-project" title="Link to this heading"></a></h2>
+<p>The default project is projects/media/doorbell. For new projects, please refer to the project in projects/media/</p>
+</section>
+<section id="burn-code">
+<h2>Burn Code<a class="headerlink" href="#burn-code" title="Link to this heading"></a></h2>
+<p>On the Windows platform, Armino currently supports UART burning.</p>
+<p>For detailed <a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/en/v2.0.1/get-started/index.html">burning process</a>, please refer to <a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_idk/bk7258/en/v2.0.1/index.html">IDK</a></p>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../hw-reference/index.html" class="btn btn-neutral float-right" title="HW Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Beken Armino AVDK Development Document" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

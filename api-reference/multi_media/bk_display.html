@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Display APIs &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DMA2D APIs" href="bk_dma2d.html" />
+    <link rel="prev" title="Audio APIs" href="bk_audio.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Multi-media</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bk_audio.html">Audio</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Display</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lcd-display-interface">LCD Display Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lcd-api-categories">LCD API Categories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lcd-8080-config">LCD 8080 Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lcd-rgb-config">LCD RGB Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lcd-parcical-display">LCD parcical display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-reference">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-typedefs">API Typedefs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bk_dma2d.html">DMA2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_hw_rotate.html">Rotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_sbc.html">SBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_mp3.html">MP3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_dvp_camera.html">DVP_Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_uvc_camera.html">UVC_Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_video_transfer.html">Video_transfer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegenc.html">JPEG_ENCODE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegdec_hw.html">JPEG_DECODE_HW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegdec_sw.html">JPEG_DECODE_SW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegenc_sw.html">JPEG_ENCODE_SW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_aec.html">AEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_g711.html">G711</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_aud_intf.html">Aud_Intf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">API References</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Multi-Media</a></li>
+      <li class="breadcrumb-item active">Display APIs</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="display-apis">
+<h1>Display APIs<a class="headerlink" href="#display-apis" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/api-reference/multi_media/bk_display.html">[中文]</a></p>
+<section id="lcd-display-interface">
+<h2>LCD Display Interface<a class="headerlink" href="#lcd-display-interface" title="Link to this heading"></a></h2>
+<p>The BK LCD Display Driver supports following interfaces:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>i8080 LCD  interface</dt><dd><ol class="arabic simple">
+<li><p>The screen Driving IC used in the project is ST7796S</p></li>
+<li><p>The data transmission of the 8080 interface is 8-bit</p></li>
+<li><p>The interface supports RGB565 data</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RGB interface</dt><dd><ol class="arabic simple">
+<li><p>The supported screens in the project include Driving IC ST7282, HX8282 and GC9503V</p></li>
+<li><p>the data supported by the interface including RGB565, YUYV, UYVY, YYUV, UVYY, VUYY</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="lcd-api-categories">
+<h2>LCD API Categories<a class="headerlink" href="#lcd-api-categories" title="Link to this heading"></a></h2>
+</section>
+<section id="lcd-8080-config">
+<h2>LCD 8080 Config<a class="headerlink" href="#lcd-8080-config" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<img alt="880 lcd Overview" src="../../_images/lcd_8080_flow.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. 8080 lcd config flow</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="lcd-rgb-config">
+<h2>LCD RGB Config<a class="headerlink" href="#lcd-rgb-config" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id2">
+<img alt="rgb lcd Overview" src="../../_images/lcd_rgb_flow.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2. rgb lcd config flow</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="lcd-parcical-display">
+<h2>LCD parcical display<a class="headerlink" href="#lcd-parcical-display" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id3">
+<img alt="rgb lcd Overview" src="../../_images/lcd_partical_display.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3. rgb lcd config flow</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Local display parameter configuration</p>
+<figure class="align-center" id="id4">
+<img alt="rgb lcd Overview" src="../../_images/partical_params_config.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4. rgb lcd config flow</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+</section>
+<section id="api-typedefs">
+<h2>API Typedefs<a class="headerlink" href="#api-typedefs" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bk_dma2d.html" class="btn btn-neutral float-right" title="DMA2D APIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bk_audio.html" class="btn btn-neutral float-left" title="Audio APIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

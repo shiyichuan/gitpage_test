@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doorbell_cs2_8M &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Doorbell_cs2_720p" href="../doorbell_cs2_720p/index.html" />
+    <link rel="prev" title="Doorbell_cs2" href="../doorbell_cs2/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../media/index.html">Multi-media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">thirdparty</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../agora/index.html">agora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wanson_asr/index.html">wanson-asr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2/index.html">doorbell_cs2</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">doorbell_cs2_8M</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framework-diagram">2. Framework diagram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">3. Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstration-explanation">4. Demonstration explanation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-explanation">5. Code explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2_720p/index.html">doorbell_cs2_720p</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/index.html">Peripheral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">thirdparty projects code</a></li>
+      <li class="breadcrumb-item active">Doorbell_cs2_8M</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="doorbell-cs2-8m">
+<h1>Doorbell_cs2_8M<a class="headerlink" href="#doorbell-cs2-8m" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/thirdparty/doorbell_cs2_8M/index.html">[中文]</a></p>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>This project is a demo of a USB camera door lock, supporting end-to-end (BK7258 device) to mobile app demonstrations. By default, it supports Shangyun for network transmission.</p>
+<section id="specifications">
+<h3>1.1 Specifications<a class="headerlink" href="#specifications" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Please refer to <a class="reference external" href="../../media/doorbell/index.html#specifications">Specifications</a></p>
+</div></blockquote>
+</section>
+<section id="path">
+<h3>1.2 Path<a class="headerlink" href="#path" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>&lt;bk_avdk source code path&gt;/projects/thirdparty/doorbell_cs2_8M</p>
+</div></blockquote>
+</section>
+</section>
+<section id="framework-diagram">
+<h2>2. Framework diagram<a class="headerlink" href="#framework-diagram" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Please refer to <a class="reference external" href="../../media/doorbell/index.html#framework-diagram">Framework diagram</a></p>
+</div></blockquote>
+</section>
+<section id="configuration">
+<h2>3. Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Please refer to <a class="reference external" href="../../media/doorbell/index.html#configuration">Configuration</a></p>
+</div></blockquote>
+<section id="differences">
+<h3>3.1 Differences<a class="headerlink" href="#differences" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>The difference between doorbell_CS2_8M and doorbell_8M is that one supports not only UDP and TCP image transmission,
+but also CS2 cloud transmission, while the latter only supports UDP/TCP.</p>
+<p>Support the macro configuration of Shangyun on CPU0. The difference in macro configuration between the two projects is as follows:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>project</p></td>
+<td><p>marco</p></td>
+<td><p>value</p></td>
+<td><p>implication</p></td>
+</tr>
+<tr class="row-even"><td><p>doorbell_8M</p></td>
+<td><p>CONFIG_INTEGRATION_DOORBELL_CS2</p></td>
+<td><p>N</p></td>
+<td><p>Disable CS2 cloud transmission</p></td>
+</tr>
+<tr class="row-odd"><td><p>doorbell_CS2_8M</p></td>
+<td><p>CONFIG_INTEGRATION_DOORBELL_CS2</p></td>
+<td><p>Y</p></td>
+<td><p>Enable CS2 cloud transmission</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</section>
+</section>
+<section id="demonstration-explanation">
+<h2>4. Demonstration explanation<a class="headerlink" href="#demonstration-explanation" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Please visit <a class="reference external" href="https://docs.bekencorp.com/arminodoc/bk_app/app/zh_CN/v2.0.1/app_usage/app_usage_guide/index.html#debug">APP Usage Document</a></p>
+<p>Demo result: During runtime, UVC, LCD, and AUDIO will be activated. The LCD will display UVC and output JPEG (864X480) images that have been decoded and rotated 90 degrees before being displayed on the LCD (480X854),
+After decoding, the YUV is encoded with H264 and transmitted to the mobile phone for display via WIFI (864X480).</p>
+</div></blockquote>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you do not have cloud account permissions, you can use debug mode to set the local area network TCP image transmission method.</p>
+</div>
+</section>
+<section id="code-explanation">
+<h2>5. Code explanation<a class="headerlink" href="#code-explanation" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Please refer to <a class="reference external" href="../../media/doorbell/index.html#code-explanation">Code explanation</a></p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../doorbell_cs2_720p/index.html" class="btn btn-neutral float-right" title="Doorbell_cs2_720p" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../doorbell_cs2/index.html" class="btn btn-neutral float-left" title="Doorbell_cs2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

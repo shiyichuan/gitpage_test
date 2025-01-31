@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camera Overview &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DVP Camera Introduction" href="../dvp_camera_introduction/index.html" />
+    <link rel="prev" title="Camera" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Camera</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Camera Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#working-principle">1 Working Principle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-components">2 Main Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#camera-ports">3 Camera Ports</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dvp_camera_introduction/index.html">DVP Camera Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uvc_camera_introduction/index.html">UVC Camera Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Camera</a></li>
+      <li class="breadcrumb-item active">Camera Overview</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="camera-overview">
+<h1>Camera Overview<a class="headerlink" href="#camera-overview" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/camera/camera_introduction/index.html">[中文]</a></p>
+<div class="toctree-wrapper compound">
+</div>
+<section id="working-principle">
+<h2>1 Working Principle<a class="headerlink" href="#working-principle" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The scene is projected to the surface of the image SENSOR through the optical image generated by the LENS, and then converted into an electrical signal,
+converted into A digital image signal after A/D (analog-to-digital conversion), and then sent to the digital signal processing chip (DSP) for processing, after output YUV or RGB format data.</p>
+</div></blockquote>
+<figure class="align-center" id="id1">
+<img alt="camera_working_principle flow" src="../../_images/camera_working_principle_flow.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1.Working principle and process</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="main-components">
+<h2>2 Main Components<a class="headerlink" href="#main-components" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Generally speaking, camera is mainly composed of lens and sensor IC two parts, of which some sensor IC integrated DSP, some not integrated, but also need external DSP processing.</p>
+</div></blockquote>
+<p>1.lens</p>
+<blockquote>
+<div><p>The lens structure of the camera is composed of several lenses, divided into Plastic lenses and Glass lenses, usually the lens structure is: 1P,2P,1G1P,1G3P,2G2P,4G and so on.</p>
+</div></blockquote>
+<figure class="align-center" id="id2">
+<img alt="lens type" src="../../_images/lens_type.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2.Lens structure</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>sensor (Image sensor)</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sensor is a Semiconductor chip that comes in two types: CCD (Charge Coupled Device), short for charge-coupled device, and CMOS (Complementary Metal-Oxide Semiconductor), complementary metal-oxide semiconductor.</p></li>
+<li><p>The Sensor converts the light transmitted from the lens into an electrical signal, and then converts it into a digital signal through the internal AD. Since each pixel of the sensor can only be sensitive to R light or B light or G light, each pixel is stored in monochrome at this time, which is called RAW DATA.
+In order to restore the RAW DATA data of each pixel to the three primary colors, it needs to be processed by the ISP. ISP (Image signal processing) mainly completes the processing of digital images, and converts the original data collected by the sensor into the format supported by the display.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>CCD sensor, charge signal first transmitted, after amplification, and then A/D, imaging quality high sensitivity, good resolution, low noise; Slow processing speed; The cost is high and the process is complex.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>CMOS sensor, charge signal first amplified, after A/D, and then transmitted; The imaging quality sensitivity is low and the noise is obvious. Fast processing speed; Low cost, simple process.</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<p>3.CAMIF (camera controller)</p>
+<blockquote>
+<div><p>The camera interface circuit on the chip controls the device, receives the data collected by the sensor, sends it to the CPU, and sends it to the LCD for display.</p>
+</div></blockquote>
+</section>
+<section id="camera-ports">
+<h2>3 Camera Ports<a class="headerlink" href="#camera-ports" title="Link to this heading"></a></h2>
+<blockquote>
+<div><blockquote>
+<div><p>There are two common camera interfaces: UVC interface and DVP interface</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>USB port, only data cable, no clock cable.</p></li>
+</ul>
+<figure class="align-center" id="id3">
+<img alt="uvc interface" src="../../_images/uvc_interface.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3.UVC interface</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<ul class="simple">
+<li><p>DVP(Digital Video Port/Parally Port)interface, mainly composed of power bus, input bus, output bus.</p></li>
+</ul>
+<blockquote>
+<div><figure class="align-center" id="id4">
+<img alt="dvp interface" src="../../_images/dvp_interface.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4.DVP interface</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Input bus</p></li>
+</ul>
+<p>PWDN: camera enable pin, can be configured in two modes, one is standby, one is normal work. When the camera is configured as standby, all operations including reset are invalid for the camera, so the pin must be set to normal work to reset it.</p>
+<p>MCLK: The working clock provided to the camera.</p>
+<p>IIC_SDA/IIC_SCL: Registers used to read and write sensors.</p>
+<ul class="simple">
+<li><p>Output bus</p></li>
+</ul>
+<p>PCLK: pixel sync signal pin.</p>
+<p>VSYNC: indicates the frame synchronization signal.</p>
+<p>HSYN: indicates the line synchronization signal.</p>
+<p>DATA[0-7] : Output data pin.</p>
+<ul class="simple">
+<li><p>Power bus</p></li>
+</ul>
+<p>AVDD: The analog voltage of the camera, which mainly supplies power to the photosensitive region of the camera and the ADC part.</p>
+<p>IOVDD: The analog voltage of the GPIO port of the camera mainly supplies power to the IIC or DVP part.</p>
+<p>DVDD: The digital operating voltage of the camera, if the power supply is unstable, it may cause the screen to burn.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../dvp_camera_introduction/index.html" class="btn btn-neutral float-right" title="DVP Camera Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

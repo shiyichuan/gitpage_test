@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aud_Intf APIs &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Support Peripherals" href="../../support_peripherals/index.html" />
+    <link rel="prev" title="G711 APIs" href="bk_g711.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_overview.html">Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Multi-media</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bk_audio.html">Audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_display.html">Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_dma2d.html">DMA2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_hw_rotate.html">Rotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_sbc.html">SBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_mp3.html">MP3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_dvp_camera.html">DVP_Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_uvc_camera.html">UVC_Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_video_transfer.html">Video_transfer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegenc.html">JPEG_ENCODE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegdec_hw.html">JPEG_DECODE_HW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegdec_sw.html">JPEG_DECODE_SW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_jpegenc_sw.html">JPEG_ENCODE_SW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_aec.html">AEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bk_g711.html">G711</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Aud_Intf</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#audio-interface">Audio Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#audio-interface-api-categories">Audio Interface API Categories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-reference">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-typedefs">API Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">API References</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Multi-Media</a></li>
+      <li class="breadcrumb-item active">Aud_Intf APIs</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aud-intf-apis">
+<h1>Aud_Intf APIs<a class="headerlink" href="#aud-intf-apis" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/api-reference/multi_media/bk_aud_intf.html">[中文]</a></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Aud_Intf API v1.0 is the lastest and stable Audio interface APIs. All new applications should use Audio interface API v1.0.
+And all Aud_Intf API cannot be called in mic and speaker callback registed in  <cite>bk_aud_intf_drv_init</cite> .</p>
+</div>
+<section id="audio-interface">
+<h2>Audio Interface<a class="headerlink" href="#audio-interface" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>The BK Audio interface supports two work mode:</dt><dd><ul class="simple">
+<li><p>General mode</p></li>
+<li><p>Voice mode</p></li>
+</ul>
+</dd>
+</dl>
+<p>The general work mode supports general functions, and the Voice mode supports voice transfer functions. However, the audio only work in one mode at a time.</p>
+<dl class="simple">
+<dt>The General mode supports following functions:</dt><dd><ul class="simple">
+<li><p>record function</p></li>
+<li><p>play function</p></li>
+</ul>
+</dd>
+</dl>
+<p>The record and play function can be operated independently.</p>
+<dl class="simple">
+<dt>The Voice mode supports following features:</dt><dd><ul class="simple">
+<li><p>voice transfer by G711A data</p></li>
+<li><p>voice transfer by PCM data</p></li>
+<li><p>8k and 16k sample rate</p></li>
+<li><p>software AEC</p></li>
+<li><p>set mic gain</p></li>
+<li><p>set speaker gain</p></li>
+<li><p>onboard mic and speaker</p></li>
+<li><p>UAC mic and speaker</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="audio-interface-api-categories">
+<h2>Audio Interface API Categories<a class="headerlink" href="#audio-interface-api-categories" title="Link to this heading"></a></h2>
+<p>Most of Audio APIs can be categoried as:</p>
+<blockquote>
+<div><ul>
+<li><p>Common APIs</p>
+<p>The common APIs are prefixed with bk_aud_intf, the APIs may be common for General mode and Voice mode, e.g. bk_aud_intf_drv_init() etc.</p>
+</li>
+<li><p>Mic function APIs.</p>
+<p>The APIs provide support for record function. e.g. bk_aud_intf_mic_init() etc.</p>
+</li>
+<li><p>Spk function APIs.</p>
+<p>The APIs provide support for play function. e.g. bk_aud_intf_spk_init() etc.</p>
+</li>
+<li><p>Voc function APIs.</p>
+<p>The APIs provide support for voice transfer function. e.g. bk_aud_intf_voc_init() etc.</p>
+</li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>Common APIs:</dt><dd><ul class="simple">
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_drv_init()</span></code> - init the audio interface driver</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_drv_deinit()</span></code> - deinit the audio interface driver</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_mode()</span></code> - set audio interface work mode</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_mic_gain()</span></code> - set audio mic gain</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_spk_gain()</span></code> - set audio speaker gain</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_write_spk_data()</span></code> - write data to sperker</p></li>
+</ul>
+</dd>
+<dt>Mic APIs:</dt><dd><ul class="simple">
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_mic_init()</span></code> - init the mic function</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_mic_deinit()</span></code> - deinit the mic function</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_mic_start()</span></code> - start mic work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_mic_pause()</span></code> - pause mic work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_mic_stop()</span></code> - stop mic work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_mic_chl()</span></code> - set mic channel in work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_get_mic_chl()</span></code> - get mic channel in work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_mic_samp_rate()</span></code> - set mic sample rate</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_get_mic_samp_rate()</span></code> - get mic sample rate</p></li>
+</ul>
+</dd>
+<dt>Spk APIs:</dt><dd><ul class="simple">
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_spk_init()</span></code> - init the speaker function</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_spk_deinit()</span></code> - deinit the speaker function</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_spk_start()</span></code> - start speaker work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_spk_pause()</span></code> - pause speaker work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_spk_stop()</span></code> - stop speaker work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_spk_chl()</span></code> - set speaker channel in work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_get_spk_chl()</span></code> - get speaker channel in work</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_spk_samp_rate()</span></code> - set speaker sample rate</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_get_spk_samp_rate()</span></code> - get speaker sample rate</p></li>
+</ul>
+</dd>
+<dt>Voc APIs:</dt><dd><ul class="simple">
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_voc_init()</span></code> - init the voice transfer function</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_voc_deinit()</span></code> - deinit the voice transfer function</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_voc_start()</span></code> - start voice transfer</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_voc_stop()</span></code> - stop voice transfer</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_set_aec_para()</span></code> - set aec parameter</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_get_aec_para()</span></code> - get aec parameter</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_voc_tx_debug()</span></code> - register voice tx debug callback</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_voc_rx_debug()</span></code> - register voice rx debug callback</p></li>
+<li><p><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">bk_aud_intf_voc_aec_debug()</span></code> - register voice aec debug callback</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<p>#.. include:: ../../_build/inc/aud_intf.inc</p>
+</section>
+<section id="api-typedefs">
+<h2>API Typedefs<a class="headerlink" href="#api-typedefs" title="Link to this heading"></a></h2>
+<p>#.. include:: ../../_build/inc/aud_intf_types.inc</p>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../support_peripherals/index.html" class="btn btn-neutral float-right" title="Support Peripherals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bk_g711.html" class="btn btn-neutral float-left" title="G711 APIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

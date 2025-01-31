@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wanson asr demo &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Doorbell_cs2" href="../doorbell_cs2/index.html" />
+    <link rel="prev" title="Agora-iot-sdk demo" href="../agora/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Reference Projects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../media/index.html">Multi-media</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lvgl/index.html">LVGL</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">thirdparty</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../agora/index.html">agora</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">wanson-asr</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#functional-overview">1 Functional Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-path">2 Code Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demonstration-introduction">3. Demonstration introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wanson-asr-development-guide">4. wanson asr development guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shanghai-huazhen-electronic-technology-co-ltd">5. Shanghai Huazhen Electronic Technology Co., Ltd.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2/index.html">doorbell_cs2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2_8M/index.html">doorbell_cs2_8M</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doorbell_cs2_720p/index.html">doorbell_cs2_720p</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../wifi/index.html">Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../peripheral/index.html">Peripheral</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Reference Projects</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">thirdparty projects code</a></li>
+      <li class="breadcrumb-item active">Wanson asr demo</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wanson-asr-demo">
+<h1>Wanson asr demo<a class="headerlink" href="#wanson-asr-demo" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../../zh_CN/latest/projects/thirdparty/wanson_asr/index.html">[中文]</a></p>
+<section id="functional-overview">
+<h2>1 Functional Overview<a class="headerlink" href="#functional-overview" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Based on the local speech recognition library provided by the third-party company <code class="docutils literal notranslate"><span class="pre">Huazhen</span></code>, the local offline voice wake-up word and command word recognition functions are realized.</p>
+</div></blockquote>
+</section>
+<section id="code-path">
+<h2>2 Code Path<a class="headerlink" href="#code-path" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>demo path: <code class="docutils literal notranslate"><span class="pre">\components\audio_algorithm\wanson_asr</span></code></p>
+<p>Wanson local speech recognition library (floating point library) path: <code class="docutils literal notranslate"><span class="pre">\components\bk_thirdparty\asr\wanson</span></code></p>
+<p>For detailed description of Wanson’s local speech recognition API interface, please refer to the source file: <code class="docutils literal notranslate"><span class="pre">\components\bk_thirdparty\asr\wanson\include\asr.h</span></code></p>
+<p>DEMO Compilation instruction: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">bk7258</span> <span class="pre">PROJECT=thirdparty/wanson_asr</span></code></p>
+</div></blockquote>
+</section>
+<section id="demonstration-introduction">
+<h2>3. Demonstration introduction<a class="headerlink" href="#demonstration-introduction" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>After burning the firmware, the device will run real-time voice recognition function when powered on, and can be verified by saying wake-up words and command words to the mic.</p>
+<p>The supported wake-up words and command words are as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Little</span> <span class="pre">Bee</span> <span class="pre">Steward</span></code> recognizes successfully and prints the log <code class="docutils literal notranslate"><span class="pre">xiao</span> <span class="pre">feng</span> <span class="pre">guan</span> <span class="pre">jia</span></code> on the serial port</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">armino</span></code> recognizes successfully and prints the log <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">er</span> <span class="pre">mi</span> <span class="pre">nuo</span></code> on the serial port</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Visitor</span> <span class="pre">mode</span></code> recognize successful serial port print log <code class="docutils literal notranslate"><span class="pre">hui</span> <span class="pre">ke</span> <span class="pre">mo</span> <span class="pre">shi</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dining</span> <span class="pre">mode</span></code> recognizes successfully and prints the log <code class="docutils literal notranslate"><span class="pre">yong</span> <span class="pre">can</span> <span class="pre">mo</span> <span class="pre">shi</span></code> on the serial port</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Leave</span> <span class="pre">mode</span></code> recognize successful serial port print log <code class="docutils literal notranslate"><span class="pre">li</span> <span class="pre">kai</span> <span class="pre">mo</span> <span class="pre">shi</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">home</span> <span class="pre">mode</span></code> identification success serial port print log <code class="docutils literal notranslate"><span class="pre">hui</span> <span class="pre">jia</span> <span class="pre">mo</span> <span class="pre">shi</span></code></p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="wanson-asr-development-guide">
+<h2>4. wanson asr development guide<a class="headerlink" href="#wanson-asr-development-guide" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>The wanson Speech Recognition Library requires the audio stream format to be: mono, 16K sampling rate, and 16bit bit width.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>wanson Speech Recognition Library is based on floating-point arithmetic.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>After modifying the wake word or command word, the <code class="docutils literal notranslate"><span class="pre">libasr.a</span></code> library needs to be replaced.</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<p>The process of developing real-time offline recognition based on the wanson speech recognition library is as follows:</p>
+<blockquote>
+<div><ul>
+<li><ol class="arabic simple">
+<li><p>Initialize speech recognition</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p>Initialize audio sampling</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p>Run speech recognition</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p>Turn on audio sampling</p></li>
+</ol>
+<blockquote>
+<div><p>Examples of interface calls are as follows:</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">init</span> <span class="n">wanson</span> <span class="n">asr</span> <span class="n">lib</span> <span class="o">*/</span>
+<span class="n">Wanson_ASR_Init</span><span class="p">()</span>
+<span class="o">//</span><span class="n">reset</span> <span class="n">wanson</span> <span class="n">asr</span>
+<span class="n">Wanson_ASR_Reset</span><span class="p">();</span>
+
+<span class="o">/*</span> <span class="n">init</span> <span class="n">mic</span> <span class="n">record</span> <span class="o">*/</span>
+<span class="n">aud_intf_drv_setup</span><span class="o">.</span><span class="n">aud_intf_tx_mic_data</span> <span class="o">=</span> <span class="n">aud_asr_handle</span><span class="p">;</span>
+<span class="o">//</span><span class="n">init</span> <span class="n">audio</span> <span class="n">component</span>
+<span class="n">bk_aud_intf_drv_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">aud_intf_drv_setup</span><span class="p">);</span>
+<span class="n">aud_work_mode</span> <span class="o">=</span> <span class="n">AUD_INTF_WORK_MODE_GENERAL</span><span class="p">;</span>
+<span class="o">//</span><span class="nb">set</span> <span class="n">audio</span> <span class="n">component</span> <span class="n">work</span> <span class="n">mode</span>
+<span class="n">bk_aud_intf_set_mode</span><span class="p">(</span><span class="n">aud_work_mode</span><span class="p">);</span>
+<span class="o">//</span><span class="n">init</span> <span class="n">audio</span> <span class="n">mic</span>
+<span class="n">aud_intf_mic_setup</span><span class="o">.</span><span class="n">samp_rate</span> <span class="o">=</span> <span class="n">AUD_ADC_SAMP_RATE_16K</span><span class="p">;</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">bk_aud_intf_mic_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">aud_intf_mic_setup</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">start</span> <span class="n">Speech</span> <span class="n">Recognition</span> <span class="o">*/</span>
+<span class="o">//</span><span class="n">Continuously</span> <span class="n">send</span> <span class="n">the</span> <span class="n">collected</span> <span class="n">data</span> <span class="n">to</span> <span class="n">the</span> <span class="n">algorithm</span> <span class="k">for</span> <span class="n">recognition</span>
+<span class="n">Wanson_ASR_Recog</span><span class="p">((</span><span class="n">short</span><span class="o">*</span><span class="p">)</span><span class="n">asr_buff</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">text</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">score</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">turn</span> <span class="n">on</span> <span class="n">audio</span> <span class="n">sampling</span> <span class="o">*/</span>
+<span class="n">bk_aud_intf_mic_start</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="shanghai-huazhen-electronic-technology-co-ltd">
+<h2>5. Shanghai Huazhen Electronic Technology Co., Ltd.<a class="headerlink" href="#shanghai-huazhen-electronic-technology-co-ltd" title="Link to this heading"></a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Official website: <a class="reference external" href="http://www.wanson.cn/">http://www.wanson.cn/</a></div>
+<div class="line">Headquarters Address: Room 307-308, Huigaoguang Innovation Park, No. 789 Shenwang Road, Minhang District, Shanghai
+| Shenzhen Office Address: Room 2215-16, East Block, Building 1A, Huiyi City One Center, Xixiang, Baoan District, Shenzhen</div>
+<div class="line">Tel: 021-61557858</div>
+<div class="line">Mobile: 13524859176</div>
+<div class="line-block">
+<div class="line">13296017858</div>
+</div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../doorbell_cs2/index.html" class="btn btn-neutral float-right" title="Doorbell_cs2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../agora/index.html" class="btn btn-neutral float-left" title="Agora-iot-sdk demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

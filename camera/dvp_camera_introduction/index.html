@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DVP Camera Introduction &mdash; Beken Armino AVDK Development Framework v2.0.1.32 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=a9bcf9c9" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/mixxx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/widget-sidebar.css?v=67e040fc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=19145764"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/js/custom.js?v=d94e43c0"></script>
+      <script src="../../_static/js/widget-sidebar.js?v=bb4ea66f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="UVC Camera Introduction" href="../uvc_camera_introduction/index.html" />
+    <link rel="prev" title="Camera Overview" href="../camera_introduction/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Beken Armino AVDK Development Framework
+              <img src="../../_static/armino_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../get-started/index.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hw-reference/index.html">HW Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api-reference/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support_peripherals/index.html">Support Peripherals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lcd/index.html">LCD display</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Camera</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../camera_introduction/index.html">Camera Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DVP Camera Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction-to-dvp">1 Introduction to DVP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types-and-specifications-supported-by-dvp">2 Types and specifications supported by DVP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dvp-use-process">3 DVP use process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-applications-of-dvp-working-mode">4 Main applications of DVP working mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../uvc_camera_introduction/index.html">UVC Camera Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../psram_config/index.html">Psram mem config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../video_codec/index.html">Video Codec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gui/index.html">    GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Reference Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../power_save/index.html">Power Save</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../audio_algorithms/index.html">    Audio Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FAQ/index.html">    FAQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.bekencorp.com/">    Document Center</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Beken Armino AVDK Development Framework</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Camera</a></li>
+      <li class="breadcrumb-item active">DVP Camera Introduction</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dvp-camera-introduction">
+<h1>DVP Camera Introduction<a class="headerlink" href="#dvp-camera-introduction" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="../../../../zh_CN/latest/camera/dvp_camera_introduction/index.html">[中文]</a></p>
+<section id="introduction-to-dvp">
+<h2>1 Introduction to DVP<a class="headerlink" href="#introduction-to-dvp" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The current DVP camera is based on the CIS interface and only supports 20/24Pin 8bit data output. The internal register model of the sensor is configured
+through the I2C protocol to achieve the required output resolution, frame rate, exposure and other performance adjustments.
+In addition, for the output data of the sensor, it is necessary to use the hardware module for further editing. For example,
+the YUV_BUF module is used to cut and convert the YUV422 data output of the sensor into YUV420, and then the H264 module is
+used for encoding to reduce the use of memory space and perform more functions. Or directly for YUV422 data using JPEG module encoding,
+output is more stable and memory space use smaller image.</p>
+</div></blockquote>
+</section>
+<section id="types-and-specifications-supported-by-dvp">
+<h2>2 Types and specifications supported by DVP<a class="headerlink" href="#types-and-specifications-supported-by-dvp" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Supported peripherals, please refer to <a class="reference external" href="../../support_peripherals/index.html">Support Peripherals</a></p>
+</div></blockquote>
+</section>
+<section id="dvp-use-process">
+<h2>3 DVP use process<a class="headerlink" href="#dvp-use-process" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>1.Power on and clock configure each multimedia hardware module, including YUV_BUF/JPEG/H264 module, and supply power to the sensor;</p></li>
+<li><p>2.Initialize I2C, because I2C needs to be used to configure the DVP register and specify the write/read address of the DVP</p></li>
+<li><p>3.configure the DVP GPIO second function, so that the output can be detected in real time</p></li>
+<li><p>4.Configure the input clock of the sensor. There are two sources of the clock: clock division for YUV_BUF and clock division for AUXS</p></li>
+<li><p>5.Configure the register value of YUV_BUF/JPEG/H264 according to the specific application, and configure DMA to process the data, and finally enable related modules;</p></li>
+<li><p>6.Configure the register value of the sensor through I2C to achieve the ideal output data;</p></li>
+</ul>
+</section>
+<section id="main-applications-of-dvp-working-mode">
+<h2>4 Main applications of DVP working mode<a class="headerlink" href="#main-applications-of-dvp-working-mode" title="Link to this heading"></a></h2>
+<p>DVP cameras can rely on different hardware modules to meet different needs, and several main applications are listed below.</p>
+<p>1.DVP works in YUV (or GRAY) mode</p>
+<figure class="align-center" id="id1">
+<img alt="dvp_work_in yuv" src="../../_images/dvp_work_in_yuv.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1.DVP works in YUV (or GRAY) mode</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>2.DVP works in JPEG(or JPEG&amp;YUV) mode</p>
+<figure class="align-center" id="id2">
+<img alt="dvp_work_in jpeg" src="../../_images/dvp_work_in_jpeg.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2.DVP works in JPEG mode</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>3.DVP works in H264(or h264&amp;YUV) mode</p>
+<figure class="align-center" id="id3">
+<img alt="dvp_work_in h264" src="../../_images/dvp_work_in_h264.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3.DVP works in H264 mode</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+             <div class="articleComments">
+    <p style="text-align:center" id="doc-feedback"></p>
+    
+
+             </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../uvc_camera_introduction/index.html" class="btn btn-neutral float-right" title="UVC Camera Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../camera_introduction/index.html" class="btn btn-neutral float-left" title="Camera Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 - 2025 Beken Corporation. Last updated: 2025-01-31 17:34:58 
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
