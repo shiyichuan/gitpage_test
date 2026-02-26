@@ -61,6 +61,15 @@
         <mxCell id="KaVMazpQHFTK0eDs37uz-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="云平台接收BK7258 发送过来的H264 数据流，供app查看" vertex="1">
           <mxGeometry height="80" width="170" x="300" y="120" as="geometry" />
         </mxCell>
+        <mxCell id="7d4v7qb9D2eAG0L0YS-4-1" parent="1" style="image;html=1;image=img/lib/clip_art/computers/Database_128x128.png" value="" vertex="1">
+          <mxGeometry height="170" width="80" x="175" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7d4v7qb9D2eAG0L0YS-4-2" parent="1" style="image;html=1;image=img/lib/clip_art/computers/iPad_128x128.png" value="" vertex="1">
+          <mxGeometry height="260" width="150" x="560" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="7d4v7qb9D2eAG0L0YS-4-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;color: rgb(51, 255, 255);&quot;&gt;通过app查看实时视频、对讲，播放音频功能&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="90" x="590" y="310" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
