@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" version="29.5.3">
+  <diagram name="第 1 页" id="jEQAjmJKhGVqT_QDNt0r">
+    <mxGraphModel dx="1205" dy="660" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KaVMazpQHFTK0eDs37uz-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;textShadow=1;fontColor=#3399FF;fillColor=#3399FF;" value="" vertex="1">
+          <mxGeometry height="80" width="80" x="330" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#3399FF;" value="" vertex="1">
+          <mxGeometry height="80" width="80" x="250" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#3399FF;" value="" vertex="1">
+          <mxGeometry height="80" width="80" x="410" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-5" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#66FF66;" value="Core0" vertex="1">
+          <mxGeometry height="30" width="60" x="340" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="RW80211 IP&lt;div&gt;LWIP&lt;/div&gt;&lt;div&gt;STUN&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="70" x="335" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-7" parent="1" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;rounded=0;fontColor=#66FF66;" value="Core1" vertex="1">
+          <mxGeometry height="30" width="60" x="260" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#66FF66;" value="Core2" vertex="1">
+          <mxGeometry height="30" width="60" x="420" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Quirc 二维码解析&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Iconv字库转换&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="70" x="415" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="DVP数据采集、预处理&lt;div&gt;音频采集、降噪处理&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="70" x="255" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-12" edge="1" parent="1" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=-0.003;entryY=0.911;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="310" y="412.67" as="sourcePoint" />
+            <mxPoint x="344.78999999999996" y="380.00000000000006" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-13" edge="1" parent="1" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.965;entryY=1.116;entryDx=0;entryDy=0;entryPerimeter=0;" target="KaVMazpQHFTK0eDs37uz-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="432.6" y="412.66999999999996" as="sourcePoint" />
+            <mxPoint x="467.39" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-14" edge="1" parent="1" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="410" y="450" as="sourcePoint" />
+            <mxPoint x="333" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-17" parent="1" style="points=[[0.005,0.09,0],[0.08,0,0],[0.76,0.25,0],[1,0.92,0],[0.91,0.995,0],[0.57,0.995,0],[0.045,0.955,0],[0.005,0.43,0]];verticalLabelPosition=bottom;sketch=0;html=1;verticalAlign=top;aspect=fixed;align=center;pointerEvents=1;shape=mxgraph.cisco19.3g_4g_indicator;fillColor=#005073;strokeColor=none;rotation=-45;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="345" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-18" parent="1" style="points=[[0,0.64,0],[0.2,0.15,0],[0.4,0.01,0],[0.79,0.25,0],[1,0.65,0],[0.8,0.86,0],[0.41,1,0],[0.16,0.86,0]];verticalLabelPosition=bottom;sketch=0;html=1;verticalAlign=top;aspect=fixed;align=center;pointerEvents=1;shape=mxgraph.cisco19.cloud2;fillColor=#FFE9AA;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="186" width="310" x="240" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KaVMazpQHFTK0eDs37uz-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="云平台接收BK7258 发送过来的H264 数据流，供app查看" vertex="1">
+          <mxGeometry height="80" width="170" x="300" y="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
